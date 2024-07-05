@@ -9,8 +9,10 @@ Unity Grup 51
 ## Oyun İsmi
 
 ## Product Backlog URL
+[Unity Team 51 - Trello Backlog Board](https://trello.com/b/aaHTdfFc)
 
 ## Oyun Açıklaması
+[Karakter ismi] iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşıyan biridir. Bir gün uyandığında kendini bir adada bulur. Hafızasında eksiksikler olan ve içine düştüğü anlamlandıramayan [karakter ismi] rüya ile gerçeklik arasında sıkışmıştır. Kendini çocukluğundaki en sevdiği oyuncağına dönüşmüş bir şekilde bulur. Hayal gücüyle şekillenen bu rüya dünyasında çeşitli görevleri tamamlayarak ve anı objelerini toplayarak hem hafızasını geri kazanmaya hem de gerçekliğe dönmeye çalışır. Her rüya dünyası, farklı temalar ve zorluklar içerir.
 
 ## Oyun Özellikleri
 Hikaye Odaklı
