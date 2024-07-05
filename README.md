@@ -39,6 +39,11 @@ Unity Grup 51
 
 • **Ürün Durumu** [ürün prototip görüntüler]
 
+•	**Sprint Review:**
+
+-	Süreç ekipçe koordineli bir şekilde yürütüldü.
+-	Logo ve isim konusunda çalışmalarımız sürüyor.
+  
 •	**Sprint Retroperspektif:**
 
 - 	oyun ana hikayesinde ve chapter’larda değişiklik yapıldı.
@@ -46,10 +51,7 @@ Unity Grup 51
 -   Karakter animasyonu konusunda değerlendirmeler sürmekte.
 - 	Bütün takım üyeleri olarak ikinci sprint’de daha hızlı ilerleneceği konusunda karar verilmiştir.
 
-•	**Sprint Review:**
 
--	Süreç ekipçe koordineli bir şekilde yürütüldü.
--	Logo ve isim konusunda çalışmalarımız sürüyor.
 
 
 # SPRİNT 2
