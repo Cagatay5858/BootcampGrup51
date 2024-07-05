@@ -29,15 +29,15 @@ Oyun Tarzı: Hikaye odaklı tek oyunculu oyunları sevenler
 
 •	Sprint Retroperspektif:
 
-o	oyun ana hikayesinde ve chapter’larda değişiklik yapıldı.
-o	Oyun mekanikleri detaylandırıldı ve düzenlendi.
-o	Karakter animasyonu konusunda değerlendirmeler sürmekte.
-o	Bütün takım üyeleri olarak ikinci sprint’de daha hızlı ilerleneceği konusunda karar verilmiştir.
+- 	oyun ana hikayesinde ve chapter’larda değişiklik yapıldı.
+-   Oyun mekanikleri detaylandırıldı ve düzenlendi.
+-   Karakter animasyonu konusunda değerlendirmeler sürmekte.
+- 	Bütün takım üyeleri olarak ikinci sprint’de daha hızlı ilerleneceği konusunda karar verilmiştir.
 
 •	Sprint Review:
 
-o	Süreç ekipçe koordineli bir şekilde yürütüldü.
-o	Logo ve isim konusunda çalışmalarımız sürüyor.
+-	Süreç ekipçe koordineli bir şekilde yürütüldü.
+-	Logo ve isim konusunda çalışmalarımız sürüyor.
 
 
 # SPRİNT 2
