@@ -1,11 +1,15 @@
 ## Takım İsmi
 Unity Grup 51
 ## Takım Üyeleri
-- __Yasin Çağatay Özbek__ - Product Owner
-- __Yavuzhan Özbek__ - Developer
-- __Yiğit Suluova__ - Developer
-- __Yağmur Miray Keçe__ - Developer
-- __Zahide Berra Cantürk__ - Scrum Master
+
+| Üyeler                 | Roller        |
+| -------------          |:-------------:|
+| Yasin Çağatay Özbek    | Product Owner |
+| Yavuzhan Özbek         | Developer     |
+| Yiğit Suluova          | Developer     |
+| Yağmur Miray Keçe      | Developer     |
+| Zahide Berra Cantürk   | Scrum Master  |
+
 ## Oyun İsmi
 
 ## Product Backlog URL
@@ -35,7 +39,12 @@ Unity Grup 51
 
 • **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır. [konuşma ss'leri]
 
-• **Sprint 1 board Update**: [Sprint Board Screenshots]
+• **Sprint 1 board Update:**
+Sprint Board Screenshot: 
+![Ekran Görüntüsü (16200)](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/69f4bf4a-2a20-4a88-a790-54a4a69270de)
+
+
+
 
 • **Ürün Durumu** [ürün prototip görüntüler]
 
