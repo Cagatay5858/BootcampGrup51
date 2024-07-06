@@ -33,9 +33,9 @@ Unity Grup 51
 
 # SPRİNT 1
 
-**Sprint içinde tamamlanması tahmin edilen puan:** [ ] Puan
+**Sprint içinde tamamlanması tahmin edilen puan:** 100  Puan
 
-• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken [  ]  puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint için puanın [  ] olması gerektiğine karar verildi.
+• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
 • **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır. [konuşma ss'leri]
 
@@ -46,7 +46,9 @@ Sprint Board Screenshot:
 
 
 
-• **Ürün Durumu** [ürün prototip görüntüler]
+• **Ürün Durumu**
+
+- Ürün prototipi oluşturma süreci için çalışmalar devam etmektedir.
 
 •	**Sprint Review:**
 
@@ -55,8 +57,9 @@ Sprint Board Screenshot:
   
 •	**Sprint Retroperspektif:**
 
-- 	oyun ana hikayesinde ve chapter’larda değişiklik yapıldı.
+- 	Oyun ana hikayesinde ve chapter’larda değişiklik yapıldı.
 -   Oyun mekanikleri detaylandırıldı ve düzenlendi.
+-   Game map oluşturuldu.
 -   Karakter animasyonu konusunda değerlendirmeler sürmekte.
 - 	Bütün takım üyeleri olarak ikinci sprint’de daha hızlı ilerleneceği konusunda karar verilmiştir.
 
