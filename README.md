@@ -12,11 +12,13 @@ Unity Grup 51
 
 ## Oyun İsmi
 
+**Echoes of Memories**
+
 ## Product Backlog URL
 [Unity Team 51 - Trello Backlog Board](https://trello.com/b/aaHTdfFc)
 
 ## Oyun Açıklaması
-[Karakter ismi] iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşıyan biridir. Bir gün uyandığında kendini bir adada bulur. Hafızasında eksiksikler olan ve içine düştüğü anlamlandıramayan [karakter ismi] rüya ile gerçeklik arasında sıkışmıştır. Kendini çocukluğundaki en sevdiği oyuncağına dönüşmüş bir şekilde bulur. Hayal gücüyle şekillenen bu rüya dünyasında çeşitli görevleri tamamlayarak ve anı objelerini toplayarak hem hafızasını geri kazanmaya hem de gerçekliğe dönmeye çalışır. Her rüya dünyası, farklı temalar ve zorluklar içerir.
+[Karakter ismi] iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşıyan biridir. Bir gün uyandığında kendini bir adada bulur. Hafızasında eksiksikler olan ve içine düştüğü durumu anlamlandıramayan [karakter ismi] rüya ile gerçeklik arasında sıkışmıştır. Kendini çocukluğundaki en sevdiği oyuncağına dönüşmüş bir şekilde bulur. Hayal gücüyle şekillenen bu rüya dünyasında çeşitli görevleri tamamlayarak ve anı objelerini toplayarak hem hafızasını geri kazanmaya hem de gerçekliğe dönmeye çalışır. Her rüya dünyası, farklı temalar ve zorluklar içerir.
 
 ## Oyun Özellikleri
 - Hikaye Odaklı
@@ -37,10 +39,25 @@ Unity Grup 51
 
 • **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
-• **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır. [konuşma ss'leri]
+ **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır.
+
+<details>
+  <summary>Daily Scrum Screenshots</summary>
+   
+![Ekran Görüntüsü (16208)](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/ee1c43db-004b-4a7d-b26e-448266f388a5)
+
+![Ekran Görüntüsü (16206)](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/98db596b-50e3-4951-b3f0-11d1d66a4559)
+
+![Ekran Görüntüsü (16205)](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/e705e17a-7272-47e6-b1fd-8373951ba163)
+
+  
+  </details>
+  
+</details>
+  
 
 • **Sprint 1 board Update:**
-Sprint Board Screenshot: 
+- Sprint Board Screenshot: 
 ![Ekran Görüntüsü (16200)](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/69f4bf4a-2a20-4a88-a790-54a4a69270de)
 
 
