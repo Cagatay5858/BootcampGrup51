@@ -18,7 +18,7 @@ Unity Grup 51
 [Unity Team 51 - Trello Backlog Board](https://trello.com/b/aaHTdfFc)
 
 ## Oyun Açıklaması
-[Karakter ismi] iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşıyan biridir. Bir gün uyandığında kendini bir adada bulur. Hafızasında eksiksikler olan ve içine düştüğü durumu anlamlandıramayan [karakter ismi] rüya ile gerçeklik arasında sıkışmıştır. Kendini çocukluğundaki en sevdiği oyuncağına dönüşmüş bir şekilde bulur. Hayal gücüyle şekillenen bu rüya dünyasında çeşitli görevleri tamamlayarak ve anı objelerini toplayarak hem hafızasını geri kazanmaya hem de gerçekliğe dönmeye çalışır. Her rüya dünyası, farklı temalar ve zorluklar içerir.
+Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşıyan biridir. Bir gün uyandığında kendini bir adada bulur. Hafızasında eksiksikler olan ve içine düştüğü durumu anlamlandıramayan karakter, rüya ile gerçeklik arasında sıkışmıştır. Kendini çocukluğundaki en sevdiği oyuncağına dönüşmüş bir şekilde bulur. Hayal gücüyle şekillenen bu rüya dünyasında çeşitli görevleri tamamlayarak ve anı objelerini toplayarak hem hafızasını geri kazanmaya hem de gerçekliğe dönmeye çalışır. Her rüya dünyası, farklı temalar ve zorluklar içerir.
 
 ## Oyun Özellikleri
 - Hikaye Odaklı
@@ -69,8 +69,8 @@ Unity Grup 51
 
 •	**Sprint Review:**
 
--	Süreç ekipçe koordineli bir şekilde yürütüldü.
--	Logo ve isim konusunda çalışmalarımız sürüyor.
+- Düzeltilme potansiyeli görülen hikaye detayı ve mekanikler düzeltilmek üzere saptandı.
+-	Logo konusunda çalışmalarımız sürmekte.
   
 •	**Sprint Retroperspektif:**
 
