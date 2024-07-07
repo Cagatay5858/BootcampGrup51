@@ -35,11 +35,11 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 # SPRİNT 1
 
-**Sprint içinde tamamlanması tahmin edilen puan:** 100  Puan
+• **Sprint içinde tamamlanması tahmin edilen puan:** 100  Puan
 
 • **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
- **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır.
+• **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır.
 
 <details>
   <summary>Daily Scrum Screenshots</summary>
@@ -65,20 +65,24 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Ürün Durumu**
 
-- Ürün prototipi oluşturma süreci için çalışmalar devam etmektedir.
+- Ürün prototipi oluşturmak üzere çalışmalar devam etmektedir.
+- ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/17122f2d-47db-4ef6-9a15-301d8e7dace1)
+- ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/4a8b0714-bce5-4fa2-9c9c-103ed76444a8)
 
 •	**Sprint Review:**
 
-- Düzeltilme potansiyeli görülen hikaye detayı ve mekanikler düzeltilmek üzere saptandı.
--	Logo konusunda çalışmalarımız sürmekte.
+-  Düzeltilme potansiyeli görülen hikaye detayı ve mekanikler düzeltilmek üzere saptandı.
+-	 Logo konusunda çalışmalarımız sürmekte.
+-	 Oyun mekanikleri detaylandırıldı ve düzenlendi.
+-  Game map oluşturuldu.
+-  Karakter animasyonu konusunda değerlendirmeler sürmekte.
   
 •	**Sprint Retroperspektif:**
 
+-   Takım içindeki görev dağılımıyla ilgili düzenleme yapılması kararı alınmıştır.
+-   Logo tasarımını ikinci sprint'e ertelemek zorunda kalındı. Tasarım sürecine devam ediliyor.
 - 	Oyun ana hikayesinde ve chapter’larda değişiklik yapıldı.
--   Oyun mekanikleri detaylandırıldı ve düzenlendi.
--   Game map oluşturuldu.
--   Karakter animasyonu konusunda değerlendirmeler sürmekte.
-- 	Bütün takım üyeleri olarak ikinci sprint’de daha hızlı ilerleneceği konusunda karar verilmiştir.
+-   Bütün takım üyeleri olarak ikinci sprint’de daha hızlı ilerleneceği konusunda karar verilmiştir.
 
 
 
