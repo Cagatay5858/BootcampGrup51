@@ -39,6 +39,8 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
+• **Sprint durumu:** Hedefe ulaşılmıştır.
+
 • **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır.
 
 <details>
