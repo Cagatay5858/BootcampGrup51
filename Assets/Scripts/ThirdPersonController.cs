@@ -19,10 +19,13 @@ public class ThirdPersonController : MonoBehaviour
     public LayerMask groundMask;
 
     private Animator animator;
+    private Inventory inventory; 
+    private GameObject stick; 
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        inventory = GetComponent<Inventory>(); 
     }
 
     void Update()
@@ -35,17 +38,16 @@ public class ThirdPersonController : MonoBehaviour
             velocity.y = -2f;
         }
 
-       
+        
         float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
 
-        
+      
         float speedParam = direction.magnitude;
         animator.SetFloat("Speed", speedParam);
-        
 
-        if (Input.GetButtonDown("Fire3")) 
+        if (Input.GetButtonDown("Fire1"))
         {
             animator.SetBool("isLifting", true);
         }
@@ -61,14 +63,9 @@ public class ThirdPersonController : MonoBehaviour
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
-       
+            
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
-        }
-
-        else
-        {
-            animator.SetFloat("Speed", 0);
         }
 
         
@@ -80,5 +77,37 @@ public class ThirdPersonController : MonoBehaviour
         
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        
+        if (Input.GetKeyDown(KeyCode.E) && stick != null)
+        {
+            PickUpStick();
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Stick"))
+        {
+            stick = other.gameObject;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Stick"))
+        {
+            stick = null;
+        }
+    }
+
+    void PickUpStick()
+    {
+        if (stick != null)
+        {
+            animator.SetTrigger("PickUp");
+            inventory.AddStick(); 
+            Destroy(stick); 
+        }
     }
 }
