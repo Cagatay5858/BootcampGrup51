@@ -17,7 +17,7 @@ public class DangerZoneManager : MonoBehaviour
             if(point.getRespawnpoint() != null)
             {
                 playerTransform = defaultSpawnPoint;
-                //burda da default baþlangýç noktasýnda atacak ve yine can -1 yapacak
+                //burda da default baslangic noktasinda atacak ve yine can -1 yapacak
             }
             else
             {

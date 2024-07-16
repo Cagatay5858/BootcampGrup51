@@ -2,31 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectibleManager : MonoBehaviour
+public class CollectibleManager : MonoBehaviour, IInteractable
 {
-    ThirdPersonController thirdPersonController;
-    Inventory Inventory;
+    
+    [SerializeField] private string _prompt;
+    public string InteractionPrompt => _prompt;
+    public bool Interact(Interactor interactor)
+    {
+        Debug.Log("Picking up a stick!!");
+        return true;
+    }
+
+    
+    
+    public ThirdPersonController thirdPersonController;
+    private Animator teddyBearAnimator;
+    public Inventory Inventory;
     public bool inReach;
     public GameObject stick;
-    public Animator animator;
+    public GameObject TeddyBear;
 
     private void Start()
-    {
+    { 
         inReach = false;
-        animator = GetComponent<Animator>();
-        animator = thirdPersonController.animator;
+
+        if (TeddyBear != null)
+        {
+            teddyBearAnimator = TeddyBear.GetComponent<Animator>();
+        }
+        if (Inventory == null)
+        {
+            Inventory = FindObjectOfType<Inventory>();
+        }
     }
+
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trrrrrrrrriger");
+        Debug.Log("trigger entered");
         if (other.CompareTag("FootCollider"))
         {
+            Debug.Log("tag foot collider match in reach true");
             inReach = true;
-        }
-        else
-        {
-            //thirdPersonController.animator.SetBool("isLifting", false);
-            inReach= false;
         }
     }
 
@@ -37,6 +53,7 @@ public class CollectibleManager : MonoBehaviour
             inReach = false;
         }
     }
+
     private void OnDestroy()
     {
         inReach = false;
@@ -44,22 +61,18 @@ public class CollectibleManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && inReach)
+        if (Input.GetKeyDown(KeyCode.E) && inReach && teddyBearAnimator != null)
         {
-            Debug.Log("EEEEEEEEEEEEEEEEEE");
-            animator.SetBool("isLifting", true);
-            Inventory.AddStick();
-            Destroy(this);
-            animator.SetTrigger("PickUp");
-            animator.SetBool("isLifting", false);
-
+            StartCoroutine(PlayAnimationAndAddStick());
         }
-        
     }
-    void PickUpStick()
+
+    private IEnumerator PlayAnimationAndAddStick()
     {
-            //thirdPersonController.animator.SetTrigger("PickUp");
-            Inventory.AddStick();
-            Destroy(this);
+        teddyBearAnimator.SetBool("isLifting", true);
+        yield return new WaitForSeconds(teddyBearAnimator.GetCurrentAnimatorStateInfo(0).length);
+        Inventory.AddStick();
+        Destroy(gameObject);
+        teddyBearAnimator.SetBool("isLifting", false);
     }
 }
