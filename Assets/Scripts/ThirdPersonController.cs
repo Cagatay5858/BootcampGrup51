@@ -1,6 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
+
+
+
 public class ThirdPersonController : MonoBehaviour
 {
     public CharacterController controller;
@@ -20,8 +23,9 @@ public class ThirdPersonController : MonoBehaviour
 
     private Animator animator;
     private Inventory inventory; 
-    private GameObject stick; 
+    public GameObject stick;
 
+    
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,7 +51,7 @@ public class ThirdPersonController : MonoBehaviour
         float speedParam = direction.magnitude;
         animator.SetFloat("Speed", speedParam);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             animator.SetBool("isLifting", true);
         }
@@ -84,22 +88,7 @@ public class ThirdPersonController : MonoBehaviour
             PickUpStick();
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Stick"))
-        {
-            stick = other.gameObject;
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Stick"))
-        {
-            stick = null;
-        }
-    }
+    
 
     void PickUpStick()
     {
@@ -111,3 +100,5 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
 }
+
+
