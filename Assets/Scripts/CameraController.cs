@@ -8,7 +8,6 @@ public class CameraController : MonoBehaviour
     public float currentY = 0.0f;
     public float sensitivityX = 4.0f;
     public float sensitivityY = 1.0f;
-
     public float yMinLimit = -20f;
     public float yMaxLimit = 80f;
 

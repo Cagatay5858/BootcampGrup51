@@ -1,10 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectibleManager : MonoBehaviour, IInteractable
 {
-    
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
     public bool Interact(Interactor interactor)
@@ -13,8 +11,6 @@ public class CollectibleManager : MonoBehaviour, IInteractable
         return true;
     }
 
-    
-    
     public ThirdPersonController thirdPersonController;
     private Animator teddyBearAnimator;
     public Inventory Inventory;
@@ -63,16 +59,17 @@ public class CollectibleManager : MonoBehaviour, IInteractable
     {
         if (Input.GetKeyDown(KeyCode.E) && inReach && teddyBearAnimator != null)
         {
-            StartCoroutine(PlayAnimationAndAddStick());
+           
+             StartCoroutine(PlayAnimationAndAddStick());
         }
     }
 
     private IEnumerator PlayAnimationAndAddStick()
-    {
-        teddyBearAnimator.SetBool("isLifting", true);
-        yield return new WaitForSeconds(teddyBearAnimator.GetCurrentAnimatorStateInfo(0).length);
-        Inventory.AddStick();
-        Destroy(gameObject);
-        teddyBearAnimator.SetBool("isLifting", false);
+   {
+      teddyBearAnimator.SetBool("isLifting", true);
+     yield return new WaitForSeconds(0.7f);
+     Inventory.AddStick();
+     Destroy(gameObject);
+     teddyBearAnimator.SetBool("isLifting", false);
     }
 }

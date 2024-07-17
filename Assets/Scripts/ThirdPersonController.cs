@@ -20,7 +20,7 @@ public class ThirdPersonController : MonoBehaviour
 
     public Animator animator;
     private Inventory inventory;
-    public GameObject stick;
+    private GameObject stick;
 
     void Start()
     {
