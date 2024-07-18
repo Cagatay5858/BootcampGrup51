@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+/*using UnityEngine.InputSystem;
 
 
 
@@ -50,7 +50,7 @@ public class Layer : MonoBehaviour
 
     void CheckGrounded()
     {
-        // CharacterController'ýn yere temas edip etmediðini kontrol edin
+        // CharacterController'in yere temas edip etmedigini kontrol edin
         isGrounded = controller.isGrounded;
     }
 
@@ -62,4 +62,4 @@ public class Layer : MonoBehaviour
 
         
     
-
+*/
