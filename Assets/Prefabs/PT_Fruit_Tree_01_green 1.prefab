@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 1972450619528280243}
   - component: {fileID: 1972450619528280240}
   m_Layer: 0
-  m_Name: PT_Fruit_Tree_01_green
+  m_Name: PT_Fruit_Tree_01_green 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
