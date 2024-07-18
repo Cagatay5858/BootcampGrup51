@@ -39,8 +39,8 @@ public class BumperCarController : MonoBehaviour
         Vector3 move = transform.forward * moveInput * speed * Time.deltaTime;
         float turn = turnInput * rotationSpeed * Time.deltaTime;
 
-        rb.AddForce(move, ForceMode.Force);
-        rb.AddTorque(Vector3.up * turn, ForceMode.VelocityChange);
+        rb.MovePosition(rb.position + move);
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(Vector3.up * turn));
     }
 
     void FixedUpdate()
