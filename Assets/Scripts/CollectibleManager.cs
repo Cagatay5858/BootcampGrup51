@@ -5,9 +5,9 @@ public class CollectibleManager : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
+    
     public bool Interact(Interactor interactor)
     {
-        Debug.Log("Picking up a stick!!");
         return true;
     }
 
@@ -34,10 +34,10 @@ public class CollectibleManager : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("trigger entered");
+      
         if (other.CompareTag("FootCollider"))
         {
-            Debug.Log("tag foot collider match in reach true");
+            
             inReach = true;
         }
     }
@@ -49,11 +49,7 @@ public class CollectibleManager : MonoBehaviour, IInteractable
             inReach = false;
         }
     }
-
-    private void OnDestroy()
-    {
-        inReach = false;
-    }
+    
 
     private void Update()
     {
