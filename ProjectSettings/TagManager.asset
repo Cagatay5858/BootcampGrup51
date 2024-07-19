@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - Stick
   - FootCollider
+  - Ground
   layers:
   - Default
   - TransparentFX
