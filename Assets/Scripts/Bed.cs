@@ -17,9 +17,11 @@ public class Bed : MonoBehaviour
     private Inventory playerInventory;
     private Collider objectCollider;
     public Interactor interactor;
+
+    private bool isPlayerColliding = false;
+
     void Start()
     {
-        
         matressRenderer = transform.Find("Bed_Matress").GetComponent<Renderer>();
         pillowRenderer = transform.Find("Bed_Pillow").GetComponent<Renderer>();
         footboardRenderer = transform.Find("Bed_Footboard").GetComponent<Renderer>();
@@ -28,8 +30,7 @@ public class Bed : MonoBehaviour
         bedpostsRenderer = transform.Find("BedPosts_Bed").GetComponent<Renderer>();
         objectCollider = GetComponent<BoxCollider>();
         objectCollider.isTrigger = true;
-       
-      
+
         matressRenderer.material = transparentMaterialMatressPillow;
         pillowRenderer.material = transparentMaterialMatressPillow;
         footboardRenderer.material = transparentMaterialFrame;
@@ -40,13 +41,11 @@ public class Bed : MonoBehaviour
         playerInventory = FindObjectOfType<Inventory>();
     }
    
-    
-    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) )
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if ( interactor._numFound == 1 && playerInventory.stickCount >= requiredStickCount)
+            if (isPlayerColliding && playerInventory.stickCount >= requiredStickCount)
             {
                 ChangeToNormalMaterials();
                 objectCollider.isTrigger = false;
@@ -54,7 +53,21 @@ public class Bed : MonoBehaviour
         }
     }
 
-    
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerColliding = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerColliding = false;
+        }
+    }
 
     void ChangeToNormalMaterials()
     {
@@ -64,6 +77,5 @@ public class Bed : MonoBehaviour
         headboardRenderer.material = normalMaterialFrame;
         sideboardRenderer.material = normalMaterialFrame;
         bedpostsRenderer.material = normalMaterialFrame;
-        
     }
 }
