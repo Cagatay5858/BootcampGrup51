@@ -10,6 +10,6 @@ public class Inventory : MonoBehaviour
     public void AddStick()
     {
         stickCount++;
-        Debug.Log("Çubuk eklendi! Şu anki çubuk sayısı: " + stickCount);
+       
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - FootCollider
   - Ground
   - CarDestroyer
+  - Bed
   layers:
   - Default
   - TransparentFX

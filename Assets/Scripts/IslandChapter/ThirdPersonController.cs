@@ -22,6 +22,8 @@ public class ThirdPersonController : MonoBehaviour
     private Inventory inventory;
     private GameObject stick;
 
+    public float interactionDistance = 5f; 
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -61,5 +63,25 @@ public class ThirdPersonController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        CheckInteraction();
+    }
+
+    void CheckInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Ray ray = new Ray(transform.position + Vector3.up * 1.5f, transform.forward);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, interactionDistance))
+            {
+                NPCInteraction npcInteraction = hit.collider.GetComponent<NPCInteraction>();
+                if (npcInteraction != null)
+                {
+                    npcInteraction.Interact();
+                    npcInteraction.GetComponent<NPCSpeechBubble>().ShowSpeechBubble("Hello, Player!"); // Örnek konuşma metni
+                }
+            }
+        }
     }
 }

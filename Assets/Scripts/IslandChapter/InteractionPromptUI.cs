@@ -37,7 +37,7 @@ public class InteractionPromptUI : MonoBehaviour
         transform.position = targetPosition;
         transform.rotation = rotation;
 
-        // UI panel size scaling based on distance from camera
+        
         float distance = Vector3.Distance(_mainCam.transform.position, transform.position);
         float scale = Mathf.Clamp(distance / 10.0f, 0.5f, 1.0f);
         _uiPanel.transform.localScale = new Vector3(scale, scale, scale);
