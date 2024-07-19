@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RespawnPointSetter : MonoBehaviour
 {
-    private Transform respawnPoint;
+    public Transform respawnPoint;
 
 
     public Transform getRespawnpoint()
