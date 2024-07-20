@@ -99,7 +99,24 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Sprint durumu:** 
 
-• **Daily Scrum:** Daily scrum toplantıları discor üzerinden sağlanmıştır. Daily scrum screenshot'ları:
+• **Daily Scrum:** Daily scrum toplantıları discor üzerinden sağlanmıştır.
+<details>
+  <summary>Daily Scrum Screenshots</summary>
+   
+![Ekran Görüntüsü (16281)](https://github.com/user-attachments/assets/406d6cff-2930-4827-b5df-b6d24668c534)
+
+
+![Ekran Görüntüsü (16945)](https://github.com/user-attachments/assets/41b848ce-a812-4365-82c5-b50777d745fe)
+
+
+![Ekran Görüntüsü (16946)](https://github.com/user-attachments/assets/305a7281-3c36-4258-8219-0ec3c53e80de)
+
+
+  
+  </details>
+  
+</details>
+  
 
 
 
