@@ -9,16 +9,8 @@ public class CarSpawner : MonoBehaviour
     public Transform player; 
     public float spawnDistance = 20.0f; 
 
-    private Vector3[] lanePositions; 
-
     private void Start()
     {
-       
-        lanePositions = new Vector3[3];
-        lanePositions[0] = new Vector3(-3, 0, spawnDistance); 
-        lanePositions[1] = new Vector3(0, 0, spawnDistance); 
-        lanePositions[2] = new Vector3(3, 0, spawnDistance); 
-
         StartCoroutine(SpawnCars());
     }
 
@@ -33,10 +25,15 @@ public class CarSpawner : MonoBehaviour
 
     private void SpawnCar()
     {
-        int laneIndex = Random.Range(0, lanePositions.Length); 
-        Vector3 spawnPosition = lanePositions[laneIndex]; 
+        
+        int laneIndex = Random.Range(0, 3);
+        float laneOffset = (laneIndex - 1) * 3.0f; 
+
+       
+        Vector3 spawnPosition = player.position + new Vector3(laneOffset, 0, spawnDistance);
         Quaternion spawnRotation = Quaternion.Euler(0, 180, 0); 
 
+        
         int carIndex = Random.Range(0, carPrefabs.Length); 
         Instantiate(carPrefabs[carIndex], spawnPosition, spawnRotation); 
     }
