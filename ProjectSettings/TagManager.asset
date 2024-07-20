@@ -13,6 +13,7 @@ TagManager:
   - CarDestroyer
   - Bed
   - DangerZone
+  - ChasePowerUp
   layers:
   - Default
   - TransparentFX

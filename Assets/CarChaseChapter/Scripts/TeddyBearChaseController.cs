@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TeddyBearChaseController : MonoBehaviour
@@ -8,13 +9,15 @@ public class TeddyBearChaseController : MonoBehaviour
     public float speed = 10.0f; 
     public float laneSwitchSpeed = 10.0f;
     public Animator animator;
-    public GameObject gameOverPanel; 
+
     private CharacterController controller;
     private Vector3 direction;
     private Vector3 targetPosition;
     private int targetLane = 1;
     private float initialYRotation;
     private float initialXPosition;
+
+    private bool isShielded = false;
 
     void Start()
     {
@@ -23,11 +26,6 @@ public class TeddyBearChaseController : MonoBehaviour
         initialXPosition = transform.position.x;
         targetPosition = transform.position;
         SetAnimatorParameters(true, true);
-
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(false); 
-        }
     }
 
     void Update()
@@ -36,21 +34,19 @@ public class TeddyBearChaseController : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            if (direction.y < 0)
-            {
-                direction.y = -1;
-            }
+            direction.y = -1;
             SetAnimatorParameters(true, true);
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 Jump();
+                SetAnimatorParameters(false, false);
             }
         }
         else
         {
             direction.y += gravity * Time.deltaTime;
-            SetAnimatorParameters(false, true);
+            SetAnimatorParameters(false, false);
         }
 
         if (Input.GetKeyDown(KeyCode.D))
@@ -81,20 +77,14 @@ public class TeddyBearChaseController : MonoBehaviour
 
     private void MoveLane(int direction)
     {
-        if ((targetLane == 0 && direction == -1) || (targetLane == 2 && direction == 1))
-        {
-            return;
-        }
-
         targetLane += direction;
         targetLane = Mathf.Clamp(targetLane, 0, 2);
 
-        
-        if (direction == 1 && targetLane != 2)
+        if (direction == 1)
         {
             animator.SetTrigger("MoveRight");
         }
-        else if (direction == -1 && targetLane != 0)
+        else if (direction == -1)
         {
             animator.SetTrigger("MoveLeft");
         }
@@ -114,7 +104,24 @@ public class TeddyBearChaseController : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("Car"))
         {
-            EndGame();
+            if (isShielded)
+            {
+                Destroy(hit.gameObject);
+                isShielded = false; 
+            }
+            else
+            {
+                EndGame();
+            }
+        }
+        else if (hit.gameObject.CompareTag("ChasePowerUp"))
+        {
+            ChasePowerUp powerUp = hit.gameObject.GetComponent<ChasePowerUp>();
+            if (powerUp != null)
+            {
+                powerUp.ApplyEffect(this);
+                Destroy(hit.gameObject); 
+            }
         }
     }
 
@@ -138,13 +145,24 @@ public class TeddyBearChaseController : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("Game Over");
         animator.SetBool("isRunning", false);
         Time.timeScale = 0; 
+    }
 
-        if (gameOverPanel != null)
-        {
-            gameOverPanel.SetActive(true); 
-        }
+    
+    public IEnumerator SpeedBoostCoroutine(float duration, float speedMultiplier)
+    {
+        speed *= speedMultiplier;
+        yield return new WaitForSeconds(duration);
+        speed /= speedMultiplier;
+    }
+
+    
+    public IEnumerator ShieldCoroutine(float duration)
+    {
+        isShielded = true;
+        yield return new WaitForSeconds(duration);
+        isShielded = false;
+        
     }
 }
