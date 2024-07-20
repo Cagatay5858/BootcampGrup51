@@ -68,8 +68,10 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 • **Ürün Durumu**
 
 - Ürün prototipi oluşturmak üzere çalışmalar devam etmektedir.
-- ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/17122f2d-47db-4ef6-9a15-301d8e7dace1)
-- ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/4a8b0714-bce5-4fa2-9c9c-103ed76444a8)
+  
+  ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/17122f2d-47db-4ef6-9a15-301d8e7dace1)
+  
+  ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/4a8b0714-bce5-4fa2-9c9c-103ed76444a8)
 
 •	**Sprint Review:**
 
@@ -97,7 +99,7 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 150 olması gerektiğine karar verildi.
 
-• **Sprint durumu:** 
+• **Sprint durumu:** 150 puanlık hedefe ulaşılmıştır.
 
 • **Daily Scrum:** Daily scrum toplantıları discor üzerinden sağlanmıştır.
 <details>
@@ -117,6 +119,16 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
   
 </details>
   
+• **Ürün Durumu(Screenshots):**
+
+![Ekran Görüntüsü (16948)](https://github.com/user-attachments/assets/ed8f7586-28ea-4e2b-8da6-eb03632b7099)
+
+
+![Ekran Görüntüsü (16949)](https://github.com/user-attachments/assets/36032ff4-05d4-4c8d-9cfa-8a8eeb39cd0f)
+
+
+![Ekran Görüntüsü (16947)](https://github.com/user-attachments/assets/6bd29dbf-9362-4502-9307-e312d069fb1d)
+
 
 
 
