@@ -58,9 +58,13 @@ public class ThirdPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            
+            animator.ResetTrigger("Jump");
+            animator.ResetTrigger("RunningJump");
+
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-            
+           
             if (speedParam >= 0.1f)
             {
                 animator.SetTrigger("RunningJump");
