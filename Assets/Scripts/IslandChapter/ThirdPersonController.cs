@@ -22,7 +22,7 @@ public class ThirdPersonController : MonoBehaviour
     private Inventory inventory;
     private GameObject stick;
 
-    public float interactionDistance = 5f; 
+    public float interactionDistance = 5f;
 
     void Start()
     {
@@ -59,6 +59,16 @@ public class ThirdPersonController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+            
+            if (speedParam >= 0.1f)
+            {
+                animator.SetTrigger("RunningJump");
+            }
+            else
+            {
+                animator.SetTrigger("Jump");
+            }
         }
 
         velocity.y += gravity * Time.deltaTime;
