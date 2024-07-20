@@ -91,4 +91,36 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 # SPRİNT 2
 
+•**Sprint notları:**
+
+• **Sprint içinde tamamlanması tahmin edilen puan:** 150  Puan
+
+• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 150 olması gerektiğine karar verildi.
+
+• **Sprint durumu:** 
+
+• **Daily Scrum:** Daily scrum toplantıları discor üzerinden sağlanmıştır. Daily scrum screenshot'ları:
+
+
+
+•**Sprint Review:**
+
+-	Hikaye mantığı ve detayları tamamlandı, eksiklikler düzeltildi.
+-	Planlanıldığı gibi 2.sprint'de hızlanıldı.
+-	Oyun mekanikleri ve level design'lar zenginleştirildi.
+-	Cinematic için çizimler oluşturuldu. Süreç devam etmekte.
+-	Oyun tasarım stilinin poly low olmasına karar verildi
+-	Trelloya oyunla alakalı mekanik ve design bütün detaylar eklendi.
+
+
+
+•**Sprint Retroperspektif:**
+
+- Daily scrum yapılması takım adına yararlı oldu.
+- Yapılan toplantılarda oyun içi iyileştirilebilecek noktalar tespit edilip çözümler üretildi.
+- Ürün cinematic ve UI detayları bir sonraki sprinte bırakıldı.
+- Logo tasarımı süreci devam ediyor.
+- Oyun oynanma isteğine göre mekaniklere yön verildi.
+
+
 # SPRİNT 3
