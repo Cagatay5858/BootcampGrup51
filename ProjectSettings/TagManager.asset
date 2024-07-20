@@ -12,6 +12,7 @@ TagManager:
   - Ground
   - CarDestroyer
   - Bed
+  - DangerZone
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - groundMask
   - Collectibles
-  - 
+  - dangerZoneMask
   - 
   - 
   - 

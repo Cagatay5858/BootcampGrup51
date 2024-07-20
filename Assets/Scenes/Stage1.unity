@@ -13893,9 +13893,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 241037390}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DangerZones
-  m_TagString: Untagged
+  m_TagString: DangerZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21735,7 +21735,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380876838}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17838347, y: 0.0794522, z: -0.014452743, w: 0.98064154}
+  m_LocalRotation: {x: 0.10246051, y: 0.80666214, z: -0.14673577, w: 0.5632643}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22986,6 +22986,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2319678836093455973, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
+      propertyPath: dangerZoneMask.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 4850063981850961479, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_Name
       value: teddyBearPlayer Variant
@@ -22996,7 +23000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.08005461
+      value: -0.02597629
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23004,35 +23008,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.011057281
+      value: -0.07652605
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.74408996
+      value: 0.9737659
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12141494
+      value: 0.15889171
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6483791
+      value: 0.16076481
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.10579756
+      value: -0.026232362
       objectReference: {fileID: 0}
     - target: {fileID: 5189611123499138301, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.5198135
+      value: 5.27
       objectReference: {fileID: 0}
     - target: {fileID: 5189611123499138301, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5189611123499138301, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.852985
+      value: 7.88
       objectReference: {fileID: 0}
     - target: {fileID: 5189611123499138301, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23064,7 +23068,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8226610705411597959, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_TagString
-      value: Player
+      value: FootCollider
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27866,7 +27870,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524121793}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1605166, y: 0.07970192, z: -0.013005152, w: 0.983724}
+  m_LocalRotation: {x: 0.09219809, y: 0.8091977, z: -0.1320387, w: 0.56503487}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31260,9 +31264,9 @@ GameObject:
   - component: {fileID: 642545938}
   - component: {fileID: 642545940}
   - component: {fileID: 642545939}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dangerZone1
-  m_TagString: Untagged
+  m_TagString: DangerZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31294,7 +31298,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf6c783b1d404041a64e830a9bd44c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 780186923}
   defaultSpawnPoint: {fileID: 474275825}
 --- !u!65 &642545940
 BoxCollider:
@@ -31311,12 +31314,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 75.574905, y: 1, z: 15.209457}
-  m_Center: {x: 13.985191, y: 0, z: -0.16542697}
+  m_Size: {x: 75.574905, y: 4.2131195, z: 15.209457}
+  m_Center: {x: 13.985191, y: 1.6065598, z: -0.16542721}
 --- !u!1001 &647484250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49565,7 +49568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1004304425}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.142644, y: 0.07992474, z: -0.011557103, w: 0.98647416}
+  m_LocalRotation: {x: 0.081932366, y: 0.8114599, z: -0.11733695, w: 0.5666145}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -78975,7 +78978,7 @@ Transform:
   m_GameObject: {fileID: 1731829769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.714891, y: 2.6, z: 2.9182}
+  m_LocalPosition: {x: 0.57601357, y: 2.51, z: 9.602352}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -80013,9 +80016,9 @@ GameObject:
   - component: {fileID: 1833708213}
   - component: {fileID: 1833708215}
   - component: {fileID: 1833708214}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dangerZone2
-  m_TagString: Untagged
+  m_TagString: DangerZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80047,7 +80050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf6c783b1d404041a64e830a9bd44c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 780186923}
   defaultSpawnPoint: {fileID: 474275825}
 --- !u!65 &1833708215
 BoxCollider:
@@ -80064,7 +80066,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -96489,9 +96491,9 @@ GameObject:
   - component: {fileID: 2101151290}
   - component: {fileID: 2101151292}
   - component: {fileID: 2101151291}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: dangerZone3
-  m_TagString: Untagged
+  m_TagString: DangerZone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96523,7 +96525,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf6c783b1d404041a64e830a9bd44c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 780186923}
   defaultSpawnPoint: {fileID: 474275825}
 --- !u!65 &2101151292
 BoxCollider:
@@ -96540,7 +96541,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

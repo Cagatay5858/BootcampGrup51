@@ -6,7 +6,6 @@ public class RespawnPointSetter : MonoBehaviour
 {
     public Transform respawnPoint;
 
-
     public Transform getRespawnpoint()
     {
         return respawnPoint;

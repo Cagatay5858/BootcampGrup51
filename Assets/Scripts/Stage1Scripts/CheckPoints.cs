@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class CheckPoints : MonoBehaviour
 {
-
     public Transform respawnpoint;
-
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            RespawnPointSetter pointSetter = new RespawnPointSetter();
-            pointSetter.setRespawnpoint(respawnpoint);
+            RespawnPointSetter pointSetter = other.gameObject.GetComponent<RespawnPointSetter>();
+            if (pointSetter != null)
+            {
+                pointSetter.setRespawnpoint(respawnpoint);
+                Debug.Log("Respawn point set to: " + respawnpoint.position);
+            }
         }
     }
 }

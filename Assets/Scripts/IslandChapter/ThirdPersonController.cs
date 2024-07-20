@@ -17,6 +17,7 @@ public class ThirdPersonController : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+    public LayerMask dangerZoneMask;
 
     public Animator animator;
     private Inventory inventory;
@@ -39,6 +40,8 @@ public class ThirdPersonController : MonoBehaviour
             velocity.y = -2f;
         }
 
+        CheckDangerZone();
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
@@ -49,7 +52,8 @@ public class ThirdPersonController : MonoBehaviour
         if (speedParam >= 0.1f)
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
@@ -58,13 +62,11 @@ public class ThirdPersonController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            
             animator.ResetTrigger("Jump");
             animator.ResetTrigger("RunningJump");
 
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-           
             if (speedParam >= 0.1f)
             {
                 animator.SetTrigger("RunningJump");
@@ -81,6 +83,24 @@ public class ThirdPersonController : MonoBehaviour
         CheckInteraction();
     }
 
+    void CheckDangerZone()
+    {
+        Collider[] colliders = Physics.OverlapSphere(groundCheck.position, groundDistance, dangerZoneMask);
+        if (colliders.Length > 0)
+        {
+            RespawnPointSetter point = GetComponent<RespawnPointSetter>();
+            if (point != null && point.getRespawnpoint() != null)
+            {
+                controller.enabled = false;
+                transform.position = point.getRespawnpoint().position;
+                transform.rotation = point.getRespawnpoint().rotation;
+                controller.enabled = true;
+                velocity = Vector3.zero;
+                //can eksiltme eklenecek 
+            }
+        }
+    }
+
     void CheckInteraction()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -93,7 +113,20 @@ public class ThirdPersonController : MonoBehaviour
                 if (npcInteraction != null)
                 {
                     npcInteraction.Interact();
-                    npcInteraction.GetComponent<NPCSpeechBubble>().ShowSpeechBubble("Hello, Player!"); // Örnek konuşma metni
+
+                    NPCSpeechBubble speechBubble = npcInteraction.GetComponent<NPCSpeechBubble>();
+                    if (speechBubble != null)
+                    {
+                        speechBubble.ShowSpeechBubble("Hello, Player!");
+                    }
+                    else
+                    {
+                        Debug.LogError("NPCSpeechBubble component not found on the NPC!");
+                    }
+                }
+                else
+                {
+                    Debug.LogError("NPCInteraction component not found on the hit object!");
                 }
             }
         }

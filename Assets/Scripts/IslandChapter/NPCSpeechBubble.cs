@@ -13,14 +13,34 @@ public class NPCSpeechBubble : MonoBehaviour
     void Start()
     {
         headTransform = transform.Find("Head"); 
+        if (headTransform == null)
+        {
+            Debug.LogError("Head transform not found!");
+            return;
+        }
+
         canvas = FindObjectOfType<Canvas>();
+        if (canvas == null)
+        {
+            Debug.LogError("Canvas not found in the scene!");
+            return;
+        }
+
         mainCamera = Camera.main;
-       
+        if (mainCamera == null)
+        {
+            Debug.LogError("Main camera not found!");
+        }
     }
 
     public void ShowSpeechBubble(string message)
     {
-        
+        if (canvas == null || headTransform == null)
+        {
+            Debug.LogError("Canvas or HeadTransform is missing, cannot show speech bubble!");
+            return;
+        }
+
         if (speechBubbleInstance == null)
         {
             speechBubbleInstance = Instantiate(speechBubblePrefab, canvas.transform);
@@ -31,7 +51,11 @@ public class NPCSpeechBubble : MonoBehaviour
         {
             speechText.text = message;
         }
-        
+        else
+        {
+            Debug.LogError("TMP_Text component not found in speech bubble prefab!");
+        }
+
         speechBubbleInstance.SetActive(true);
         UpdateSpeechBubblePosition();
     }
@@ -54,6 +78,11 @@ public class NPCSpeechBubble : MonoBehaviour
 
     void UpdateSpeechBubblePosition()
     {
+        if (mainCamera == null || headTransform == null)
+        {
+            return;
+        }
+
         Vector3 screenPos = mainCamera.WorldToScreenPoint(headTransform.position);
         speechBubbleInstance.transform.position = screenPos;
     }

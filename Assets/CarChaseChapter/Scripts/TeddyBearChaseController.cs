@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class KidController : MonoBehaviour
+public class TeddyBearChaseController : MonoBehaviour
 {
-    public float laneDistance = 2.0f; 
+   
+    public float laneDistance = 3.0f; 
     public float jumpForce = 10.0f;
     public float gravity = -9.81f; 
     public float speed = 10.0f; 
@@ -13,12 +11,16 @@ public class KidController : MonoBehaviour
 
     private CharacterController controller;
     private Vector3 direction;
-    private int targetLane = 1; 
+    private int targetLane = 1;
+    private float initialYRotation;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        animator.SetBool("isRunning", true); 
+        animator.SetBool("isRunning", true);
+
+        initialYRotation = transform.eulerAngles.y;
+
     }
 
     void Update()
@@ -66,7 +68,7 @@ public class KidController : MonoBehaviour
 
         controller.Move(direction * Time.deltaTime);
         
-       
+       LockYRotation();
     }
 
     private void Jump()
@@ -98,5 +100,11 @@ public class KidController : MonoBehaviour
             Debug.Log("Game Over");
            
         }
+    }
+
+    private void LockYRotation()
+    {
+        Vector3 currentRotation = transform.eulerAngles;
+        transform.eulerAngles = new Vector3(currentRotation.x, initialYRotation, currentRotation.z);
     }
 }

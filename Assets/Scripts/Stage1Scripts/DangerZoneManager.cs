@@ -4,40 +4,34 @@ using UnityEngine;
 
 public class DangerZoneManager : MonoBehaviour
 {
+    public Transform defaultSpawnPoint; 
 
-    public Transform playerTransform; // Reference to the player's transform
-    public Transform defaultSpawnPoint; // Reference to the default spawn point
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            RespawnPointSetter point = collision.gameObject.GetComponent<RespawnPointSetter>();
+            Debug.Log("Player entered danger zone");
+            RespawnPointSetter point = other.gameObject.GetComponent<RespawnPointSetter>();
 
             if (point == null)
             {
                 Debug.LogError("RespawnPointSetter component not found on the player!");
-                // Use the default spawn point if RespawnPointSetter component is not found
-                collision.transform.position = defaultSpawnPoint.position;
-                collision.transform.rotation = defaultSpawnPoint.rotation;
-                // Apply any penalty here (e.g., reduce player's health)
+                other.transform.position = defaultSpawnPoint.position;
+                other.transform.rotation = defaultSpawnPoint.rotation;
                 Debug.Log("Player respawned at default spawn point.");
             }
             else if (point.getRespawnpoint() == null)
             {
                 Debug.LogError("Respawn point is not set in RespawnPointSetter!");
-                // Use the default spawn point if no respawn point is set
-                collision.transform.position = defaultSpawnPoint.position;
-                collision.transform.rotation = defaultSpawnPoint.rotation;
-                // Apply any penalty here (e.g., reduce player's health)
+                other.transform.position = defaultSpawnPoint.position;
+                other.transform.rotation = defaultSpawnPoint.rotation;
                 Debug.Log("Player respawned at default spawn point.");
             }
             else
             {
-                // Use the custom respawn point if set
-                collision.transform.position = point.getRespawnpoint().position;
-                collision.transform.rotation = point.getRespawnpoint().rotation;
-                // Apply any penalty here (e.g., reduce player's health)
+                Debug.Log("Custom respawn point found");
+                other.transform.position = point.getRespawnpoint().position;
+                other.transform.rotation = point.getRespawnpoint().rotation;
                 Debug.Log("Player respawned at custom respawn point.");
             }
         }
