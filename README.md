@@ -38,7 +38,7 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Sprint içinde tamamlanması tahmin edilen puan:** 100  Puan
 
-• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
+• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 500 puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
 • **Sprint durumu:** Hedefe ulaşılmıştır.
 
@@ -96,11 +96,11 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 •**Sprint notları:**
 
-• **Sprint içinde tamamlanması tahmin edilen puan:** 150  Puan
+• **Sprint içinde tamamlanması tahmin edilen puan:** 145  Puan
 
-• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 380  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 150 olması gerektiğine karar verildi.
+• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 500  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 145 olması gerektiğine karar verildi.
 
-• **Sprint durumu:** 150 puanlık hedefe ulaşılmıştır.
+• **Sprint durumu:** 145 puanlık hedefe ulaşılmıştır.
 
 • **Daily Scrum:** Daily scrum toplantıları discor üzerinden sağlanmıştır.
 <details>
@@ -119,6 +119,14 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
   </details>
   
 </details>
+
+• **Sprint 1 board Update:**
+- Sprint Board Screenshots:
+![Ekran Görüntüsü (16951)](https://github.com/user-attachments/assets/49477102-acf5-41d3-8adf-bd062786873e)
+
+![Ekran Görüntüsü (16952)](https://github.com/user-attachments/assets/711ef8eb-b117-4650-82ff-584b3db47e4c)
+
+
   
 • **Ürün Durumu(Screenshots):**
 
