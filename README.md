@@ -2,13 +2,14 @@
 Unity Grup 51
 ## Takım Üyeleri
 
-|       | Üyeler                 | Roller        |       |
-|-------| -------------          |:-------------:|-------|
-|       | Yasin Çağatay Özbek    | Product Owner |       |
-|       | Yavuzhan Özbek         | Developer     |       |
-|       | Yiğit Suluova          | Developer     |       |
-|       | Yağmur Miray Keçe      | Developer     |       |
-|       | Zahide Berra Cantürk   | Scrum Master  |       |
+|       | Üyeler                 | Roller        |    Socials    |
+|-------| -------------          |:-------------:|-------        |
+|       | Yasin Çağatay Özbek    | Product Owner | [![image](https://github.com/user-attachments/assets/6a2a2dc2-17fa-4e22-ac27-dbe3bbdbcc53)](https://www.linkedin.com/in/yasin-çağatay-özbek/)     
+|       | Yavuzhan Özbek         | Developer     | [![image](https://github.com/user-attachments/assets/7ce4820e-144d-492b-9605-a72fbf620fd8)](https://www.linkedin.com/in/yavuzhanozbek/)     
+|       | Yiğit Suluova          | Developer     | [![image](https://github.com/user-attachments/assets/089d0f2f-ff2d-4116-9c8a-460e14a4e7bf)](https://www.linkedin.com/in/yi%C4%9Fit-suluova-64b849259/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)     
+|       | Yağmur Miray Keçe      | Developer     | [![image](https://github.com/user-attachments/assets/2a82e907-a0eb-4938-ad1e-c5d51cf4b765)](https://www.linkedin.com/in/yagmurmiraykece/)  
+|       | Zahide Berra Cantürk   | Scrum Master  | [![image](https://github.com/user-attachments/assets/1195eeab-ca47-4b55-8979-8c649980aa5a)](https://www.linkedin.com/in/z-berra-cant%C3%BCrk-1b2657259/)
+     
 
 ## Oyun İsmi
 
