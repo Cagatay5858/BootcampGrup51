@@ -121,7 +121,7 @@ public class ThirdPersonController : MonoBehaviour
                     }
                     else
                     {
-                        Debug.LogError("NPCSpeechBubble component not found on the NPC!");
+                        
                     }
                 }
                 else

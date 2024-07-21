@@ -16,5 +16,6 @@ public class NPCInteraction : MonoBehaviour
     {
         isSpeaking = !isSpeaking;
         animator.SetBool("isSpeaking", isSpeaking);
+        
     }
 }
