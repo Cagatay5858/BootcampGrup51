@@ -19,7 +19,7 @@ Unity Grup 51
 [Unity Team 51 - Trello Backlog Board](https://trello.com/b/aaHTdfFc)
 
 ## Oyun Açıklaması
-Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşıyan biridir. Bir gün uyandığında kendini bir adada bulur. Hafızasında eksiksikler olan ve içine düştüğü durumu anlamlandıramayan karakter, rüya ile gerçeklik arasında sıkışmıştır. Kendini çocukluğundaki en sevdiği oyuncağına dönüşmüş bir şekilde bulur. Hayal gücüyle şekillenen bu rüya dünyasında çeşitli görevleri tamamlayarak ve anı objelerini toplayarak hem hafızasını geri kazanmaya hem de gerçekliğe dönmeye çalışır. Her rüya dünyası, farklı temalar ve zorluklar içerir.
+Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidiyor ve standlardan birindeki oyuncak ayı çok dikkatini çekiyor. Standdaki yarışmayı kazanıp istediği ödül olan ayıcığı kazanıyor. Evine döndüklerinde yeni oyuncağı ile güneş kararana kadar keyifli oyunlar oynuyor. Güneş battığında kafasını yastığa koyuyor ve düşünmeye başlıyor. "Acaba oyuncakların anıları var mıdır?". Gözlerini kapapatıyor ve uykuya dalıyor. Rüyasında gözlerini açtığında kendisini yeni ve çok sevdiği oyuncak ayısı şeklinde, hiç bilmediği bir yerde buluyor. Geri dönebilmek için zorlukları atlatıp anıları için önemli olan parçaları toplaması gerekiyor...
 
 ## Oyun Özellikleri
 - Hikaye Odaklı
