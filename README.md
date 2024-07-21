@@ -2,13 +2,13 @@
 Unity Grup 51
 ## Takım Üyeleri
 
-| Üyeler                 | Roller        |
-| -------------          |:-------------:|
-| Yasin Çağatay Özbek    | Product Owner |
-| Yavuzhan Özbek         | Developer     |
-| Yiğit Suluova          | Developer     |
-| Yağmur Miray Keçe      | Developer     |
-| Zahide Berra Cantürk   | Scrum Master  |
+|       | Üyeler                 | Roller        |       |
+|-------| -------------          |:-------------:|-------|
+|       | Yasin Çağatay Özbek    | Product Owner |       |
+|       | Yavuzhan Özbek         | Developer     |       |
+|       | Yiğit Suluova          | Developer     |       |
+|       | Yağmur Miray Keçe      | Developer     |       |
+|       | Zahide Berra Cantürk   | Scrum Master  |       |
 
 ## Oyun İsmi
 
