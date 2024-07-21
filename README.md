@@ -38,9 +38,9 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Sprint Notları:**
 
--Oyun fikiri üretildi ve geliştirildi.
--Hikaye belirlendi, detaylandırıldı, chapter'lara karar verildi.
--Chapterlara bağlı olarak mekanikler belirlendi.
+-Oyun fikiri üretildi ve geliştirildi.  
+-Hikaye belirlendi, detaylandırıldı, chapter'lara karar verildi.  
+-Chapterlara bağlı olarak mekanikler belirlendi.  
 
 • **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 100  Puan
 
