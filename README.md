@@ -36,9 +36,15 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 # SPRİNT 1
 
-• **Sprint içinde tamamlanması tahmin edilen puan:** 100  Puan
+• **Sprint Notları:**
 
-• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 500 puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
+- Oyun fikiri üretildi ve geliştirildi.
+- Hikaye belirlendi, detaylandırıldı, chapter'lara karar verildi.
+- Chapterlara bağlı olarak mekanikler belirlendi.
+
+• **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 100  Puan
+
+• **Puan Tamamlama Mantığı:** Toplamda proje boyunca tamamlanması gereken 500 puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
 • **Sprint durumu:** Hedefe ulaşılmıştır.
 
@@ -94,18 +100,19 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 # SPRİNT 2
 
-•**Sprint notları:**
--Oyunun büyük çoğunluğunun bu sprintte tamamlanması planlandı.
--Bütün chapter'ların bu aşamada oluşturulması hedeflendi.
--Oyunla alakalı design kısmı harıç çoğu karar kesinleştirildi.
--Planlanan hedeflere ulaşıldı.
+• **Sprint Notları:**
+
+-Oyunun büyük çoğunluğunun bu sprintte tamamlanması planlandı.  
+-Bütün chapter'ların bu aşamada oluşturulması hedeflendi.  
+-Oyunla alakalı design kısmı harıç çoğu karar kesinleştirildi.  
+-Planlanan hedeflere ulaşıldı.  
 
 
-• **Sprint içinde tamamlanması tahmin edilen puan:** 145  Puan
+• **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 145  Puan
 
-• **Puan tamamlama mantığı:** Toplamda proje boyunca tamamlanması gereken 500  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 145 olması gerektiğine karar verildi.
+• **Puan Tamamlama Mantığı:** Toplamda proje boyunca tamamlanması gereken 500  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 145 olması gerektiğine karar verildi.
 
-• **Sprint durumu:** 145 puanlık hedefe ulaşılmıştır.
+• **Sprint Durumu:** 145 puanlık hedefe ulaşılmıştır.
 
 • **Daily Scrum:** Daily scrum toplantıları discord üzerinden sağlanmıştır. 
 <details>
@@ -146,24 +153,25 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 
 
-•**Sprint Review:**
+• **Sprint Review:**
 
--	Hikaye mantığı ve detayları tamamlandı, eksiklikler düzeltildi.
--	Oyun mekanikleri ve level design'lar zenginleştirildi.
--	Cinematic için taslak çizimler oluşturuldu. Süreç devam ediyor.
--	Oyun tasarım stilinin poly low olmasına karar verildi.
--	Trelloya oyunla alakalı mekanik ve design bütün detaylar eklendi.
+- Hikaye mantığı ve detayları tamamlandı, eksiklikler düzeltildi.
+- Oyun mekanikleri ve level design'lar zenginleştirildi.
+- Cinematic için taslak çizimler oluşturuldu. Süreç devam ediyor.
+- Oyun tasarım stilinin poly low olmasına karar verildi.
+- Trelloya oyunla alakalı mekanik ve design bütün detaylar eklendi.
 
 
 
-•**Sprint Retroperspektif:**
 
-- Daily scrum yapılması takım adına yararlı oldu. Ekip koordineli bir şekilde çalıştı
-- Planlanıldığı gibi 2.sprint'de hızlanıldı.
-- Yapılan toplantılarda oyun içi iyileştirilebilecek noktalar tespit edilip çözümler üretildi.
-- Ürün cinematic ve UI detayları bir sonraki sprinte bırakıldı.
-- Toplantılarda oyun oynanma ve tamamlama isteğine göre mekaniklere yön verildi.
-- Logo tasarımı süreci devam ediyor.
+• **Sprint Retroperspektif:**
+
+- Daily scrum yapılması takım adına yararlı oldu. Ekip koordineli bir şekilde çalıştı.  
+- Planlanıldığı gibi 2.sprint'de hızlanıldı.  
+- Yapılan toplantılarda oyun içi iyileştirilebilecek noktalar tespit edilip çözümler üretildi.  
+- Ürün cinematic ve UI detayları bir sonraki sprinte bırakıldı.  
+- Toplantılarda oyun oynanma ve tamamlama isteğine göre mekaniklere yön verildi.  
+- Logo tasarımı süreci devam ediyor.  
 
 
 # SPRİNT 3
