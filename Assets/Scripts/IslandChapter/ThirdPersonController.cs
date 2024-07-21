@@ -23,7 +23,8 @@ public class ThirdPersonController : MonoBehaviour
     private Inventory inventory;
     private GameObject stick;
 
-    public float interactionDistance = 5f;
+    public float interactionDistance = 2f;
+    private NPCInteraction currentNPC;
 
     void Start()
     {
@@ -81,6 +82,7 @@ public class ThirdPersonController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         CheckInteraction();
+        CheckNPCDistance();
     }
 
     void CheckDangerZone()
@@ -112,16 +114,19 @@ public class ThirdPersonController : MonoBehaviour
                 NPCInteraction npcInteraction = hit.collider.GetComponent<NPCInteraction>();
                 if (npcInteraction != null)
                 {
-                    npcInteraction.Interact();
-
-                    NPCSpeechBubble speechBubble = npcInteraction.GetComponent<NPCSpeechBubble>();
-                    if (speechBubble != null)
+                    if (currentNPC == npcInteraction)
                     {
-                        speechBubble.ShowSpeechBubble("Hello, Player!");
+                        npcInteraction.AdvanceDialogue();
                     }
                     else
                     {
-                        
+                        if (currentNPC != null)
+                        {
+                            currentNPC.StopInteraction();
+                        }
+
+                        currentNPC = npcInteraction;
+                        currentNPC.Interact();
                     }
                 }
                 else
@@ -130,5 +135,19 @@ public class ThirdPersonController : MonoBehaviour
                 }
             }
         }
+    }
+
+    void CheckNPCDistance()
+    {
+        if (currentNPC != null)
+        {
+            float distance = Vector3.Distance(transform.position, currentNPC.transform.position);
+            if (distance > interactionDistance)
+            {
+                currentNPC.StopInteraction();
+                currentNPC = null;
+            }
+        }
+        
     }
 }
