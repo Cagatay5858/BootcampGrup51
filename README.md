@@ -102,7 +102,7 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 • **Sprint durumu:** 145 puanlık hedefe ulaşılmıştır.
 
-• **Daily Scrum:** Daily scrum toplantıları discor üzerinden sağlanmıştır.
+• **Daily Scrum:** Daily scrum toplantıları discord üzerinden sağlanmıştır. 
 <details>
   <summary>Daily Scrum Screenshots</summary>
    
@@ -128,7 +128,7 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 
   
-• **Ürün Durumu(Screenshots):**
+• **Ürün Durumu(Screenshots):** Ürün geneli itibariyle oluşturulmuştur, bazı detaylar ve UI kısımlarının tamamlanması kalmıştır.
 
 ![Ekran Görüntüsü (16948)](https://github.com/user-attachments/assets/ed8f7586-28ea-4e2b-8da6-eb03632b7099)
 
