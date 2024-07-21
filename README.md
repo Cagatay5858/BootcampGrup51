@@ -42,11 +42,15 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
 -Hikaye belirlendi, detaylandırıldı, chapter'lara karar verildi.  
 -Chapterlara bağlı olarak mekanikler belirlendi.  
 
+
 • **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 100  Puan
+
 
 • **Puan Tamamlama Mantığı:** Toplamda proje boyunca tamamlanması gereken 500 puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ilk sprint için puanın 100 olması gerektiğine karar verildi.
 
+
 • **Sprint durumu:** Hedefe ulaşılmıştır.
+
 
 • **Daily Scrum:** Daily Scrum toplantıları Discord üzerinden sağlanmıştır.
 
@@ -79,6 +83,7 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
   ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/17122f2d-47db-4ef6-9a15-301d8e7dace1)
   
   ![image](https://github.com/Cagatay5858/BootcampGrup51/assets/131462360/4a8b0714-bce5-4fa2-9c9c-103ed76444a8)
+  
 
 •	**Sprint Review:**
 
@@ -87,6 +92,7 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
 -	 Oyun mekanikleri detaylandırıldı ve düzenlendi.
 -  Game map oluşturuldu.
 -  Karakter animasyonu konusunda değerlendirmeler sürmekte.
+
   
 •	**Sprint Retroperspektif:**
 
@@ -108,11 +114,18 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
 -Planlanan hedeflere ulaşıldı.  
 
 
+
 • **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 145  Puan
+
+
 
 • **Puan Tamamlama Mantığı:** Toplamda proje boyunca tamamlanması gereken 500  puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 145 olması gerektiğine karar verildi.
 
+
+
 • **Sprint Durumu:** 145 puanlık hedefe ulaşılmıştır.
+
+
 
 • **Daily Scrum:** Daily scrum toplantıları discord üzerinden sağlanmıştır. 
 <details>
@@ -132,6 +145,8 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
   
 </details>
 
+
+
 • **Sprint 1 board Update:**
 - Sprint Board Screenshots:
 ![Ekran Görüntüsü (16951)](https://github.com/user-attachments/assets/49477102-acf5-41d3-8adf-bd062786873e)
@@ -150,6 +165,8 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
 
 ![Ekran Görüntüsü (16947)](https://github.com/user-attachments/assets/6bd29dbf-9362-4502-9307-e312d069fb1d)
 
+
+![Ekran Görüntüsü (16964)](https://github.com/user-attachments/assets/15a99370-5103-4ad9-85e1-6b0c95720448)
 
 
 
