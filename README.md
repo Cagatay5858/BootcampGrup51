@@ -136,10 +136,9 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 •**Sprint Review:**
 
 -	Hikaye mantığı ve detayları tamamlandı, eksiklikler düzeltildi.
--	Planlanıldığı gibi 2.sprint'de hızlanıldı.
 -	Oyun mekanikleri ve level design'lar zenginleştirildi.
--	Cinematic için çizimler oluşturuldu. Süreç devam etmekte.
--	Oyun tasarım stilinin poly low olmasına karar verildi
+-	Cinematic için çizimler oluşturuldu. Süreç devam ediyor.
+-	Oyun tasarım stilinin poly low olmasına karar verildi.
 -	Trelloya oyunla alakalı mekanik ve design bütün detaylar eklendi.
 
 
@@ -147,6 +146,7 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 •**Sprint Retroperspektif:**
 
 - Daily scrum yapılması takım adına yararlı oldu.
+- Planlanıldığı gibi 2.sprint'de hızlanıldı.
 - Yapılan toplantılarda oyun içi iyileştirilebilecek noktalar tespit edilip çözümler üretildi.
 - Ürün cinematic ve UI detayları bir sonraki sprinte bırakıldı.
 - Logo tasarımı süreci devam ediyor.
