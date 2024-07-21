@@ -17,7 +17,14 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'mixamorig:LeftUpLeg'
+      : position error = 10478.080078 mm\n\t'mixamorig:LeftLeg' : position error
+      = 28320.544922 mm\n\t'mixamorig:LeftFoot' : position error = 39162.906250 mm\n\t'mixamorig:LeftToeBase'
+      : position error = 15158.012695 mm\n\t'mixamorig:RightUpLeg' : position error
+      = 10478.032227 mm\n\t'mixamorig:RightLeg' : position error = 28325.878906 mm\n\t'mixamorig:RightFoot'
+      : position error = 39162.531250 mm\n\t'mixamorig:RightToeBase' : position error
+      = 14950.513672 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -528,13 +535,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Ch46_nonPBR@T-Pose(Clone)
+    - name: T-Pose(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: Ch46_nonPBR@T-Pose(Clone)
+      parentName: T-Pose(Clone)
       position: {x: -0.0000010774413, y: 0.69749016, z: -0.0039418023}
       rotation: {x: -1.480898e-14, y: -0.00000029621924, z: 0.00000945409, w: 1}
       scale: {x: 1, y: 1, z: 1}

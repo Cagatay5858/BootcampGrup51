@@ -15,6 +15,7 @@ TagManager:
   - DangerZone
   - ChasePowerUp
   - ground
+  - Toys
   layers:
   - Default
   - TransparentFX

@@ -528,13 +528,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: Ch46_nonPBR@T-Pose(Clone)
+    - name: T-Pose(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Hips
-      parentName: Ch46_nonPBR@T-Pose(Clone)
+      parentName: T-Pose(Clone)
       position: {x: -0.0000010774413, y: 0.69749016, z: -0.0039418023}
       rotation: {x: -1.480898e-14, y: -0.00000029621924, z: 0.00000945409, w: 1}
       scale: {x: 1, y: 1, z: 1}
