@@ -19,7 +19,7 @@ namespace UnityTutorial.PlayerControl
         [SerializeField] private float BottomLimit = 70f;
         [SerializeField] private float MouseSensitivity = 21.9f;
         private Rigidbody _playerRigidbody;
-        private InputManager _ÝnputManager;
+        private InputManager _Ä°nputManager;
         private Animator _animator;
         private bool _hasAnimator;
         private int _xVelHash;
@@ -34,7 +34,7 @@ namespace UnityTutorial.PlayerControl
         {
             _hasAnimator = TryGetComponent<Animator>(out _animator);
             _playerRigidbody = GetComponent<Rigidbody>();
-            _ÝnputManager = GetComponent<InputManager>();
+            _Ä°nputManager = GetComponent<InputManager>();
 
             _xVelHash = Animator.StringToHash("X_Velocity");
             _yVelHash = Animator.StringToHash("Y_Velocity");
@@ -55,11 +55,11 @@ namespace UnityTutorial.PlayerControl
         {
             if (!_hasAnimator) return;
 
-            float targetSpeed = _ÝnputManager.Run ? _runSpeed : _walkSpeed;
-            if (_ÝnputManager.Move == Vector2.zero) targetSpeed = 0.1f;
+            float targetSpeed = _Ä°nputManager.Run ? _runSpeed : _walkSpeed;
+            if (_Ä°nputManager.Move == Vector2.zero) targetSpeed = 0.1f;
 
-            _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _ÝnputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
-            _currentVelocity.y = Mathf.Lerp(_currentVelocity.y, _ÝnputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+            _currentVelocity.x = Mathf.Lerp(_currentVelocity.x, _Ä°nputManager.Move.x * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
+            _currentVelocity.y = Mathf.Lerp(_currentVelocity.y, _Ä°nputManager.Move.y * targetSpeed, AnimBlendSpeed * Time.fixedDeltaTime);
 
             var xVelDifference = _currentVelocity.x - _playerRigidbody.velocity.x;
             var zVelDifference = _currentVelocity.y - _playerRigidbody.velocity.z;
@@ -73,8 +73,8 @@ namespace UnityTutorial.PlayerControl
         private void CamMovements()
         {
             if (!_hasAnimator) return;
-            var Mouse_X = _ÝnputManager.Look.x;
-            var Mouse_Y = _ÝnputManager.Look.y;
+            var Mouse_X = _Ä°nputManager.Look.x;
+            var Mouse_Y = _Ä°nputManager.Look.y;
             Camera.position = CameraRoot.position;
 
             _xRotation -= Mouse_Y * MouseSensitivity * Time.deltaTime;
