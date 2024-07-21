@@ -25,7 +25,7 @@ public class materyal : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Renderer bileþeni bulunamadý!");
+                Debug.LogError("Renderer bileseni bulunamadï¿½!");
             }
         }
     }
