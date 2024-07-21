@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public string powerUpType = "SlowMotion"; // Power-up türü
+    public string powerUpType = "SlowMotion"; 
 
     void OnTriggerEnter(Collider other)
     {
