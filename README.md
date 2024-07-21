@@ -95,6 +95,11 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 # SPRİNT 2
 
 •**Sprint notları:**
+-Oyunun büyük çoğunluğunun bu sprintte tamamlanması planlandı.
+-Bütün chapter'ların bu aşamada oluşturulması hedeflendi.
+-Oyunla alakalı design kısmı harıç çoğu karar kesinleştirildi.
+-Planlanan hedeflere ulaşıldı.
+
 
 • **Sprint içinde tamamlanması tahmin edilen puan:** 145  Puan
 
@@ -145,7 +150,7 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 -	Hikaye mantığı ve detayları tamamlandı, eksiklikler düzeltildi.
 -	Oyun mekanikleri ve level design'lar zenginleştirildi.
--	Cinematic için çizimler oluşturuldu. Süreç devam ediyor.
+-	Cinematic için taslak çizimler oluşturuldu. Süreç devam ediyor.
 -	Oyun tasarım stilinin poly low olmasına karar verildi.
 -	Trelloya oyunla alakalı mekanik ve design bütün detaylar eklendi.
 
@@ -153,12 +158,12 @@ Karakterimiz iç dünyasında kaybolmuş, hafızasında bazı eksiklikler yaşı
 
 •**Sprint Retroperspektif:**
 
-- Daily scrum yapılması takım adına yararlı oldu.
+- Daily scrum yapılması takım adına yararlı oldu. Ekip koordineli bir şekilde çalıştı
 - Planlanıldığı gibi 2.sprint'de hızlanıldı.
 - Yapılan toplantılarda oyun içi iyileştirilebilecek noktalar tespit edilip çözümler üretildi.
 - Ürün cinematic ve UI detayları bir sonraki sprinte bırakıldı.
+- Toplantılarda oyun oynanma ve tamamlama isteğine göre mekaniklere yön verildi.
 - Logo tasarımı süreci devam ediyor.
-- Oyun oynanma isteğine göre mekaniklere yön verildi.
 
 
 # SPRİNT 3
