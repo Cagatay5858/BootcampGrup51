@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float lifetime = 5f; 
+    public float lifetime = 5f;
+    public Transform vfxHitGreen;
+    public Transform vfxHitRed;
 
     void Start()
     {
@@ -11,6 +13,14 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.GetComponent<BulletTarget>() != null)
+        {
+            Instantiate(vfxHitGreen, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            Instantiate(vfxHitRed, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 }
