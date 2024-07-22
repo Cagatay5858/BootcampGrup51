@@ -6,8 +6,8 @@ public class NPCSpeechBubble : MonoBehaviour
     public GameObject speechBubblePrefab;
     private GameObject speechBubbleInstance;
     public Transform headTransform;
+    public Canvas npcCanvas; 
 
-    private Canvas canvas;
     private Camera mainCamera;
     private string[] dialogueLines;
     private int currentLineIndex = 0;
@@ -15,17 +15,15 @@ public class NPCSpeechBubble : MonoBehaviour
     void Start()
     {
         headTransform = transform.Find("Head");
-        canvas = FindObjectOfType<Canvas>();
         if (headTransform == null)
         {
             Debug.LogError("Head transform not found!");
             return;
         }
 
-
-        if (canvas == null)
+        if (npcCanvas == null)
         {
-            Debug.LogError("Canvas not found in the scene!");
+            Debug.LogError("Canvas not assigned for the NPC!");
             return;
         }
 
@@ -38,7 +36,7 @@ public class NPCSpeechBubble : MonoBehaviour
 
     public void ShowSpeechBubble(string[] lines)
     {
-        if (canvas == null || headTransform == null)
+        if (npcCanvas == null || headTransform == null)
         {
             Debug.LogError("Canvas or HeadTransform is missing, cannot show speech bubble!");
             return;
@@ -46,13 +44,14 @@ public class NPCSpeechBubble : MonoBehaviour
 
         if (speechBubbleInstance == null)
         {
-            speechBubbleInstance = Instantiate(speechBubblePrefab, canvas.transform);
+            speechBubbleInstance = Instantiate(speechBubblePrefab, npcCanvas.transform);
         }
 
         dialogueLines = lines;
         currentLineIndex = 0;
         speechBubbleInstance.SetActive(true);
         UpdateSpeechBubbleText();
+        UpdateSpeechBubblePosition();
     }
 
     public void HideSpeechBubble()
@@ -81,29 +80,26 @@ public class NPCSpeechBubble : MonoBehaviour
         if (speechText != null)
         {
             speechText.text = dialogueLines[currentLineIndex];
-
         }
     }
 
     void Update()
+    {
+        if (speechBubbleInstance != null)
         {
-            if (speechBubbleInstance != null)
-            {
-                UpdateSpeechBubblePosition();
-            }
-        }
-        
-        
-
-        void UpdateSpeechBubblePosition()
-        {
-            if (mainCamera == null || headTransform == null || speechBubbleInstance == null)
-            {
-                return;
-            }
-            Vector3 screenPos = mainCamera.WorldToScreenPoint(headTransform.position);
-            speechBubbleInstance.transform.position = screenPos;
-
+            UpdateSpeechBubblePosition();
         }
     }
 
+    void UpdateSpeechBubblePosition()
+    {
+        if (mainCamera == null || headTransform == null || speechBubbleInstance == null)
+        {
+            return;
+        }
+
+        Vector3 screenPos = mainCamera.WorldToScreenPoint(headTransform.position);
+        RectTransform rectTransform = speechBubbleInstance.GetComponent<RectTransform>();
+        rectTransform.position = screenPos + new Vector3(0, 50, 0); 
+    }
+}
