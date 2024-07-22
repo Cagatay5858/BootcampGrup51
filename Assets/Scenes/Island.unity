@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08531193, g: 0.27929273, b: 0.48356313, a: 1}
+  m_IndirectSpecularColor: {r: 0.08529947, g: 0.2792631, b: 0.48356718, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -461,7 +461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172558534}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.13898487, y: -0.63222307, z: 0.116655484, w: 0.7532388}
+  m_LocalRotation: {x: 0.13898486, y: -0.6322231, z: 0.116655506, w: 0.7532388}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1832,7 +1832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003205598}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1918256, y: -0.62240773, z: 0.16100681, w: 0.7415446}
+  m_LocalRotation: {x: 0.19182558, y: -0.62240773, z: 0.16100682, w: 0.74154466}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5282,7 +5282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speechBubblePrefab: {fileID: 8392799192083237164, guid: 9d08cdc8caea2334e95c29a308fc1152, type: 3}
   headTransform: {fileID: 1255981958}
-  npcCanvas: {fileID: 0}
+  npcCanvas: {fileID: 980712639}
 --- !u!4 &2007701022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2ec966d90911a454c9760fa28789a4f8, type: 3}
@@ -6156,11 +6156,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.07245343
+      value: 0.07245346
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.018742515
+      value: 0.018742537
       objectReference: {fileID: 0}
     - target: {fileID: 5137394772589699512, guid: 6900f7fa92c3f0641a705413cac50a18, type: 3}
       propertyPath: m_LocalRotation.y
