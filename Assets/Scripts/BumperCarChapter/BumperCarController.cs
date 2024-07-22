@@ -13,6 +13,8 @@ public class BumperCarController : MonoBehaviour
     public float slowMotionFactor = 0.4f; 
     public int maxHealth = 100;
     public int currentHealth;
+    public bool isShieldActive = false; 
+    
     
     private Rigidbody rb;
     private Transform modelTransform;  
@@ -63,19 +65,25 @@ public class BumperCarController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(wallTag))
         {
-            Vector3 contactNormal = collision.contacts[0].normal;         
+            Vector3 contactNormal = collision.contacts[0].normal;
             Vector3 bounce = contactNormal * bounceForce;
             rb.AddForce(bounce, ForceMode.Impulse);
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
-            BumperCarController otherCar = collision.gameObject.GetComponent<BumperCarController>();
+            EnemyCarController otherCar = collision.gameObject.GetComponent<EnemyCarController>();
             if (otherCar != null)
             {
-                otherCar.TakeDamage(damageAmount);
-            }
+                Vector3 contactNormal = collision.contacts[0].normal;
+                Vector3 bounce = contactNormal * bounceForce;
+                GetComponent<Rigidbody>().AddForce(bounce, ForceMode.Impulse);
 
-            TakeDamage(damageAmount);
+                if (!isShieldActive)
+                {
+                    otherCar.TakeDamage(damageAmount);
+                    TakeDamage(damageAmount);
+                }
+            }
         }
     }
 
