@@ -22,7 +22,7 @@ public class BumperCarEffects : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
-            // Trigger sparkle effect on antenna
+           
             if (sparkleEffect != null)
             {
                 sparkleEffect.Play();
@@ -30,7 +30,7 @@ public class BumperCarEffects : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
-            // Trigger boom effect on collision
+         
             if (boomEffect != null)
             {
                 boomEffect.transform.position = collision.contacts[0].point;

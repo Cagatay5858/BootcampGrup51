@@ -4,20 +4,21 @@ using System.Collections;
 public class BumperCarController : MonoBehaviour
 {
     public float acceleration = 10f;
-    public float maxSpeed = 10f; 
-    public float rotationSpeed = 5f; 
-    public float bounceForce = 3f;    
-    public string wallTag = "Wall";    
-    public int damageAmount = 10;      
-    public float slowMotionDuration = 2f; 
-    public float slowMotionFactor = 0.4f; 
+    public float maxSpeed = 10f;
+    public float rotationSpeed = 5f;
+    public float bounceForce = 3f;
+    public string wallTag = "Wall";
+    public int damageAmount = 10;
+    public float slowMotionDuration = 2f;
+    public float slowMotionFactor = 0.4f;
     public int maxHealth = 100;
     public int currentHealth;
-    public bool isShieldActive = false; 
-    
-    
+    public bool isShieldActive = false;
+    public GameObject projectilePrefab;
+    public float projectileSpeed = 2f;
+
     private Rigidbody rb;
-    private Transform modelTransform;  
+    private Transform modelTransform;
     private Vector3 startPosition;
     private Quaternion startRotation;
 
@@ -25,11 +26,11 @@ public class BumperCarController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezePositionY;
-        modelTransform = transform.GetChild(0); 
+        modelTransform = transform.GetChild(0);
 
         startPosition = transform.position;
         startRotation = transform.rotation;
-        
+
         currentHealth = maxHealth;
     }
 
@@ -39,17 +40,14 @@ public class BumperCarController : MonoBehaviour
         float turnInput = Input.GetAxis("Horizontal");
 
         Vector3 moveDirection = transform.forward * moveInput * acceleration;
-        
-       
+
         rb.AddForce(moveDirection);
 
-        
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
 
-       
         float turn = turnInput * rotationSpeed * Time.deltaTime;
         rb.MoveRotation(rb.rotation * Quaternion.Euler(Vector3.up * turn));
     }
@@ -58,7 +56,7 @@ public class BumperCarController : MonoBehaviour
     {
         rb.position = new Vector3(rb.position.x, startPosition.y, rb.position.z);
         rb.rotation = Quaternion.Euler(0, rb.rotation.eulerAngles.y, 0);
-        rb.velocity *= 0.98f; 
+        rb.velocity *= 0.98f;
     }
 
     void OnCollisionEnter(Collision collision)
@@ -76,7 +74,7 @@ public class BumperCarController : MonoBehaviour
             {
                 Vector3 contactNormal = collision.contacts[0].normal;
                 Vector3 bounce = contactNormal * bounceForce;
-                GetComponent<Rigidbody>().AddForce(bounce, ForceMode.Impulse);
+                rb.AddForce(bounce, ForceMode.Impulse);
 
                 if (!isShieldActive)
                 {
@@ -85,6 +83,24 @@ public class BumperCarController : MonoBehaviour
                 }
             }
         }
+    }
+    public GameObject FindNearestEnemy()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Car");
+        GameObject nearestEnemy = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (GameObject enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestEnemy = enemy;
+            }
+        }
+
+        return nearestEnemy;
     }
 
     public void TakeDamage(int amount)

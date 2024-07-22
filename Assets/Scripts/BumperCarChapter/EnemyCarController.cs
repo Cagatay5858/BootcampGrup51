@@ -16,6 +16,8 @@ public class EnemyCarController : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+    public GameObject explosionPrefab; 
+
     private Rigidbody rb;
     private NavMeshAgent agent;
     private Vector3 startPosition;
@@ -33,7 +35,6 @@ public class EnemyCarController : MonoBehaviour
 
         currentHealth = maxHealth;
 
-        // Update position and rotation via NavMeshAgent
         agent.updatePosition = true;
         agent.updateRotation = true;
     }
@@ -63,13 +64,22 @@ public class EnemyCarController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
-            EnemyCarController otherCar = collision.gameObject.GetComponent<EnemyCarController>();
-            if (otherCar != null)
+            if (collision.gameObject.CompareTag("PlayerCar"))
             {
-                otherCar.TakeDamage(damageAmount);
-            }
+                BumperCarController playerCar = collision.gameObject.GetComponent<BumperCarController>();
+                if (playerCar != null)
+                {
+                    Vector3 contactNormal = collision.contacts[0].normal;
+                    Vector3 bounce = contactNormal * bounceForce;
+                    rb.AddForce(bounce, ForceMode.Impulse);
 
-            TakeDamage(damageAmount);
+                        //   if (!playerCar.isShieldActive)
+                    {
+                       // playerCar.TakeDamage(damageAmount);
+                       // TakeDamage(damageAmount);
+                    }
+                }
+            }
         }
     }
 
@@ -78,6 +88,7 @@ public class EnemyCarController : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
+            Explode(); 
             Destroy(gameObject);
         }
     }
@@ -92,5 +103,14 @@ public class EnemyCarController : MonoBehaviour
         Time.timeScale = slowMotionFactor;
         yield return new WaitForSecondsRealtime(slowMotionDuration);
         Time.timeScale = 1f;
+    }
+
+    private void Explode() 
+    {
+        if (explosionPrefab != null)
+        {
+            GameObject explosionInstance = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            Destroy(explosionInstance, explosionInstance.GetComponent<ParticleSystem>().main.duration);
+        }
     }
 }

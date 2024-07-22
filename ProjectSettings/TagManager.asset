@@ -16,6 +16,7 @@ TagManager:
   - ChasePowerUp
   - ground
   - Toys
+  - PlayerCar
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - groundMask
   - Collectibles
   - dangerZoneMask
-  - 
-  - 
+  - Projectile
+  - PlayerCar
   - 
   - 
   - 
