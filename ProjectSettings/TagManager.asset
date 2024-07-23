@@ -19,6 +19,7 @@ TagManager:
   - PlayerCar
   - FxTemporaire
   - Plant
+  - EnemyCar
   layers:
   - Default
   - TransparentFX

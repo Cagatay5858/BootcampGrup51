@@ -110,6 +110,7 @@ public class BumperCarController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+       FindObjectOfType<HealthUIController>().UpdateHealth(gameObject, currentHealth, maxHealth);
     }
 
     public void ActivateSlowMotion()

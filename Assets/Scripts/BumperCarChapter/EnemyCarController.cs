@@ -10,18 +10,25 @@ public class EnemyCarController : MonoBehaviour
     public float rotationSpeed = 5f;
     public float bounceForce = 3f;
     public string wallTag = "Wall";
+    public string carTag = "Car";
+    public string playerCarTag = "PlayerCar";
     public int damageAmount = 10;
     public float slowMotionDuration = 2f;
     public float slowMotionFactor = 0.4f;
     public int maxHealth = 100;
     public int currentHealth;
 
-    public GameObject explosionPrefab; 
+    public GameObject explosionPrefab;
 
     private Rigidbody rb;
     private NavMeshAgent agent;
     private Vector3 startPosition;
     private Quaternion startRotation;
+
+    private bool isAccelerating = false;
+    private float currentSpeed = 0f;
+    private float targetSpeed = 0f;
+    private float randomChangeTime = 0f;
 
     void Start()
     {
@@ -43,7 +50,18 @@ public class EnemyCarController : MonoBehaviour
     {
         if (player != null)
         {
-            agent.SetDestination(player.position);
+            Vector3 randomOffset = new Vector3(Random.Range(-2f, 2f), 0, Random.Range(-2f, 2f));
+            agent.SetDestination(player.position + randomOffset);
+
+            if (Time.time > randomChangeTime)
+            {
+                targetSpeed = Random.Range(0.5f * maxSpeed, maxSpeed);
+                randomChangeTime = Time.time + Random.Range(2f, 5f);
+            }
+
+           
+            currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime * acceleration);
+            agent.speed = currentSpeed;
         }
     }
 
@@ -62,21 +80,29 @@ public class EnemyCarController : MonoBehaviour
             Vector3 bounce = contactNormal * bounceForce;
             rb.AddForce(bounce, ForceMode.Impulse);
         }
-        else if (collision.gameObject.CompareTag("Car"))
+        else if (collision.gameObject.CompareTag(carTag) || collision.gameObject.CompareTag(playerCarTag))
         {
-            if (collision.gameObject.CompareTag("PlayerCar"))
+            Vector3 contactNormal = collision.contacts[0].normal;
+            Vector3 bounce = contactNormal * bounceForce;
+            rb.AddForce(bounce, ForceMode.Impulse);
+
+            
+            Rigidbody otherRb = collision.gameObject.GetComponent<Rigidbody>();
+            if (otherRb != null)
+            {
+                Vector3 otherBounce = -contactNormal * bounceForce;
+                otherRb.AddForce(otherBounce, ForceMode.Impulse);
+            }
+
+            if (collision.gameObject.CompareTag(playerCarTag))
             {
                 BumperCarController playerCar = collision.gameObject.GetComponent<BumperCarController>();
                 if (playerCar != null)
                 {
-                    Vector3 contactNormal = collision.contacts[0].normal;
-                    Vector3 bounce = contactNormal * bounceForce;
-                    rb.AddForce(bounce, ForceMode.Impulse);
-
-                        //   if (!playerCar.isShieldActive)
+                    if (!playerCar.isShieldActive)
                     {
-                       // playerCar.TakeDamage(damageAmount);
-                       // TakeDamage(damageAmount);
+                        playerCar.TakeDamage(damageAmount);
+                        TakeDamage(damageAmount);
                     }
                 }
             }
@@ -88,9 +114,11 @@ public class EnemyCarController : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0)
         {
-            Explode(); 
+            Explode();
             Destroy(gameObject);
         }
+
+       FindObjectOfType<HealthUIController>().UpdateHealth(gameObject, currentHealth, maxHealth);
     }
 
     public void ActivateSlowMotion()
@@ -105,7 +133,7 @@ public class EnemyCarController : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    private void Explode() 
+    private void Explode()
     {
         if (explosionPrefab != null)
         {
