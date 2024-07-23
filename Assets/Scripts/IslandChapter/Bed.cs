@@ -7,7 +7,7 @@ public class Bed : MonoBehaviour
     public Material transparentMaterialFrame;
     public Material normalMaterialFrame;
     public int requiredStickCount;
-    
+
     private Renderer matressRenderer;
     private Renderer pillowRenderer;
     private Renderer footboardRenderer;
@@ -18,7 +18,11 @@ public class Bed : MonoBehaviour
     private Collider objectCollider;
     public Interactor interactor;
 
-    private bool isPlayerColliding = false;
+    public bool isPlayerColliding = false;
+
+    public ParticleSystem craftingParticleEffect;
+    public GameObject largeColliderObject;
+    public PopupUI popupUI;
 
     void Start()
     {
@@ -39,16 +43,22 @@ public class Bed : MonoBehaviour
         bedpostsRenderer.material = transparentMaterialFrame;
 
         playerInventory = FindObjectOfType<Inventory>();
+
+        largeColliderObject.GetComponent<Collider>().isTrigger = true;
+        popupUI = FindObjectOfType<PopupUI>();
     }
-   
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding)
         {
-            if (isPlayerColliding && playerInventory.stickCount >= requiredStickCount)
+            if (playerInventory.stickCount >= requiredStickCount)
             {
-                ChangeToNormalMaterials();
-                objectCollider.isTrigger = false;
+                ConstructBed();
+            }
+            else
+            {
+                popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount);
             }
         }
     }
@@ -69,6 +79,14 @@ public class Bed : MonoBehaviour
         }
     }
 
+    void ConstructBed()
+    {
+        ChangeToNormalMaterials();
+        objectCollider.isTrigger = false;
+        largeColliderObject.SetActive(false); 
+        PlayCraftingParticleEffect();
+    }
+
     void ChangeToNormalMaterials()
     {
         matressRenderer.material = normalMaterialMatressPillow;
@@ -77,5 +95,13 @@ public class Bed : MonoBehaviour
         headboardRenderer.material = normalMaterialFrame;
         sideboardRenderer.material = normalMaterialFrame;
         bedpostsRenderer.material = normalMaterialFrame;
+    }
+
+    void PlayCraftingParticleEffect()
+    {
+        if (craftingParticleEffect != null)
+        {
+            craftingParticleEffect.Play();
+        }
     }
 }

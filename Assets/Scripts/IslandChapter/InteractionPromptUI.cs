@@ -31,7 +31,7 @@ public class InteractionPromptUI : MonoBehaviour
 
         if (_targetTransform != null)
         {
-            Vector3 targetPosition = _targetTransform.position + Vector3.up * 1.5f; // Adjust height as needed
+            Vector3 targetPosition = _targetTransform.position + Vector3.up * 1f; 
             transform.position = targetPosition;
 
             var rotation = _mainCam.transform.rotation;
@@ -66,7 +66,7 @@ public class InteractionPromptUI : MonoBehaviour
         if (_currentAnimation != null)
         {
             StopCoroutine(_currentAnimation);
-            _uiPanel.transform.localScale = _initialScale; // Reset scale
+            _uiPanel.transform.localScale = _initialScale; 
         }
     }
 
