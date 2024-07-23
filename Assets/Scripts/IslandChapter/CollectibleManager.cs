@@ -5,11 +5,20 @@ public class CollectibleManager : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
     public string InteractionPrompt => _prompt;
-    
+
     public bool Interact(Interactor interactor)
     {
-        StartCoroutine(PlayAnimationAndAddStick());
-        return true;
+        if (gameObject.CompareTag("Stick"))
+        {
+            StartCoroutine(PlayAnimationAndAddStick());
+            return true;
+        }
+        else if (gameObject.CompareTag("Plant"))
+        {
+            StartCoroutine(PlayAnimationAndAddPlant());
+            return true;
+        }
+        return false;
     }
 
     public ThirdPersonController thirdPersonController;
@@ -17,6 +26,7 @@ public class CollectibleManager : MonoBehaviour, IInteractable
     public Inventory Inventory;
     public bool inReach;
     public GameObject stick;
+    public GameObject plant;
     public GameObject TeddyBear;
 
     private void Start()
@@ -53,7 +63,14 @@ public class CollectibleManager : MonoBehaviour, IInteractable
     {
         if (Input.GetKeyDown(KeyCode.E) && inReach && teddyBearAnimator != null)
         {
-            StartCoroutine(PlayAnimationAndAddStick());
+            if (gameObject.CompareTag("Stick"))
+            {
+                StartCoroutine(PlayAnimationAndAddStick());
+            }
+            else if (gameObject.CompareTag("Plant"))
+            {
+                StartCoroutine(PlayAnimationAndAddPlant());
+            }
         }
     }
 
@@ -62,6 +79,15 @@ public class CollectibleManager : MonoBehaviour, IInteractable
         teddyBearAnimator.SetBool("isLifting", true);
         yield return new WaitForSeconds(0.7f);
         Inventory.AddStick();
+        Destroy(gameObject);
+        teddyBearAnimator.SetBool("isLifting", false);
+    }
+
+    private IEnumerator PlayAnimationAndAddPlant()
+    {
+        teddyBearAnimator.SetBool("isLifting", true);
+        yield return new WaitForSeconds(0.7f);
+        Inventory.AddPlant();
         Destroy(gameObject);
         teddyBearAnimator.SetBool("isLifting", false);
     }

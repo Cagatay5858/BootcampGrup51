@@ -8,11 +8,11 @@ public class Interactor : MonoBehaviour
     [SerializeField] private float _interactionPointRadius = 0.5f;
     [SerializeField] private LayerMask _interactableMask;
     [SerializeField] private InteractionPromptUI _interactionPromptUI;
-    
+
     private readonly Collider[] _colliders = new Collider[3];
     [SerializeField] public int _numFound;
 
-    private IInteractable _interactable; 
+    private IInteractable _interactable;
     private void Update()
     {
         _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
@@ -31,7 +31,7 @@ public class Interactor : MonoBehaviour
         {
             if (_interactable != null) _interactable = null;
             if (_interactionPromptUI.IsDisplayed) _interactionPromptUI.Close();
-        }   
+        }
     }
 
     private void OnDrawGizmos()

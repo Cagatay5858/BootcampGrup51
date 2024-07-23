@@ -17,6 +17,8 @@ TagManager:
   - ground
   - Toys
   - PlayerCar
+  - FxTemporaire
+  - Plant
   layers:
   - Default
   - TransparentFX

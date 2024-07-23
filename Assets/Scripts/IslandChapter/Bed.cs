@@ -7,6 +7,7 @@ public class Bed : MonoBehaviour
     public Material transparentMaterialFrame;
     public Material normalMaterialFrame;
     public int requiredStickCount;
+    public int requiredPlantCount;
 
     private Renderer matressRenderer;
     private Renderer pillowRenderer;
@@ -26,6 +27,8 @@ public class Bed : MonoBehaviour
 
     void Start()
     {
+        requiredStickCount = 3;
+        requiredPlantCount = 3;
         matressRenderer = transform.Find("Bed_Matress").GetComponent<Renderer>();
         pillowRenderer = transform.Find("Bed_Pillow").GetComponent<Renderer>();
         footboardRenderer = transform.Find("Bed_Footboard").GetComponent<Renderer>();
@@ -52,13 +55,13 @@ public class Bed : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding)
         {
-            if (playerInventory.stickCount >= requiredStickCount)
+            if (playerInventory.stickCount >= requiredStickCount && playerInventory.plantCount >= requiredPlantCount)
             {
                 ConstructBed();
             }
             else
             {
-                popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount);
+                popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount, playerInventory.plantCount, requiredPlantCount);
             }
         }
     }
