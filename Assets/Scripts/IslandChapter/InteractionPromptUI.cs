@@ -19,6 +19,7 @@ public class InteractionPromptUI : MonoBehaviour
     {
         _mainCam = Camera.main;
         _uiPanel.SetActive(false);
+        _uiPanel.transform.localScale = _initialScale; // Başlangıç ölçeğini ayarla
     }
 
     private void LateUpdate()
@@ -31,15 +32,9 @@ public class InteractionPromptUI : MonoBehaviour
 
         if (_targetTransform != null)
         {
-            Vector3 targetPosition = _targetTransform.position + Vector3.up * 1f; 
-            transform.position = targetPosition;
-
-            var rotation = _mainCam.transform.rotation;
-            transform.rotation = rotation;
-
-            float distance = Vector3.Distance(_mainCam.transform.position, transform.position);
-            float scale = Mathf.Clamp(distance / 10.0f, 0.5f, 1.0f);
-            _uiPanel.transform.localScale = new Vector3(scale, scale, scale);
+            // Hedef objenin pozisyonunu ekran uzayına dönüştürme
+            Vector3 screenPosition = _mainCam.WorldToScreenPoint(_targetTransform.position + Vector3.up * 1f);
+            _uiPanel.transform.position = screenPosition;
         }
     }
 
@@ -66,7 +61,7 @@ public class InteractionPromptUI : MonoBehaviour
         if (_currentAnimation != null)
         {
             StopCoroutine(_currentAnimation);
-            _uiPanel.transform.localScale = _initialScale; 
+            _uiPanel.transform.localScale = _initialScale; // UI panelini başlangıç ölçeğine döndür
         }
     }
 
@@ -78,6 +73,7 @@ public class InteractionPromptUI : MonoBehaviour
             while (elapsedTime < _animationDuration)
             {
                 _uiPanel.transform.localScale = Vector3.Lerp(_initialScale, _targetScale, (Mathf.Sin(elapsedTime / _animationDuration * Mathf.PI * 2) + 1) / 2);
+                Debug.Log("Animating: " + _uiPanel.transform.localScale);  // Ölçek değeri loglanıyor
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
