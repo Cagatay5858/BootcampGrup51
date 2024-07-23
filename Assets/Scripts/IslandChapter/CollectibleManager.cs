@@ -8,6 +8,7 @@ public class CollectibleManager : MonoBehaviour, IInteractable
     
     public bool Interact(Interactor interactor)
     {
+        StartCoroutine(PlayAnimationAndAddStick());
         return true;
     }
 
@@ -34,10 +35,8 @@ public class CollectibleManager : MonoBehaviour, IInteractable
 
     private void OnTriggerEnter(Collider other)
     {
-      
         if (other.CompareTag("FootCollider"))
         {
-            
             inReach = true;
         }
     }
@@ -49,23 +48,21 @@ public class CollectibleManager : MonoBehaviour, IInteractable
             inReach = false;
         }
     }
-    
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && inReach && teddyBearAnimator != null)
         {
-           
-             StartCoroutine(PlayAnimationAndAddStick());
+            StartCoroutine(PlayAnimationAndAddStick());
         }
     }
 
     private IEnumerator PlayAnimationAndAddStick()
-   {
-      teddyBearAnimator.SetBool("isLifting", true);
-     yield return new WaitForSeconds(0.7f);
-     Inventory.AddStick();
-     Destroy(gameObject);
-     teddyBearAnimator.SetBool("isLifting", false);
+    {
+        teddyBearAnimator.SetBool("isLifting", true);
+        yield return new WaitForSeconds(0.7f);
+        Inventory.AddStick();
+        Destroy(gameObject);
+        teddyBearAnimator.SetBool("isLifting", false);
     }
 }

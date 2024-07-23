@@ -1,16 +1,19 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class InteractionPromptUI : MonoBehaviour
 {
     private Camera _mainCam;
     [SerializeField] private GameObject _uiPanel;
-    [SerializeField] private TextMeshProUGUI _promptText;
-    [SerializeField] private float _distanceFromCamera = 8.0f; 
-    [SerializeField] private float _minHeight = 4.0f; 
+    [SerializeField] private Image _promptImage;
+    [SerializeField] private Vector3 _initialScale = Vector3.one;
+    [SerializeField] private Vector3 _targetScale = Vector3.one * 1.5f;
+    [SerializeField] private float _animationDuration = 1.0f;
+    private Transform _targetTransform;
+
+    private Coroutine _currentAnimation;
 
     private void Start()
     {
@@ -26,35 +29,59 @@ public class InteractionPromptUI : MonoBehaviour
             if (_mainCam == null) return; 
         }
 
-        var rotation = _mainCam.transform.rotation;
-        Vector3 targetPosition = _mainCam.transform.position + _mainCam.transform.forward * _distanceFromCamera;
-
-        if (targetPosition.y < _minHeight)
+        if (_targetTransform != null)
         {
-            targetPosition.y = _minHeight;
+            Vector3 targetPosition = _targetTransform.position + Vector3.up * 1.5f; // Adjust height as needed
+            transform.position = targetPosition;
+
+            var rotation = _mainCam.transform.rotation;
+            transform.rotation = rotation;
+
+            float distance = Vector3.Distance(_mainCam.transform.position, transform.position);
+            float scale = Mathf.Clamp(distance / 10.0f, 0.5f, 1.0f);
+            _uiPanel.transform.localScale = new Vector3(scale, scale, scale);
         }
-
-        transform.position = targetPosition;
-        transform.rotation = rotation;
-
-        
-        float distance = Vector3.Distance(_mainCam.transform.position, transform.position);
-        float scale = Mathf.Clamp(distance / 10.0f, 0.5f, 1.0f);
-        _uiPanel.transform.localScale = new Vector3(scale, scale, scale);
     }
 
-    public bool IsDisplayed = false;
+    public bool IsDisplayed { get; private set; } = false;
 
-    public void SetUp(string promptText)
+    public void SetUp(Transform targetTransform)
     {
-        _promptText.text = promptText; 
+        _targetTransform = targetTransform;
         _uiPanel.SetActive(true);
         IsDisplayed = true;
+
+        if (_currentAnimation != null)
+        {
+            StopCoroutine(_currentAnimation);
+        }
+        _currentAnimation = StartCoroutine(AnimatePrompt());
     }
 
     public void Close()
     {
         _uiPanel.SetActive(false);
-        IsDisplayed = false; 
+        IsDisplayed = false;
+
+        if (_currentAnimation != null)
+        {
+            StopCoroutine(_currentAnimation);
+            _uiPanel.transform.localScale = _initialScale; // Reset scale
+        }
+    }
+
+    private IEnumerator AnimatePrompt()
+    {
+        float elapsedTime = 0f;
+        while (true)
+        {
+            while (elapsedTime < _animationDuration)
+            {
+                _uiPanel.transform.localScale = Vector3.Lerp(_initialScale, _targetScale, (Mathf.Sin(elapsedTime / _animationDuration * Mathf.PI * 2) + 1) / 2);
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            elapsedTime = 0f;
+        }
     }
 }
