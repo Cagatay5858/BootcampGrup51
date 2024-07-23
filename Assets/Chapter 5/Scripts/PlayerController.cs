@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
             crosshair.gameObject.SetActive(false);
         }
 
-        // Lock the mouse cursor to the center of the screen
+        
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        isRunning = Input.GetKey(KeyCode.LeftShift) && vertical > 0; // Only run forward
+        isRunning = Input.GetKey(KeyCode.LeftShift) && vertical > 0; 
         float speed = isRunning ? runSpeed : walkSpeed;
 
         if (isAiming)
@@ -62,23 +62,22 @@ public class PlayerController : MonoBehaviour
             speed = aimSpeed;
         }
 
-        // Prevent backward speed-up
+        
         if (vertical < 0)
         {
-            speed = walkSpeed;
+            speed = walkSpeed * 2f;
         }
-
-        // Ensure forward speed is higher than diagonal speeds
+        
         if (vertical > 0 && horizontal != 0)
         {
-            speed = runSpeed * 0.75f; // Diagonal speed
+            speed = runSpeed * 0.75f; 
         }
 
-        // Increase speeds and animation speeds for right and left movement
+        
         if (horizontal != 0 && vertical == 0)
         {
-            speed = runSpeed * 1.25f; // Increase side movement speed
-            animator.speed = isRunning ? 1.75f : 1.25f; // Increase animation speed for side movement
+            speed = runSpeed * 1.25f; 
+            animator.speed = isRunning ? 1.75f : 1.25f; 
         }
 
         moveDirection = new Vector3(horizontal, 0, vertical).normalized;
@@ -92,14 +91,15 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("isRunning", isRunning);
         animator.SetBool("isAiming", isAiming);
 
-        // Adjust animation speed based on movement direction
+        
         if (horizontal < 0 || vertical < 0)
         {
-            animator.speed = 1.5f; // Speed up when moving backwards or sideways
+            animator.speed = 1.5f;
+            
         }
         else
         {
-            animator.speed = isRunning ? 1.5f : 1.0f; // Speed up when running, normal speed when walking
+            animator.speed = isRunning ? 1.5f : 1.0f; 
         }
     }
 
@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         if (mouseWorldPosition != Vector3.zero)
         {
             Vector3 direction = (mouseWorldPosition - transform.position).normalized;
-            direction.y = 0; // Keep the rotation only on the XZ plane
+            direction.y = 0; 
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
     void HandleAim()
     {
-        if (Input.GetMouseButton(1)) // Right mouse button
+        if (Input.GetMouseButton(1)) 
         {
             isAiming = true;
             freeLookCamera.Priority = 5;
