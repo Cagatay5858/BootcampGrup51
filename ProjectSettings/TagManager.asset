@@ -16,10 +16,14 @@ TagManager:
   - ChasePowerUp
   - ground
   - Toys
+<<<<<<< Updated upstream
   - PlayerCar
   - FxTemporaire
   - Plant
   - EnemyCar
+=======
+  - canPickUp
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -30,8 +34,13 @@ TagManager:
   - groundMask
   - Collectibles
   - dangerZoneMask
+<<<<<<< Updated upstream
   - Projectile
   - PlayerCar
+=======
+  - Ground
+  - 
+>>>>>>> Stashed changes
   - 
   - 
   - 
