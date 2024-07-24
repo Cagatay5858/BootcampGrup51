@@ -4,6 +4,9 @@ public class BumperCarEffects : MonoBehaviour
 {
     public ParticleSystem sparkleEffect;
     public ParticleSystem boomEffect;
+    public bool sparkleOnce = true;
+    public bool boomOnce = true;
+
 
     void Start()
     {
@@ -22,20 +25,24 @@ public class BumperCarEffects : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
+            var sparkle = sparkleEffect.emission;
            
-            if (sparkleEffect != null)
-            {
-                sparkleEffect.Play();
-            }
+            sparkle.enabled = true;
+
+            sparkleEffect.transform.position = collision.contacts[0].point;
+            sparkleEffect.Play();
+
+            sparkleOnce = false;
         }
         else if (collision.gameObject.CompareTag("Car"))
         {
          
-            if (boomEffect != null)
-            {
-                boomEffect.transform.position = collision.contacts[0].point;
-                boomEffect.Play();
-            }
+            var boom = boomEffect.emission;
+            boom.enabled = true;
+            boomEffect.transform.position = collision.contacts[0].point;
+            boomEffect.Play();
+            boomOnce = false;
+            
         }
     }
 }
