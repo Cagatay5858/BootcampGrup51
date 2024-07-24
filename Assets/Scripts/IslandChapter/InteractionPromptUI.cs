@@ -41,6 +41,11 @@ public class InteractionPromptUI : MonoBehaviour
 
     public void SetUp(Transform targetTransform)
     {
+        if (targetTransform == null || !targetTransform.gameObject.activeInHierarchy || !IsRendererVisible(targetTransform))
+        {
+            return;
+        }
+
         _targetTransform = targetTransform;
         _uiPanel.SetActive(true);
         IsDisplayed = true;
@@ -77,5 +82,11 @@ public class InteractionPromptUI : MonoBehaviour
             }
             elapsedTime = 0f;
         }
+    }
+
+    private bool IsRendererVisible(Transform targetTransform)
+    {
+        Renderer renderer = targetTransform.GetComponent<Renderer>();
+        return renderer != null && renderer.enabled;
     }
 }

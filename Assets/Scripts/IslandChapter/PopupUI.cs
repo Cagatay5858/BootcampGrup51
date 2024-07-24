@@ -16,18 +16,18 @@ public class PopupUI : MonoBehaviour
 
     public void ShowPopup(int stickCount, int requiredStickCount, int plantCount, int requiredPlantCount)
     {
-        string stickMessage = stickCount < requiredStickCount 
-            ? $"Not enough sticks! ({stickCount} / {requiredStickCount})\n" 
+        string stickMessage = stickCount < requiredStickCount
+            ? $"Not enough sticks! ({stickCount} / {requiredStickCount})\n"
             : $"Sticks: {stickCount} / {requiredStickCount}\n";
 
-        string plantMessage = plantCount < requiredPlantCount 
-            ? $"Not enough plants! ({plantCount} / {requiredPlantCount})" 
+        string plantMessage = plantCount < requiredPlantCount
+            ? $"Not enough plants! ({plantCount} / {requiredPlantCount})"
             : $"Plants: {plantCount} / {requiredPlantCount}";
 
         notEnoughText.text = stickMessage + plantMessage;
 
         popupPanel.SetActive(true);
-        StartCoroutine(HidePopupAfterDelay(2.5f)); 
+        StartCoroutine(HidePopupAfterDelay(2.5f));
     }
 
     public void HidePopup()

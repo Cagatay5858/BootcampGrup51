@@ -103,37 +103,38 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
 
-   void CheckInteraction()
-   {
-       if (Input.GetKeyDown(KeyCode.E))
-       {
-           
-           float sphereRadius = 0.5f;
-           RaycastHit hit;
-           if (Physics.SphereCast(transform.position + Vector3.up * 1.5f, sphereRadius, transform.forward, out hit, interactionDistance))
-           {
-               NPCInteraction npcInteraction = hit.collider.GetComponent<NPCInteraction>();
-               if (npcInteraction != null)
-               {
-                   if (currentNPC == npcInteraction)
-                   {
-                       npcInteraction.AdvanceDialogue();
-                   }
-                   else
-                   {
-                       if (currentNPC != null)
-                       {
-                           currentNPC.StopInteraction();
-                       }
-   
-                       currentNPC = npcInteraction;
-                       currentNPC.Interact();
-                   }
-               }
-               
-           }
-       }
-   }
+    void CheckInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            float sphereRadius = 0.5f; 
+            float interactionDistance = 5f; 
+            RaycastHit hit;
+            Vector3 sphereCastOrigin = transform.position + Vector3.up * 1.2f;
+
+            if (Physics.SphereCast(sphereCastOrigin, sphereRadius, transform.forward, out hit, interactionDistance))
+            {
+                NPCInteraction npcInteraction = hit.collider.GetComponent<NPCInteraction>();
+                if (npcInteraction != null)
+                {
+                    if (currentNPC == npcInteraction)
+                    {
+                        npcInteraction.AdvanceDialogue();
+                    }
+                    else
+                    {
+                        if (currentNPC != null)
+                        {
+                            currentNPC.StopInteraction();
+                        }
+
+                        currentNPC = npcInteraction;
+                        currentNPC.Interact();
+                    }
+                }
+            }
+        }
+    }
 
     void CheckNPCDistance()
     {

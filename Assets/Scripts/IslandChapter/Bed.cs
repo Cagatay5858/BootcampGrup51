@@ -20,6 +20,7 @@ public class Bed : MonoBehaviour
     public Interactor interactor;
 
     public bool isPlayerColliding = false;
+    public bool isBedConstructed = false; 
 
     public ParticleSystem craftingParticleEffect;
     public GameObject largeColliderObject;
@@ -53,7 +54,7 @@ public class Bed : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding)
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding && !isBedConstructed) 
         {
             if (playerInventory.stickCount >= requiredStickCount && playerInventory.plantCount >= requiredPlantCount)
             {
@@ -84,6 +85,7 @@ public class Bed : MonoBehaviour
 
     void ConstructBed()
     {
+        isBedConstructed = true; 
         ChangeToNormalMaterials();
         objectCollider.isTrigger = false;
         largeColliderObject.SetActive(false); 
@@ -102,7 +104,7 @@ public class Bed : MonoBehaviour
 
     void PlayCraftingParticleEffect()
     {
-        if (craftingParticleEffect != null)
+        if (craftingParticleEffect != null && !craftingParticleEffect.isPlaying)
         {
             craftingParticleEffect.Play();
         }

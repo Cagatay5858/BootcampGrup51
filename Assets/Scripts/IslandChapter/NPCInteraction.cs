@@ -1,15 +1,28 @@
 using UnityEngine;
 
 public class NPCInteraction : MonoBehaviour
-
-
 {
     public Animator animator;
     private bool isSpeaking = false;
     public string[] dialogueLines;
+
+    public GameObject bed;
+    public GameObject[] sticks;
+    public GameObject[] plants;
+
+    private InteractionPromptUI interactionPromptUI;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        
+        SetObjectVisibility(bed, false);
+        SetObjectsVisibility(sticks, false);
+        SetObjectsVisibility(plants, false);
+
+        
+        interactionPromptUI = FindObjectOfType<InteractionPromptUI>();
     }
 
     public void Interact()
@@ -22,7 +35,11 @@ public class NPCInteraction : MonoBehaviour
         {
             if (isSpeaking)
             {
-             speechBubble.ShowSpeechBubble(dialogueLines);   
+                speechBubble.ShowSpeechBubble(dialogueLines);
+                SetObjectVisibility(bed, true);
+                SetObjectsVisibility(sticks, true);
+                SetObjectsVisibility(plants, true);
+                interactionPromptUI.SetUp(null); 
             }
             else
             {
@@ -50,10 +67,22 @@ public class NPCInteraction : MonoBehaviour
         {
             speechBubble.HideSpeechBubble();
         }
-        
-        
-        
-        
-        
+    }
+
+    private void SetObjectVisibility(GameObject obj, bool isVisible)
+    {
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = isVisible;
+        }
+    }
+
+    private void SetObjectsVisibility(GameObject[] objs, bool isVisible)
+    {
+        foreach (GameObject obj in objs)
+        {
+            SetObjectVisibility(obj, isVisible);
+        }
     }
 }
