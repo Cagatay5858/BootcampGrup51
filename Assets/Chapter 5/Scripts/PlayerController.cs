@@ -1,146 +1,118 @@
 using UnityEngine;
-using UnityEngine.UI;
 using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
-    private CharacterController characterController;
-    private Animator animator;
-    private Vector3 moveDirection;
-
-    public float walkSpeed = 2.0f;
-    public float runSpeed = 6.0f;
-    public float aimSpeed = 1.0f; // Aim speed
-    public float rotationSpeed = 700.0f;
-    public float gravity = 9.81f;
-
-    public CinemachineFreeLook freeLookCamera;
+    public Animator animator;
+    public float speed = 5.0f;
+    public float aimSpeed = 2.0f;
+    public float aimSensitivity = 0.5f;
+    public float followSensitivity = 0.5f;
+    public CinemachineVirtualCamera followCamera;
     public CinemachineVirtualCamera aimCamera;
-    public Image crosshair;
+    public GameObject crosshair;
+    public Transform weapon;
 
-    private bool isRunning;
-    private bool isAiming;
+    private bool isAiming = false;
+    private Vector2 input;
+    private CharacterController characterController;
+    private float turnSmoothVelocity;
+    private float turnSmoothTime = 0.1f;
+    private float pitch = 0.0f;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
-        freeLookCamera.Priority = 10;
-        aimCamera.Priority = 5;
-
-        if (crosshair == null)
-        {
-            Debug.LogError("Crosshair UI element is not assigned.");
-        }
-        else
-        {
-            crosshair.gameObject.SetActive(false);
-        }
-
-        
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        crosshair.SetActive(false);
+        aimCamera.Priority = 9;
     }
 
     void Update()
     {
         HandleMovement();
-        HandleRotation();
-        HandleAim();
+        HandleAiming();
+        if (isAiming)
+        {
+            AimWeaponAtCrosshair();
+        }
     }
 
     void HandleMovement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
 
-        isRunning = Input.GetKey(KeyCode.LeftShift) && vertical > 0; 
-        float speed = isRunning ? runSpeed : walkSpeed;
+        Vector3 direction = new Vector3(input.x, 0, input.y).normalized;
+
+        if (direction.magnitude >= 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), Time.deltaTime * 5f); 
+
+            Vector3 moveDirection = Quaternion.Euler(0, targetAngle, 0) * Vector3.forward;
+            characterController.Move(moveDirection * speed * Time.deltaTime);
+
+            animator.SetFloat("x", input.x);
+            animator.SetFloat("y", input.y);
+        }
+        else
+        {
+            animator.SetFloat("x", 0);
+            animator.SetFloat("y", 0);
+        }
+
+        if (!isAiming) 
+        {
+            HandleMouseRotation();
+        }
+    }
+
+    void HandleAiming()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            isAiming = true;
+            aimCamera.Priority = 11;
+            followCamera.Priority = 9;
+            crosshair.SetActive(true);
+        }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            isAiming = false;
+            aimCamera.Priority = 9;
+            followCamera.Priority = 11;
+            crosshair.SetActive(false);
+        }
 
         if (isAiming)
         {
-            speed = aimSpeed;
-        }
-
-        
-        if (vertical < 0)
-        {
-            speed = walkSpeed * 2f;
-        }
-        
-        if (vertical > 0 && horizontal != 0)
-        {
-            speed = runSpeed * 0.75f; 
-        }
-
-        
-        if (horizontal != 0 && vertical == 0)
-        {
-            speed = runSpeed * 1.25f; 
-            animator.speed = isRunning ? 1.75f : 1.25f; 
-        }
-
-        moveDirection = new Vector3(horizontal, 0, vertical).normalized;
-        moveDirection = transform.TransformDirection(moveDirection) * speed;
-
-        moveDirection.y -= gravity * Time.deltaTime;
-        characterController.Move(moveDirection * Time.deltaTime);
-
-        animator.SetFloat("x", horizontal);
-        animator.SetFloat("y", vertical);
-        animator.SetBool("isRunning", isRunning);
-        animator.SetBool("isAiming", isAiming);
-
-        
-        if (horizontal < 0 || vertical < 0)
-        {
-            animator.speed = 1.5f;
-            
-        }
-        else
-        {
-            animator.speed = isRunning ? 1.5f : 1.0f; 
+            HandleMouseRotation();
         }
     }
 
-    void HandleRotation()
+    void HandleMouseRotation()
     {
-        Vector3 mouseWorldPosition = GetMouseWorldPosition();
-        if (mouseWorldPosition != Vector3.zero)
-        {
-            Vector3 direction = (mouseWorldPosition - transform.position).normalized;
-            direction.y = 0; 
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
-        }
+        float mouseX = Input.GetAxis("Mouse X") * (isAiming ? aimSensitivity : followSensitivity);
+        float mouseY = Input.GetAxis("Mouse Y") * (isAiming ? aimSensitivity : followSensitivity);
+
+        transform.Rotate(Vector3.up * mouseX);
+
+        pitch -= mouseY;
+        pitch = Mathf.Clamp(pitch, -45f, 45f);
+
+        Vector3 targetRotation = transform.eulerAngles;
+        targetRotation.x = pitch;
+        Camera.main.transform.localEulerAngles = targetRotation;
     }
 
-    Vector3 GetMouseWorldPosition()
+    void AimWeaponAtCrosshair()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
-            return hit.point;
-        }
-        return Vector3.zero;
-    }
-
-    void HandleAim()
-    {
-        if (Input.GetMouseButton(1)) 
-        {
-            isAiming = true;
-            freeLookCamera.Priority = 5;
-            aimCamera.Priority = 10;
-            crosshair.gameObject.SetActive(true);
-        }
-        else
-        {
-            isAiming = false;
-            freeLookCamera.Priority = 10;
-            aimCamera.Priority = 5;
-            crosshair.gameObject.SetActive(false);
+            Vector3 targetPoint = hitInfo.point;
+            weapon.LookAt(targetPoint);
         }
     }
 }
