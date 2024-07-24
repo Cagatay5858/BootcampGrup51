@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public class BumperCarController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class BumperCarController : MonoBehaviour
     public GameObject projectilePrefab;
     public float projectileSpeed = 2f;
 
+    public TMPro.TMP_Text health;
+
     private Rigidbody rb;
     private Transform modelTransform;
     private Vector3 startPosition;
@@ -32,6 +35,8 @@ public class BumperCarController : MonoBehaviour
         startRotation = transform.rotation;
 
         currentHealth = maxHealth;
+        var chstring = currentHealth.ToString();
+        health.text = "Bear Health : " + chstring;
     }
 
     void Update()
@@ -106,6 +111,9 @@ public class BumperCarController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        var chString = currentHealth.ToString();
+        health.text = "Bear Health : " + chString;
+
         if (currentHealth <= 0)
         {
             Destroy(gameObject);

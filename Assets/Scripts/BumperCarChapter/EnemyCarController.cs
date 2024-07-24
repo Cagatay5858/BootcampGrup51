@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
+using TMPro;
 
 public class EnemyCarController : MonoBehaviour
 {
     public Transform player;
+    public string EnemysName;
     public float acceleration = 10f;
     public float maxSpeed = 10f;
     public float rotationSpeed = 5f;
@@ -17,6 +19,8 @@ public class EnemyCarController : MonoBehaviour
     public float slowMotionFactor = 0.4f;
     public int maxHealth = 100;
     public int currentHealth;
+
+    public TMPro.TMP_Text healthUI;
 
     public GameObject explosionPrefab;
 
@@ -41,6 +45,8 @@ public class EnemyCarController : MonoBehaviour
         startRotation = transform.rotation;
 
         currentHealth = maxHealth;
+        var cHstring = currentHealth.ToString();
+        healthUI.text = EnemysName + " Health : " + cHstring;
 
         agent.updatePosition = true;
         agent.updateRotation = true;
@@ -112,6 +118,8 @@ public class EnemyCarController : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
+        var cHString = currentHealth.ToString();
+        healthUI.text = EnemysName + " Health : " + cHString;
         if (currentHealth <= 0)
         {
             Explode();
