@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08488958, g: 0.27896926, b: 0.4833455, a: 1}
+  m_IndirectSpecularColor: {r: 0.085283644, g: 0.2791153, b: 0.48334765, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3526,19 +3526,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8781929
+      value: 0.87819284
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.87819296
+      value: 0.878193
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.7229233
+      value: 1.7229252
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.790196
+      value: -2.7901962
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3550,7 +3550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0014280133
+      value: 0.0014280117
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3558,7 +3558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0039928555
+      value: 0.003992858
       objectReference: {fileID: 0}
     - target: {fileID: 7115982526703405171, guid: 15f2f61c86005324ab3630e8b1ba2747, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4749,7 +4749,7 @@ MonoBehaviour:
   Inventory: {fileID: 1944585410}
   inReach: 0
   stick: {fileID: 1515157608}
-  plant: {fileID: 0}
+  plant: {fileID: 640208966}
   TeddyBear: {fileID: 1944585405}
 --- !u!54 &1515157613
 Rigidbody:
@@ -5655,8 +5655,8 @@ Transform:
   - {fileID: 104404200}
   - {fileID: 672646325}
   - {fileID: 1100822049}
-  - {fileID: 177919505}
   - {fileID: 1294755221}
+  - {fileID: 177919505}
   - {fileID: 439253423}
   - {fileID: 1495420383}
   m_Father: {fileID: 0}
@@ -6047,7 +6047,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764993036}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.23267248, y: -0.612519, z: 0.19529292, w: 0.7297566}
+  m_LocalRotation: {x: 0.2326725, y: -0.612519, z: 0.19529295, w: 0.7297566}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6773,6 +6773,19 @@ MonoBehaviour:
   - 6
   - 7
   - 8
+  bed: {fileID: 2114556987}
+  sticks:
+  - {fileID: 745040845}
+  - {fileID: 1515157608}
+  - {fileID: 1203368204}
+  - {fileID: 104404201}
+  - {fileID: 672646326}
+  plants:
+  - {fileID: 640208966}
+  - {fileID: 1344867011}
+  - {fileID: 250426553}
+  - {fileID: 871096225}
+  - {fileID: 579506103}
 --- !u!136 &1971021789
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7266,9 +7279,10 @@ MonoBehaviour:
   transparentMaterialFrame: {fileID: 2100000, guid: f1af9ca053c735f48bfde26c2387e22a, type: 2}
   normalMaterialFrame: {fileID: 2100000, guid: 2750d52fc0ccf3c48bc0e326fe855bca, type: 2}
   requiredStickCount: 4
-  requiredPlantCount: 0
+  requiredPlantCount: 4
   interactor: {fileID: 1944585411}
   isPlayerColliding: 0
+  isBedConstructed: 0
   craftingParticleEffect: {fileID: 1112022066}
   largeColliderObject: {fileID: 846391995}
   popupUI: {fileID: 1749706803}
