@@ -3,7 +3,26 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< Updated upstream
   tags: []
+=======
+  tags:
+  - Car
+  - PowerUp
+  - Wall
+  - Stick
+  - FootCollider
+  - Ground
+  - CarDestroyer
+  - Bed
+  - DangerZone
+  - ChasePowerUp
+  - ground
+  - Toys
+  - Pickupable
+  - Item
+  - FxTemporaire
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -11,11 +30,19 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< Updated upstream
   - 
   - 
   - 
   - 
   - 
+=======
+  - groundMask
+  - Collectibles
+  - dangerZoneMask
+  - Ground
+  - holdLayer
+>>>>>>> Stashed changes
   - 
   - 
   - 
