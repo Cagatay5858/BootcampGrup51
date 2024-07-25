@@ -182,13 +182,13 @@ AnimatorStateMachine:
     m_Position: {x: 460, y: -290, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7140166299791015985}
-    m_Position: {x: 790, y: -160, z: 0}
+    m_Position: {x: 830, y: -300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6999429997123833170}
-    m_Position: {x: 270, y: -140, z: 0}
+    m_Position: {x: 180, y: -440, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3227038426981109726}
-    m_Position: {x: 460, y: -450, z: 0}
+    m_Position: {x: 480, y: -460, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1265682641081375834}
     m_Position: {x: 440, y: 10, z: 0}
@@ -363,31 +363,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isSprinting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isWalking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isGrounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isLifting
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -463,6 +463,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: isSprinting
+    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: walkSpeed
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7140166299791015985}
