@@ -67,6 +67,15 @@ public class ToyCollectorBearController : MonoBehaviour
     private Vector3 jointOriginalPos;
     private float timer = 0;
     
+    
+    public float walkBobSpeed = 14f;
+    public float walkBobAmount = 0.05f;
+    public float sprintBobSpeed = 18f;
+    public float sprintBobAmount = 0.1f;
+    private float defaultYPos = 0;
+    private float headBobTimer = 0;
+    
+    
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -226,12 +235,24 @@ public class ToyCollectorBearController : MonoBehaviour
             }
         }
         
-        if(Input.GetKeyDown(jumpKey) && isGrounded)
-        { 
-            Jump();
-            CheckGround();
+        if (isWalking || isSprinting)
+        {
+            headBobTimer += Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed);
+            playerCamera.transform.localPosition = new Vector3(
+                playerCamera.transform.localPosition.x,
+                10 + Mathf.Sin(headBobTimer) * (isSprinting ? sprintBobAmount : walkBobAmount),
+                playerCamera.transform.localPosition.z
+            );
         }
-        
+        else
+        {
+            headBobTimer = 0;
+            playerCamera.transform.localPosition = new Vector3(
+                playerCamera.transform.localPosition.x,
+                Mathf.Lerp(playerCamera.transform.localPosition.y , 10, Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed)),
+                playerCamera.transform.localPosition.z
+            );
+        }
     }
 
     void FixedUpdate()

@@ -10679,6 +10679,10 @@ MonoBehaviour:
   jumpKey: 32
   jumpPower: 25
   joint: {fileID: 4459864851539343352}
+  walkBobSpeed: 15
+  walkBobAmount: 0.2
+  sprintBobSpeed: 19
+  sprintBobAmount: 0.4
 --- !u!137 &8943557523741622015
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
