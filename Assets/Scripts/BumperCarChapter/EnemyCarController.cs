@@ -29,7 +29,6 @@ public class EnemyCarController : MonoBehaviour
     private Vector3 startPosition;
     private Quaternion startRotation;
 
-    private bool isAccelerating = false;
     private float currentSpeed = 0f;
     private float targetSpeed = 0f;
     private float randomChangeTime = 0f;
