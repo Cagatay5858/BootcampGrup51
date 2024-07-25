@@ -147,10 +147,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiPanel: {fileID: 4132543305824915111}
-  _promptText: {fileID: 1246169004835598170}
-  _distanceFromCamera: 8
-  _minHeight: 4
-  IsDisplayed: 0
+  _promptImage: {fileID: 0}
+  _initialScale: {x: 1, y: 1, z: 1}
+  _targetScale: {x: 1.5, y: 1.5, z: 1.5}
+  _animationDuration: 1
 --- !u!1 &3530251880147144390
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,7 +850,11 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
+  dangerZoneMask:
+    serializedVersion: 2
+    m_Bits: 0
   animator: {fileID: 3596726440692008687}
+  interactionDistance: 2
 --- !u!114 &5483306744359495771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -864,6 +868,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stickCount: 0
+  plantCount: 0
 --- !u!114 &6563204876282970214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -880,6 +885,6 @@ MonoBehaviour:
   _interactionPointRadius: 0.75
   _interactableMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   _interactionPromptUI: {fileID: 3712448627477607385}
   _numFound: 0
