@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [RequireComponent(typeof(CharacterController))]
 public class ThirdPersonController : MonoBehaviour
@@ -9,27 +11,27 @@ public class ThirdPersonController : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
     public float turnSmoothTime = 0.1f;
-    float turnSmoothVelocity;
-
-    private Vector3 velocity;
-    private bool isGrounded;
-
+    public float turnSmoothVelocity;
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     public LayerMask dangerZoneMask;
-
     public Animator animator;
+     public float interactionDistance = 2f;
+     
     private Inventory inventory;
     private GameObject stick;
-
-    public float interactionDistance = 2f;
+    private Vector3 velocity;
+    private bool isGrounded;
     private NPCInteraction currentNPC;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         inventory = GetComponent<Inventory>();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
     }
 
     void Update()
@@ -148,5 +150,10 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
         
+    }
+
+    void OnLyingDownAnimationComplete()
+    {
+        SceneManager.LoadScene("Stage1");
     }
 }

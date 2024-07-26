@@ -20,11 +20,15 @@ public class Bed : MonoBehaviour
     public Interactor interactor;
 
     public bool isPlayerColliding = false;
-    public bool isBedConstructed = false; 
+    public bool isBedConstructed = false;
+    public bool isPlayerSleeping = false;
 
     public ParticleSystem craftingParticleEffect;
     public GameObject largeColliderObject;
     public PopupUI popupUI;
+    public Animator playerAnimator; // Reference to the player's Animator component
+
+    public Transform sleepPosition; // Position where the player should be repositioned
 
     void Start()
     {
@@ -50,19 +54,30 @@ public class Bed : MonoBehaviour
 
         largeColliderObject.GetComponent<Collider>().isTrigger = true;
         popupUI = FindObjectOfType<PopupUI>();
+        playerAnimator =
+            GameObject.FindWithTag("Player").GetComponent<Animator>(); // Assuming the player has a "Player" tag
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding && !isBedConstructed) 
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding)
         {
-            if (playerInventory.stickCount >= requiredStickCount && playerInventory.plantCount >= requiredPlantCount)
+            if (!isBedConstructed)
             {
-                ConstructBed();
+                if (playerInventory.stickCount >= requiredStickCount &&
+                    playerInventory.plantCount >= requiredPlantCount)
+                {
+                    ConstructBed();
+                }
+                else
+                {
+                    popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount, playerInventory.plantCount,
+                        requiredPlantCount);
+                }
             }
-            else
+            else if (!isPlayerSleeping)
             {
-                popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount, playerInventory.plantCount, requiredPlantCount);
+                PlayerSleep();
             }
         }
     }
@@ -85,10 +100,10 @@ public class Bed : MonoBehaviour
 
     void ConstructBed()
     {
-        isBedConstructed = true; 
+        isBedConstructed = true;
         ChangeToNormalMaterials();
         objectCollider.isTrigger = false;
-        largeColliderObject.SetActive(false); 
+        largeColliderObject.SetActive(false);
         PlayCraftingParticleEffect();
     }
 
@@ -108,5 +123,29 @@ public class Bed : MonoBehaviour
         {
             craftingParticleEffect.Play();
         }
+    }
+
+    void PlayerSleep()
+    {
+        isPlayerSleeping = true;
+        RepositionPlayer();
+        playerAnimator.SetTrigger("Sleep"); 
+    }
+
+    void RepositionPlayer()
+    {
+        Transform playerTransform = playerAnimator.transform; 
+        CharacterController controller = playerTransform.GetComponent<CharacterController>();
+        if (controller != null)
+        {
+            controller.enabled = false;
+        }
+        playerTransform.position = sleepPosition.position; 
+        playerTransform.rotation = sleepPosition.rotation; 
+        if (controller != null)
+        {
+            controller.enabled = true;
+        }
+
     }
 }
