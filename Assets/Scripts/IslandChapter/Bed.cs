@@ -130,6 +130,7 @@ public class Bed : MonoBehaviour
         isPlayerSleeping = true;
         RepositionPlayer();
         playerAnimator.SetTrigger("Sleep"); 
+        
     }
 
     void RepositionPlayer()
