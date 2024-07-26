@@ -1,0 +1,36 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/options.rpy", line 21, in script
+    define gui.show_name = FalseS
+  File "game/options.rpy", line 21, in script
+    define gui.show_name = FalseS
+  File "game/options.rpy", line 21, in <module>
+    define gui.show_name = FalseS
+NameError: name 'FalseS' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "renpy/bootstrap.py", line 274, in bootstrap
+    renpy.main.main()
+  File "renpy/main.py", line 558, in main
+    renpy.game.context().run(node)
+  File "game/options.rpy", line 21, in script
+    define gui.show_name = FalseS
+  File "game/options.rpy", line 21, in script
+    define gui.show_name = FalseS
+  File "renpy/ast.py", line 2441, in execute
+    self.set()
+  File "renpy/ast.py", line 2455, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "renpy/python.py", line 1073, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/options.rpy", line 21, in <module>
+    define gui.show_name = FalseS
+NameError: name 'FalseS' is not defined
+
+Windows-10-10.0.19041 AMD64
+Ren'Py 7.5.1.22070801
+GrungeGui 1.0
+Fri Jul 22 13:46:32 2022
