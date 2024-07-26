@@ -253,6 +253,12 @@ public class ToyCollectorBearController : MonoBehaviour
                 playerCamera.transform.localPosition.z
             );
         }
+        
+        if (enableJump && Input.GetKeyDown(jumpKey) && isGrounded)
+        {
+            Jump();
+        }
+
     }
 
     void FixedUpdate()
@@ -321,6 +327,9 @@ public class ToyCollectorBearController : MonoBehaviour
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
             }
         }
+
+      
+        
     }
 
     
@@ -330,7 +339,7 @@ public class ToyCollectorBearController : MonoBehaviour
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
         
-        float raycastDistance = (transform.localScale.y * 0.0025f) + 0.1f;
+        float raycastDistance = (transform.localScale.y * 0.00022f) + 0.1f;
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
             isGrounded = true;
@@ -345,7 +354,7 @@ public class ToyCollectorBearController : MonoBehaviour
     {
         
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, Vector3.down * ((transform.localScale.y * 0.0025f) + 0.001f));
+        Gizmos.DrawRay(transform.position, Vector3.down * ((transform.localScale.y * 0.00022f) + 0.001f));
 
         Gizmos.color = isGrounded ? Color.green : Color.red;
         Gizmos.DrawSphere(transform.position - new Vector3(0, (transform.localScale.y * 0.5f) + 0.1f, 0), 0.1f);

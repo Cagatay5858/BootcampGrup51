@@ -1,31 +1,37 @@
+using System;
 using UnityEngine;
 
 public class ToyInteraction : MonoBehaviour
 {
-    public Transform handTransform; // The transform where the toy will be held
+    public Transform handTransform; 
     public float toyScaleFactor = 0.5f;
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode dropKey = KeyCode.R;
-    public float maxThrowForce = 20f; // Maximum force applied to the toy when thrown
-    public float throwChargeTime = 2f; // Time required to reach maximum throw force
+    public float maxThrowForce = 50f; 
+    public float throwChargeTime = 1f; 
 
     private GameObject currentToy = null;
     private Vector3 originalToyScale;
     private bool isHoldingToy = false;
     private Collider toyToPickup = null;
-    private Rigidbody toyRigidbody = null; // Store the Rigidbody component
-    private float throwCharge = 0f; // Charge amount for throw force
-    private bool isChargingThrow = false; // Flag to track if charging throw
+    private Rigidbody toyRigidbody = null;
+    private float throwCharge = 0f;
+    private bool isChargingThrow = false;
+    
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     void Update()
     {
         if (isHoldingToy)
         {
-            // Ensure the toy stays fixed in the hand
             currentToy.transform.localPosition = Vector3.zero;
             currentToy.transform.localRotation = Quaternion.identity;
 
-            // Handle throw charging
             if (Input.GetKey(dropKey))
             {
                 isChargingThrow = true;
@@ -33,7 +39,6 @@ public class ToyInteraction : MonoBehaviour
                 throwCharge = Mathf.Clamp(throwCharge, 0, throwChargeTime);
             }
 
-            // Handle dropping the toy
             if (Input.GetKeyUp(dropKey))
             {
                 DropToy();
@@ -42,7 +47,6 @@ public class ToyInteraction : MonoBehaviour
         }
         else
         {
-            // Handle picking up the toy
             if (Input.GetKeyDown(pickupKey) && toyToPickup != null)
             {
                 PickupToy(toyToPickup.gameObject);
@@ -75,7 +79,6 @@ public class ToyInteraction : MonoBehaviour
         toy.transform.localPosition = Vector3.zero;
         toy.transform.localRotation = Quaternion.identity;
 
-        // Disable the Rigidbody
         toyRigidbody = toy.GetComponent<Rigidbody>();
         if (toyRigidbody != null)
         {
@@ -85,27 +88,28 @@ public class ToyInteraction : MonoBehaviour
 
         isHoldingToy = true;
         toyToPickup = null;
+
+        animator.SetBool("isHoldingToy", true); 
     }
 
     void DropToy()
     {
-        // Check if the player is inside the drop zone
         if (IsInsideDropZone())
         {
-            // Add points if inside drop zone
-            // Implement your point system logic here
+            
         }
 
-        // Re-enable the Rigidbody
         if (toyRigidbody != null)
         {
             toyRigidbody.isKinematic = false;
             toyRigidbody.detectCollisions = true;
 
-            // Calculate throw force
             float throwForce = (throwCharge / throwChargeTime) * maxThrowForce;
-            Vector3 throwDirection = handTransform.forward; // Throw forward
+            Vector3 throwDirection = handTransform.forward;
+
             toyRigidbody.AddForce(throwDirection * throwForce, ForceMode.Impulse);
+            toyRigidbody.drag = 0.1f; 
+            toyRigidbody.angularDrag = 0.01f; 
 
             toyRigidbody = null;
         }
@@ -114,14 +118,13 @@ public class ToyInteraction : MonoBehaviour
         currentToy.transform.localScale = originalToyScale;
         currentToy = null;
         isHoldingToy = false;
-        throwCharge = 0f; // Reset throw charge
+        throwCharge = 0f;
+
+        animator.SetBool("isHoldingToy", false); 
     }
 
     bool IsInsideDropZone()
     {
-        // Implement logic to check if the player is inside the drop zone collider
-        // This could be done with a trigger collider or by checking proximity to a specific object
-        // Example:
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
         foreach (var hitCollider in hitColliders)
         {
