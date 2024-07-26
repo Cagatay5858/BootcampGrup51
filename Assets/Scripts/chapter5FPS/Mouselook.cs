@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class Mouselook : MonoBehaviour
 {
-    [Range(50, 500)]
-    public float sens;
+    
+    public float sens = 250f;
 
-    public Transform body;
+    float xRotation = 0f;
+    float yRotation = 0f;
 
-    float xRot = 0f;
+    public float topClamp = -90f;
+    public float bottomClamp = 90f;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     private void Update()
     {
-        float rotX = Input.GetAxisRaw("Mouse X") * sens * Time.deltaTime;
-        float rotY = Input.GetAxisRaw("Mouse Y") * sens * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * sens * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sens * Time.deltaTime;
 
-        xRot -= rotY;
+        xRotation -= mouseY;
 
-        xRot = Mathf.Clamp(xRot, -80f, 80f);
+        xRotation = Mathf.Clamp(xRotation, topClamp, bottomClamp);
 
-        transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
+        yRotation += mouseX;
 
-        body.Rotate(Vector3.up * rotX);
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 }
