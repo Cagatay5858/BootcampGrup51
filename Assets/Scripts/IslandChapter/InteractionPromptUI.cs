@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,7 +21,7 @@ public class InteractionPromptUI : MonoBehaviour
         _uiPanel.transform.localScale = _initialScale; 
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (_mainCam == null)
         {

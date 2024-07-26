@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08535401, g: 0.27920732, b: 0.48341608, a: 1}
+  m_IndirectSpecularColor: {r: 0.085689776, g: 0.27942812, b: 0.48362827, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -535,7 +535,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172558534}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20819873, y: -0.61869335, z: 0.17475118, w: 0.7371119}
+  m_LocalRotation: {x: 0.20819874, y: -0.61869335, z: 0.17475119, w: 0.7371119}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   Inventory: {fileID: 68021987752290910}
   inReach: 0
   stick: {fileID: 745040845}
-  plant: {fileID: 0}
+  plant: {fileID: 640208966}
   TeddyBear: {fileID: 2353385967975875626}
 --- !u!54 &745040853
 Rigidbody:
@@ -2193,7 +2193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003205598}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.25710544, y: -0.60559833, z: 0.21580087, w: 0.7215105}
+  m_LocalRotation: {x: 0.2571054, y: -0.60559833, z: 0.2158009, w: 0.7215105}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8370,7 +8370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984572204749952150}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.025119245, y: -0.939339, z: 0.3347271, w: 0.07049167}
+  m_LocalRotation: {x: 0.025119262, y: -0.939339, z: 0.3347272, w: 0.07049171}
   m_LocalPosition: {x: 0.009046013, y: 0.059479553, z: 0.059932113}
   m_LocalScale: {x: 0.008155943, y: 0.008155943, z: 0.008155942}
   m_ConstrainProportionsScale: 1
