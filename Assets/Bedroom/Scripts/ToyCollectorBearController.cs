@@ -61,7 +61,7 @@ public class ToyCollectorBearController : MonoBehaviour
     public float jumpPower = 5f;
     private bool isGrounded = false;
     
-    private bool isCrouched = false;
+    
     private Vector3 originalScale;
     public Transform joint;
     private Vector3 jointOriginalPos;

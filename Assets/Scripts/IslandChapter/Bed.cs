@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bed : MonoBehaviour
+public class Bed : MonoBehaviour, IInteractable
 {
     public Material transparentMaterialMatressPillow;
     public Material normalMaterialMatressPillow;
@@ -26,6 +26,10 @@ public class Bed : MonoBehaviour
     public GameObject largeColliderObject;
     public PopupUI popupUI;
 
+    private Animator playerAnimator;
+    private Transform playerTransform;
+    private ThirdPersonController playerController;
+
     void Start()
     {
         requiredStickCount = 3;
@@ -47,6 +51,8 @@ public class Bed : MonoBehaviour
         bedpostsRenderer.material = transparentMaterialFrame;
 
         playerInventory = FindObjectOfType<Inventory>();
+        playerAnimator = FindObjectOfType<Animator>();
+        playerController = FindObjectOfType<ThirdPersonController>();
 
         largeColliderObject.GetComponent<Collider>().isTrigger = true;
         popupUI = FindObjectOfType<PopupUI>();
@@ -54,15 +60,22 @@ public class Bed : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding && !isBedConstructed) 
+        if (Input.GetKeyDown(KeyCode.E) && isPlayerColliding)
         {
-            if (playerInventory.stickCount >= requiredStickCount && playerInventory.plantCount >= requiredPlantCount)
+            if (!isBedConstructed)
             {
-                ConstructBed();
+                if (playerInventory.stickCount >= requiredStickCount && playerInventory.plantCount >= requiredPlantCount)
+                {
+                    ConstructBed();
+                }
+                else
+                {
+                    popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount, playerInventory.plantCount, requiredPlantCount);
+                }
             }
             else
             {
-                popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount, playerInventory.plantCount, requiredPlantCount);
+                TeleportPlayerToBed();
             }
         }
     }
@@ -72,6 +85,7 @@ public class Bed : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerColliding = true;
+            interactor._interactionPromptUI.SetUp(transform);
         }
     }
 
@@ -80,6 +94,7 @@ public class Bed : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerColliding = false;
+            interactor._interactionPromptUI.Close();
         }
     }
 
@@ -108,5 +123,36 @@ public class Bed : MonoBehaviour
         {
             craftingParticleEffect.Play();
         }
+    }
+
+    void TeleportPlayerToBed()
+    {
+        playerController.enabled = false;
+        playerTransform = playerController.transform;
+        playerTransform.position = transform.position + new Vector3(0, 1, 0); 
+        playerAnimator.SetTrigger("Sleep"); 
+        playerController.enabled = true;
+    }
+
+    public string InteractionPrompt => "Press E to construct or sleep";
+
+    public bool Interact(Interactor interactor)
+    {
+        if (!isBedConstructed)
+        {
+            if (playerInventory.stickCount >= requiredStickCount && playerInventory.plantCount >= requiredPlantCount)
+            {
+                ConstructBed();
+            }
+            else
+            {
+                popupUI.ShowPopup(playerInventory.stickCount, requiredStickCount, playerInventory.plantCount, requiredPlantCount);
+            }
+        }
+        else
+        {
+            TeleportPlayerToBed();
+        }
+        return true;
     }
 }

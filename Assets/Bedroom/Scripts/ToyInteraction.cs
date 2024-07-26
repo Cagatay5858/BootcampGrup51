@@ -1,14 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class ToyInteraction : MonoBehaviour
 {
-    public Transform handTransform; 
+    public Transform handTransform;
     public float toyScaleFactor = 0.5f;
     public KeyCode pickupKey = KeyCode.E;
     public KeyCode dropKey = KeyCode.R;
-    public float maxThrowForce = 50f; 
-    public float throwChargeTime = 1f; 
+    public float maxThrowForce = 50f;
+    public float throwChargeTime = 1f;
+    public Camera playerCamera; 
 
     private GameObject currentToy = null;
     private Vector3 originalToyScale;
@@ -17,12 +19,32 @@ public class ToyInteraction : MonoBehaviour
     private Rigidbody toyRigidbody = null;
     private float throwCharge = 0f;
     private bool isChargingThrow = false;
+
+    public Animator animator; 
+
     
-    private Animator animator;
+    public Image chargeBarBG;
+    public Image chargeBar;
+    public float chargeBarWidthPercent = .3f;
+    public float chargeBarHeightPercent = .015f;
+    private CanvasGroup chargeBarCG;
+    private float chargeBarWidth;
+    private float chargeBarHeight;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+       
+        float screenWidth = Screen.width;
+        float screenHeight = Screen.height;
+
+        chargeBarWidth = screenWidth * chargeBarWidthPercent;
+        chargeBarHeight = screenHeight * chargeBarHeightPercent;
+
+        chargeBarBG.rectTransform.sizeDelta = new Vector3(chargeBarWidth, chargeBarHeight, 0f);
+        chargeBar.rectTransform.sizeDelta = new Vector3(chargeBarWidth - 2, chargeBarHeight - 2, 0f);
+
+        chargeBarCG = chargeBarBG.GetComponent<CanvasGroup>();
+        chargeBarCG.alpha = 0;
     }
 
     void Update()
@@ -37,12 +59,20 @@ public class ToyInteraction : MonoBehaviour
                 isChargingThrow = true;
                 throwCharge += Time.deltaTime;
                 throwCharge = Mathf.Clamp(throwCharge, 0, throwChargeTime);
+
+                
+                chargeBarCG.alpha = 1;
+                float chargePercent = throwCharge / throwChargeTime;
+                chargeBar.transform.localScale = new Vector3(chargePercent, 1f, 1f);
             }
 
             if (Input.GetKeyUp(dropKey))
             {
                 DropToy();
                 isChargingThrow = false;
+
+                
+                chargeBarCG.alpha = 0;
             }
         }
         else
@@ -52,6 +82,9 @@ public class ToyInteraction : MonoBehaviour
                 PickupToy(toyToPickup.gameObject);
             }
         }
+
+        
+        animator.SetBool("isHoldingToy", isHoldingToy);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -88,28 +121,21 @@ public class ToyInteraction : MonoBehaviour
 
         isHoldingToy = true;
         toyToPickup = null;
-
-        animator.SetBool("isHoldingToy", true); 
     }
 
     void DropToy()
     {
-        if (IsInsideDropZone())
-        {
-            
-        }
-
         if (toyRigidbody != null)
         {
             toyRigidbody.isKinematic = false;
             toyRigidbody.detectCollisions = true;
 
             float throwForce = (throwCharge / throwChargeTime) * maxThrowForce;
-            Vector3 throwDirection = handTransform.forward;
+            Vector3 throwDirection = playerCamera.transform.forward; 
 
             toyRigidbody.AddForce(throwDirection * throwForce, ForceMode.Impulse);
-            toyRigidbody.drag = 0.1f; 
-            toyRigidbody.angularDrag = 0.01f; 
+            toyRigidbody.drag = 0.5f;
+            toyRigidbody.angularDrag = 0.05f;
 
             toyRigidbody = null;
         }
@@ -119,21 +145,5 @@ public class ToyInteraction : MonoBehaviour
         currentToy = null;
         isHoldingToy = false;
         throwCharge = 0f;
-
-        animator.SetBool("isHoldingToy", false); 
-    }
-
-    bool IsInsideDropZone()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
-        foreach (var hitCollider in hitColliders)
-        {
-            if (hitCollider.CompareTag("DropZone"))
-            {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
