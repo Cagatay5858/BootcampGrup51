@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,8 @@ public class FPSBearController : MonoBehaviour
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
     public float extraGravity = 2.0f;
+
+    private Vector3 initialCameraPosition;
     
     //Fire Crosshair
     public GameObject bulletPrefab;
@@ -96,7 +99,7 @@ public class FPSBearController : MonoBehaviour
         
         playerCamera.fieldOfView = fov;
         originalScale = transform.localScale;
-        jointOriginalPos = joint.localPosition;
+        //jointOriginalPos = joint.localPosition;
 
         if (!unlimitedSprint)
         {
@@ -108,6 +111,8 @@ public class FPSBearController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        initialCameraPosition = playerCamera.transform.localPosition;
         
         if(lockCursor)
         {
@@ -176,6 +181,7 @@ public class FPSBearController : MonoBehaviour
 
             transform.localEulerAngles = new Vector3(0, yaw, 0);
             playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+            
         }
 
         if (enableZoom)
@@ -253,18 +259,18 @@ public class FPSBearController : MonoBehaviour
         {
             headBobTimer += Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed);
             playerCamera.transform.localPosition = new Vector3(
-                playerCamera.transform.localPosition.x,
-                10 + Mathf.Sin(headBobTimer) * (isSprinting ? sprintBobAmount : walkBobAmount),
-                playerCamera.transform.localPosition.z
+                initialCameraPosition.x,
+                initialCameraPosition.y + Mathf.Sin(headBobTimer) * (isSprinting ? sprintBobAmount : walkBobAmount),
+                initialCameraPosition.z
             );
         }
         else
         {
             headBobTimer = 0;
             playerCamera.transform.localPosition = new Vector3(
-                playerCamera.transform.localPosition.x,
-                Mathf.Lerp(playerCamera.transform.localPosition.y , 10, Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed)),
-                playerCamera.transform.localPosition.z
+                initialCameraPosition.x,
+                Mathf.Lerp(playerCamera.transform.localPosition.y, initialCameraPosition.y, Time.deltaTime * (isSprinting ? sprintBobSpeed : walkBobSpeed)),
+                initialCameraPosition.z
             );
         }
         
@@ -362,15 +368,14 @@ public class FPSBearController : MonoBehaviour
       
         
     }
-    
+
 
     private void CheckGround()
     {
-       
         Ray ray = new Ray(transform.position, Vector3.down);
         RaycastHit hit;
-        
-        float raycastDistance = (transform.localScale.y * 0.00022f) + 0.1f;
+    
+        float raycastDistance = (transform.localScale.y * 0.0072f) + 0.1f;
         if (Physics.Raycast(ray, out hit, raycastDistance))
         {
             isGrounded = true;
@@ -383,13 +388,12 @@ public class FPSBearController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
         Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, Vector3.down * ((transform.localScale.y * 0.00022f) + 0.001f));
+        Gizmos.DrawRay(transform.position, Vector3.down * ((transform.localScale.y * 0.0072f) + 0.1f));
 
         Gizmos.color = isGrounded ? Color.green : Color.red;
         Gizmos.DrawSphere(transform.position - new Vector3(0, (transform.localScale.y * 0.5f) + 0.1f, 0), 0.1f);
-    }    
+    }
 
     private void Jump()
     {
@@ -404,7 +408,7 @@ public class FPSBearController : MonoBehaviour
     {
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
-        bulletRb.velocity = playerCamera.transform.forward * 100f;
+        bulletRb.velocity = playerCamera.transform.forward * 40f;
     }
 
     private IEnumerator FireContinously()
