@@ -4,7 +4,8 @@ using UnityEngine;
 public class HealthSystem {
 
     public event EventHandler OnHealthChanged;
-
+    public event EventHandler OnDead;
+    
     private float health;
     private float healthMax;
 
@@ -25,6 +26,10 @@ public class HealthSystem {
         health -= amount;
         if (health < 0) health = 0;
         OnHealthChanged?.Invoke(this, EventArgs.Empty);
+
+        if (health == 0) {
+            OnDead?.Invoke(this, EventArgs.Empty);
+        }
     }
 
     public void Heal(float amount) {

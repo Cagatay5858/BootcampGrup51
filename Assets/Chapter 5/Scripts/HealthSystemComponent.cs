@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class HealthSystemComponent : MonoBehaviour {
+public class HealthSystemComponent : MonoBehaviour
+{
     private HealthSystem healthSystem;
 
-    private void Awake() {
-        healthSystem = new HealthSystem(100f); 
+    private void Awake()
+    {
+        healthSystem = new HealthSystem(100f);
     }
 
-    public HealthSystem GetHealthSystem() {
+    public HealthSystem GetHealthSystem()
+    {
         return healthSystem;
     }
 }
