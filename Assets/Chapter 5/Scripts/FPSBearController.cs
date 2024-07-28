@@ -20,6 +20,8 @@ public class FPSBearController : MonoBehaviour
     public float extraGravity = 2.0f;
 
     private Vector3 initialCameraPosition;
+
+    public int playerHealth = 100;
     
     //Fire Crosshair
     public GameObject bulletPrefab;
@@ -409,6 +411,24 @@ public class FPSBearController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.velocity = playerCamera.transform.forward * 40f;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        playerHealth -= damage;
+            if (playerHealth <= 0)
+            {
+                Die();
+            }
+    }
+
+
+
+
+    private void Die()
+    {
+        // Oyuncunun ölmesiyle ilgili işlemler
+        Debug.Log("Player is dead.");
     }
 
     private IEnumerator FireContinously()
