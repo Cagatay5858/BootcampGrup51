@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,20 +9,33 @@ public class ThrowEnemyAI : MonoBehaviour
     public float attackRange = 10f;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
-    public float fireRate = 1f; // Saniyede kaç kere ateş edilecek
+    public float fireRate = 1f;
     private float nextFireTime = 0f;
 
     private NavMeshAgent agent;
+    private Animator animator;
     private bool isFiring;
+    public int maxHealth = 100;
+    public int currentHealth;
+    private HealthSystem healthSystem;
+    private bool isDead = false;
 
     private void Start()
     {
+        // Awake-like initialization
+        healthSystem = GetComponent<HealthSystemComponent>().GetHealthSystem();
+        healthSystem.OnDead += HealthSystem_OnDead;
+        animator = GetComponent<Animator>();
+        // --- //
         agent = GetComponent<NavMeshAgent>();
         isFiring = false;
+        currentHealth = maxHealth;
     }
 
     private void Update()
     {
+        if (isDead) return;
+
         if (target == null) return;
 
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
@@ -33,6 +45,28 @@ public class ThrowEnemyAI : MonoBehaviour
         {
             StartCoroutine(FireCoroutine());
             nextFireTime = Time.time + fireRate;
+        }
+    }
+
+    private void HealthSystem_OnDead(object sender, EventArgs e)
+    {
+        isDead = true;
+        agent.isStopped = true;
+        animator.SetTrigger("dead");
+        StartCoroutine(WaitForDeathAnimation());
+    }
+
+    private IEnumerator WaitForDeathAnimation()
+    {
+        yield return new WaitForSeconds(3);
+        Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (healthSystem != null)
+        {
+            healthSystem.OnDead -= HealthSystem_OnDead;
         }
     }
 
@@ -51,6 +85,8 @@ public class ThrowEnemyAI : MonoBehaviour
 
     private void Shoot()
     {
+        animator.SetTrigger("Throw"); // Fırlatma animasyonunu tetikle
+
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
         if (rb != null)

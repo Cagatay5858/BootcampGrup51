@@ -15,16 +15,15 @@ public class EnemyAI : MonoBehaviour
     public int currentHealth;
     private HealthSystem healthSystem;
     private bool isDead = false;
-
-    private void Awake()
-    {
-        healthSystem = GetComponent<HealthSystemComponent>().GetHealthSystem();
-        healthSystem.OnDead += HealthSystem_OnDead;
-        animator = GetComponent<Animator>();
-    }
+    
 
     private void Start()
     {
+        //awake func
+        healthSystem = GetComponent<HealthSystemComponent>().GetHealthSystem();
+        healthSystem.OnDead += HealthSystem_OnDead;
+        animator = GetComponent<Animator>();
+        //---//
         navMeshAgent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
     }
