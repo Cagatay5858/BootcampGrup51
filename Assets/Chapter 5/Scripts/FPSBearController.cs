@@ -411,8 +411,15 @@ public class FPSBearController : MonoBehaviour
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.velocity = playerCamera.transform.forward * 40f;
-    }
 
+        
+        Vector3 randomTorque = new Vector3(
+            UnityEngine.Random.Range(-1f, 1f),
+            UnityEngine.Random.Range(-1f, 1f),
+            UnityEngine.Random.Range(-1f, 1f)
+        ) * 10f; 
+        bulletRb.AddTorque(randomTorque, ForceMode.Impulse);
+    }
     public void TakeDamage(int damage)
     {
         playerHealth -= damage;

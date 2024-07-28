@@ -73,27 +73,34 @@ public class ThrowEnemyAI : MonoBehaviour
     private IEnumerator FireCoroutine()
     {
         isFiring = true;
+        agent.isStopped = true;
 
         while (Vector3.Distance(transform.position, target.position) <= attackRange)
         {
-            Shoot();
+            animator.SetTrigger("Throw"); 
             yield return new WaitForSeconds(fireRate);
         }
 
         isFiring = false;
+        agent.isStopped = false;
     }
 
+    
     private void Shoot()
     {
-        animator.SetTrigger("Throw"); // Fırlatma animasyonunu tetikle
+        
 
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
-        Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        if (rb != null)
+        int projectilesToShoot = UnityEngine.Random.Range(1, 4); 
+        for (int i = 0; i < projectilesToShoot; i++)
         {
-            Vector3 direction = (target.position - projectileSpawnPoint.position).normalized;
-            rb.velocity = direction * 10f; // Hızını ayarlayabilirsiniz
-            rb.AddTorque(new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)) * 10f, ForceMode.Impulse); // Yuvarlanma efekti
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+            Rigidbody rb = projectile.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                Vector3 direction = (target.position - projectileSpawnPoint.position).normalized;
+                rb.velocity = direction * 25f;
+                rb.AddTorque(new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)) * 10f, ForceMode.Impulse);
+            }
         }
     }
 }

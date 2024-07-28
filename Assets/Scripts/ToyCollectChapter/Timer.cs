@@ -23,14 +23,13 @@ public class Timer : MonoBehaviour
     {
         EventManager.TimerStart += EventManagerOnTimerStart;
         EventManager.TimerStop += EventManagerOnTimerStop;
-        EventManager.TimerUpdate += EventManagerOnTimerUpdated;
+       
     }
 
     private void OnDisable()
     {
         EventManager.TimerStart -= EventManagerOnTimerStart;
         EventManager.TimerStop -= EventManagerOnTimerStop;
-        EventManager.TimerUpdate -= EventManagerOnTimerUpdated;
     }
 
     private void EventManagerOnTimerStart()
@@ -44,16 +43,10 @@ public class Timer : MonoBehaviour
         _isRunning = false;
         Debug.Log("Timer Stopped");
     }
-
-    private void EventManagerOnTimerUpdated(float value)
-    {
-        timeToDisplay += value;
-        Debug.Log("Timer Updated");
-    }
-
+    
     private void Start()
     {
-        EventManager.OnTimerStart();  // Timer'ý oyun baþladýðýnda otomatik olarak çalýþtýr
+        EventManager.OnTimerStart();  
     }
 
     private void Update()
@@ -70,7 +63,7 @@ public class Timer : MonoBehaviour
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(timeToDisplay);
         _timerText.text = timeSpan.ToString(@"mm\:ss\:ff");
-        Debug.Log("Time: " + _timerText.text);
+        
     }
 }
 

@@ -3,7 +3,52 @@ guid: f5ec189316951a841bdeca4e81808efe
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 7014993891743807855, guid: 6ee7c2e2fac0d834486f71ba4e5e4fad, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blue
+    second: {fileID: -5545753773728640020, guid: 5d60424edb32d2945a3305b854571433, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: -7226732238714118219, guid: 6ee7c2e2fac0d834486f71ba4e5e4fad, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Green
+    second: {fileID: 239378781582670930, guid: 6ee7c2e2fac0d834486f71ba4e5e4fad, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grey
+    second: {fileID: 2100000, guid: c4d3a0c81c5ffb34889379e1a1cf85bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange
+    second: {fileID: -7226732238714118219, guid: 6ee7c2e2fac0d834486f71ba4e5e4fad, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orange Bump
+    second: {fileID: -8370973215901612630, guid: dd5c315fd54ca5f49be81cf6e996b279, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Red
+    second: {fileID: 2100000, guid: 6654366d45d22054abd260171b0f7c04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Yellow
+    second: {fileID: -8370973215901612630, guid: dd5c315fd54ca5f49be81cf6e996b279, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

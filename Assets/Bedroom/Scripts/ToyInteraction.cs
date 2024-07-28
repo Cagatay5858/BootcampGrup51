@@ -1,6 +1,6 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 
 public class ToyInteraction : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class ToyInteraction : MonoBehaviour
     public KeyCode dropKey = KeyCode.R;
     public float maxThrowForce = 50f;
     public float throwChargeTime = 1f;
-    public Camera playerCamera; 
+    public Camera playerCamera;
 
     private GameObject currentToy = null;
     private Vector3 originalToyScale;
@@ -20,9 +20,8 @@ public class ToyInteraction : MonoBehaviour
     private float throwCharge = 0f;
     private bool isChargingThrow = false;
 
-    public Animator animator; 
+    public Animator animator;
 
-    
     public Image chargeBarBG;
     public Image chargeBar;
     public float chargeBarWidthPercent = .3f;
@@ -31,9 +30,10 @@ public class ToyInteraction : MonoBehaviour
     private float chargeBarWidth;
     private float chargeBarHeight;
 
+    private Dictionary<GameObject, Vector3> toyOriginalScales = new Dictionary<GameObject, Vector3>();
+
     private void Start()
     {
-       
         float screenWidth = Screen.width;
         float screenHeight = Screen.height;
 
@@ -60,7 +60,6 @@ public class ToyInteraction : MonoBehaviour
                 throwCharge += Time.deltaTime;
                 throwCharge = Mathf.Clamp(throwCharge, 0, throwChargeTime);
 
-                
                 chargeBarCG.alpha = 1;
                 float chargePercent = throwCharge / throwChargeTime;
                 chargeBar.transform.localScale = new Vector3(chargePercent, 1f, 1f);
@@ -71,7 +70,6 @@ public class ToyInteraction : MonoBehaviour
                 DropToy();
                 isChargingThrow = false;
 
-                
                 chargeBarCG.alpha = 0;
             }
         }
@@ -83,7 +81,6 @@ public class ToyInteraction : MonoBehaviour
             }
         }
 
-        
         animator.SetBool("isHoldingToy", isHoldingToy);
     }
 
@@ -106,8 +103,13 @@ public class ToyInteraction : MonoBehaviour
     void PickupToy(GameObject toy)
     {
         currentToy = toy;
-        originalToyScale = toy.transform.localScale;
-        toy.transform.localScale *= toyScaleFactor;
+        if (!toyOriginalScales.ContainsKey(toy))
+        {
+            toyOriginalScales[toy] = toy.transform.localScale;
+        }
+
+        originalToyScale = toyOriginalScales[toy];
+        toy.transform.localScale = originalToyScale * toyScaleFactor;
         toy.transform.SetParent(handTransform);
         toy.transform.localPosition = Vector3.zero;
         toy.transform.localRotation = Quaternion.identity;
@@ -131,7 +133,7 @@ public class ToyInteraction : MonoBehaviour
             toyRigidbody.detectCollisions = true;
 
             float throwForce = (throwCharge / throwChargeTime) * maxThrowForce;
-            Vector3 throwDirection = playerCamera.transform.forward; 
+            Vector3 throwDirection = playerCamera.transform.forward;
 
             toyRigidbody.AddForce(throwDirection * throwForce, ForceMode.Impulse);
             toyRigidbody.drag = 0.5f;
