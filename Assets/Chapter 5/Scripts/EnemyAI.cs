@@ -93,7 +93,13 @@ public class EnemyAI : MonoBehaviour
     {
         if (player != null)
         {
-            
+            HealthSystemComponent playerHealthSystemComponent = player.GetComponent<HealthSystemComponent>();
+            if (playerHealthSystemComponent != null)
+            {
+                HealthSystem playerHealthSystem = playerHealthSystemComponent.GetHealthSystem();
+                playerHealthSystem.Damage(damage);
+                Debug.Log("Player Health: " + playerHealthSystem.GetHealth());
+            }
         }
     }
 }

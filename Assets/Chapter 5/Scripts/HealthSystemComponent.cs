@@ -6,7 +6,7 @@ public class HealthSystemComponent : MonoBehaviour
 
     private void Awake()
     {
-        healthSystem = new HealthSystem(100f);
+        healthSystem = new HealthSystem(100);
     }
 
     public HealthSystem GetHealthSystem()

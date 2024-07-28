@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 using UnityEngine.AI;
-using Vector3 = UnityEngine.Vector3;
 
 public class ThrowEnemyAI : MonoBehaviour
 {
@@ -12,7 +10,7 @@ public class ThrowEnemyAI : MonoBehaviour
     public float attackRange = 10f;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
-    public float fireRate = 100f;
+    public float fireRate = 1f; // Saniyede kaç kere ateş edilecek
     private float nextFireTime = 0f;
 
     private NavMeshAgent agent;
@@ -26,17 +24,19 @@ public class ThrowEnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (target == null) return;
+
         float distanceToTarget = Vector3.Distance(transform.position, target.position);
         agent.SetDestination(target.position);
-        
-        
-        if (distanceToTarget <= attackRange && !isFiring)
+
+        if (distanceToTarget <= attackRange && Time.time >= nextFireTime)
         {
             StartCoroutine(FireCoroutine());
+            nextFireTime = Time.time + fireRate;
         }
     }
 
-    IEnumerator FireCoroutine()
+    private IEnumerator FireCoroutine()
     {
         isFiring = true;
 
@@ -49,13 +49,15 @@ public class ThrowEnemyAI : MonoBehaviour
         isFiring = false;
     }
 
-    void Shoot()
+    private void Shoot()
     {
-        GameObject projectile =
-            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, projectileSpawnPoint.rotation);
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.velocity = (target.position - projectileSpawnPoint.position).normalized * 250f;
+        if (rb != null)
+        {
+            Vector3 direction = (target.position - projectileSpawnPoint.position).normalized;
+            rb.velocity = direction * 10f; // Hızını ayarlayabilirsiniz
+            rb.AddTorque(new Vector3(UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f), UnityEngine.Random.Range(-1f, 1f)) * 10f, ForceMode.Impulse); // Yuvarlanma efekti
+        }
     }
-    
-    
 }
