@@ -2338,6 +2338,7 @@ GameObject:
   - component: {fileID: 856197482}
   - component: {fileID: 856197484}
   - component: {fileID: 856197483}
+  - component: {fileID: 856197485}
   m_Layer: 0
   m_Name: pTable1 (2)
   m_TagString: Untagged
@@ -2410,6 +2411,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856197481}
   m_Mesh: {fileID: 1113311996080963440, guid: da919ef72fbefe84ab68a4535abcfae8, type: 3}
+--- !u!65 &856197485
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856197481}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.17029952, y: 0.105000034, z: 0.21902598}
+  m_Center: {x: 0.000000030156226, y: -0.047499884, z: 0.0000000010617076}
 --- !u!54 &864159666
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3122,7 +3144,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.62
+  m_VoxelSize: 0.41666666
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 18ac5f5b31ade9b479c4eca8b8d2fd3e, type: 2}
   m_BuildHeightMesh: 0
