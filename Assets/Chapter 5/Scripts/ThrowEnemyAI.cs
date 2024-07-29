@@ -11,7 +11,7 @@ public class ThrowEnemyAI : MonoBehaviour
     public Transform projectileSpawnPoint;
     public float fireRate = 1f;
     private float nextFireTime = 0f;
-
+    
     private NavMeshAgent agent;
     private Animator animator;
     private bool isFiring;
@@ -26,10 +26,19 @@ public class ThrowEnemyAI : MonoBehaviour
         healthSystem = GetComponent<HealthSystemComponent>().GetHealthSystem();
         healthSystem.OnDead += HealthSystem_OnDead;
         animator = GetComponent<Animator>();
+        
         // --- //
         agent = GetComponent<NavMeshAgent>();
         isFiring = false;
         currentHealth = maxHealth;
+
+        agent.isStopped = false;
+        
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            target = playerObject.transform;
+        }
     }
 
     private void Update()

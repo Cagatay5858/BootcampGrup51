@@ -36,6 +36,13 @@ public class HealthSystem
             OnDead?.Invoke(this, EventArgs.Empty);
         }
     }
+    
+    public void SetMaxHealth(float healthMax)
+    {
+        this.healthMax = healthMax;
+        health = healthMax;
+        OnHealthChanged?.Invoke(this, EventArgs.Empty);
+    }
 
     public void Heal(float amount)
     {

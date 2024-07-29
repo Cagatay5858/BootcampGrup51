@@ -7,6 +7,7 @@ public class FPSBearController : MonoBehaviour
 {
     private Rigidbody rb;
     
+    public Transform player;
     public Camera playerCamera;
     public float fov = 60f;
     public bool invertCamera = false;
@@ -18,6 +19,7 @@ public class FPSBearController : MonoBehaviour
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
     public float extraGravity = 2.0f;
+    public GameObject gameOverUI;
 
     private Vector3 initialCameraPosition;
 
@@ -112,6 +114,10 @@ public class FPSBearController : MonoBehaviour
 
     void Start()
     {
+        if (gameOverUI != null)
+        {
+            gameOverUI.SetActive(false);
+        }
         animator = GetComponent<Animator>();
 
         initialCameraPosition = playerCamera.transform.localPosition;
@@ -422,8 +428,10 @@ public class FPSBearController : MonoBehaviour
     }
     public void TakeDamage(int damage)
     {
-        playerHealth -= damage;
-            if (playerHealth <= 0)
+        HealthSystemComponent playerHealthSystemComponent = player.GetComponent<HealthSystemComponent>();
+        HealthSystem playerHealthSystem = playerHealthSystemComponent.GetHealthSystem();
+        
+            if (playerHealthSystem.GetHealth() <= 0)
             {
                 Die();
             }
@@ -434,8 +442,11 @@ public class FPSBearController : MonoBehaviour
 
     private void Die()
     {
-        // Oyuncunun ölmesiyle ilgili işlemler
-        Debug.Log("Player is dead.");
+        Time.timeScale = 0f;
+        if (gameOverUI != null )
+        {
+            gameOverUI.SetActive(true);
+        }
     }
 
     private IEnumerator FireContinously()

@@ -21,6 +21,12 @@ public class Bullet : MonoBehaviour
             healthSystemComponent.GetHealthSystem().Damage(damageAmount);
             Destroy(gameObject);
         }
+        FPSBearController playerController = other.GetComponent<FPSBearController>();
+        if (playerController != null)
+        {
+            playerController.TakeDamage((int)damageAmount);
+            Destroy(gameObject);
+        }
     }
         
 

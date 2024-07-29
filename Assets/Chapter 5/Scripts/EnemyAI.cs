@@ -15,40 +15,46 @@ public class EnemyAI : MonoBehaviour
     public int currentHealth;
     private HealthSystem healthSystem;
     private bool isDead = false;
-    
 
     private void Start()
     {
-        //awake func
+        // Awake-like initialization
         healthSystem = GetComponent<HealthSystemComponent>().GetHealthSystem();
         healthSystem.OnDead += HealthSystem_OnDead;
         animator = GetComponent<Animator>();
-        //---//
+        // --- //
         navMeshAgent = GetComponent<NavMeshAgent>();
         currentHealth = maxHealth;
+
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+        }
     }
 
     private void Update()
     {
-        if (isDead) return; 
-        if (player != null)
-        {
-            float distance = Vector3.Distance(player.position, transform.position);
+        if (isDead) return;
 
-            if (distance <= attackDistance)
+        if (player == null) return;
+
+        float distance = Vector3.Distance(player.position, transform.position);
+
+        if (distance <= attackDistance)
+        {
+            if (!isAttacking)
             {
-                if (!isAttacking)
-                {
-                    StartAttack();
-                }
-            }
-            else
-            {
-                StopAttack();
-                navMeshAgent.SetDestination(player.position);
+                StartAttack();
             }
         }
+        else
+        {
+            StopAttack();
+            navMeshAgent.SetDestination(player.position);
+        }
     }
+
 
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
