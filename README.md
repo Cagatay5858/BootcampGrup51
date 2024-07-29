@@ -19,7 +19,7 @@ Unity Grup 51
 [Unity Team 51 - Trello Backlog Board](https://trello.com/b/aaHTdfFc)
 
 ## Oyun Açıklaması
-Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidiyor ve standlardan birindeki oyuncak ayı çok dikkatini çekiyor. Standdaki yarışmayı kazanıp istediği ödül olan ayıcığı kazanıyor. Evine döndüklerinde yeni oyuncağı ile güneş kararana kadar keyifli oyunlar oynuyor. Güneş battığında kafasını yastığa koyuyor ve düşünmeye başlıyor. "Acaba oyuncakların anıları var mıdır?". Gözlerini kapapatıyor ve uykuya dalıyor. Rüyasında gözlerini açtığında kendisini yeni ve çok sevdiği oyuncak ayısı şeklinde, hiç bilmediği bir yerde buluyor. Geri dönebilmek için zorlukları atlatıp anıları için önemli olan parçaları toplaması gerekiyor...
+Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidiyor ve standlardan birindeki oyuncak ayı çok dikkatini çekiyor. Standdaki yarışmayı kazanıp istediği ödül olan ayıcığı kazanıyor. Evine döndüklerinde yeni oyuncağı ile güneş kararana kadar keyifli oyunlar oynuyor. Güneş battığında kafasını yastığa koyuyor ve düşünmeye başlıyor. "Acaba oyuncakların anıları var mıdır?". Gözlerini kapatıyor ve uykuya dalıyor. Rüyasında gözlerini açtığında kendisini yeni ve çok sevdiği oyuncak ayısı şeklinde, hiç bilmediği bir yerde buluyor. Geri dönebilmek için zorlukları atlatıp anıları için önemli olan parçaları toplaması gerekiyor...
 
 ## Oyun Özellikleri
 - Hikaye Odaklı
@@ -110,7 +110,7 @@ Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidi
 
 -Oyunun büyük çoğunluğunun bu sprintte tamamlanması planlandı.  
 -Bütün chapter'ların bu aşamada oluşturulması hedeflendi.  
--Oyunla alakalı design kısmı harıç çoğu karar kesinleştirildi.  
+-Oyunla alakalı design kısmı hariç çoğu karar kesinleştirildi.  
 -Planlanan hedeflere ulaşıldı.  
 
 
