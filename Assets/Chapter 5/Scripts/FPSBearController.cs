@@ -436,10 +436,8 @@ public class FPSBearController : MonoBehaviour
                 Die();
             }
     }
-
-
-
-
+    
+    
     private void Die()
     {
         Time.timeScale = 0f;
