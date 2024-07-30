@@ -1,20 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GearCollect : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public void Collect()
     {
-        if (collision.gameObject.CompareTag("Player"))
+       
+        if (GameController.Instance != null)
         {
-            //Toplandiginda ara sinematige gececek sinematik sonunda ada bolumune gececek
+           
+            GameController.Instance.LoadChapter(chapterNumber:2); 
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

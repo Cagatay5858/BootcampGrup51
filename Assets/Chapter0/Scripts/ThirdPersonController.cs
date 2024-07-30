@@ -26,6 +26,9 @@ public class ThirdPersonController : MonoBehaviour
 
     // Reference to the FootstepManager
     private FootstepManager footstepManager;
+    
+    
+    
 
     void Start()
     {
@@ -164,9 +167,12 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
     }
-
-    void OnLyingDownAnimationComplete()
+    public void OnLyingDownAnimationComplete()
     {
-        SceneManager.LoadScene("Chapter 1");
+        if (GameController.Instance != null)
+        {
+            GameController.Instance.OnLyingDownAnimationComplete();
+        }
+       
     }
 }

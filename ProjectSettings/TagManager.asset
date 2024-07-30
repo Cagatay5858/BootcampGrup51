@@ -21,6 +21,7 @@ TagManager:
   - PowerUp
   - Toy
   - DropZone
+  - Gear
   layers:
   - Default
   - TransparentFX
