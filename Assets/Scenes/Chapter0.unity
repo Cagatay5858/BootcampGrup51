@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08544042, g: 0.27912083, b: 0.48340338, a: 1}
+  m_IndirectSpecularColor: {r: 0.085022144, g: 0.27911657, b: 0.48343456, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2193,7 +2193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1003205598}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19182448, y: -0.62241286, z: 0.16100815, w: 0.7415403}
+  m_LocalRotation: {x: 0.19182448, y: -0.62241286, z: 0.16100812, w: 0.7415403}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6933,6 +6933,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bed
       objectReference: {fileID: 0}
+    - target: {fileID: 3099188250673751128, guid: 1b682e3888371f4458ff858ac1fb7a43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4421111816625605974, guid: 1b682e3888371f4458ff858ac1fb7a43, type: 3}
       propertyPath: m_LocalPosition.x
       value: 41.63
@@ -7108,11 +7112,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329428848601849078, guid: 543073a81f70d5e41beda4b26e635d25, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.072446726
+      value: 0.072446756
       objectReference: {fileID: 0}
     - target: {fileID: 329428848601849078, guid: 543073a81f70d5e41beda4b26e635d25, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.018740816
+      value: 0.018740818
       objectReference: {fileID: 0}
     - target: {fileID: 329428848601849078, guid: 543073a81f70d5e41beda4b26e635d25, type: 3}
       propertyPath: m_LocalRotation.y
@@ -7120,7 +7124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 329428848601849078, guid: 543073a81f70d5e41beda4b26e635d25, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.24973796
+      value: 0.24973798
       objectReference: {fileID: 0}
     - target: {fileID: 1052170713662715966, guid: 543073a81f70d5e41beda4b26e635d25, type: 3}
       propertyPath: m_IsActive
@@ -7390,6 +7394,10 @@ PrefabInstance:
     - target: {fileID: 9014755713981244000, guid: 7713f1c6e6d3c90488d3a439be3c0be0, type: 3}
       propertyPath: m_Name
       value: Collectibles
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014755713981244000, guid: 7713f1c6e6d3c90488d3a439be3c0be0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

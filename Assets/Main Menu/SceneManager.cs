@@ -38,6 +38,8 @@ public class SceneManager : MonoBehaviour
 
     void Start()
     {
+        LoadGameState();
+
         KillManager killManager = FindObjectOfType<KillManager>();
         if (killManager != null)
         {
@@ -66,18 +68,19 @@ public class SceneManager : MonoBehaviour
         else
         {
             Debug.LogError("No more chapters available.");
-            // Bu durumda ne yapılacağını belirlemek için buraya ek bir mantık ekleyebilirsiniz.
         }
     }
 
     public void CollectItem(int itemIndex)
     {
         itemsCollected[itemIndex] = true;
+        SaveGameState();
     }
 
     public void BuildBed()
     {
         isBedBuilt = true;
+        SaveGameState();
     }
 
     public void InteractWithGear()
@@ -97,7 +100,6 @@ public class SceneManager : MonoBehaviour
         {
             ReturnToIsland();
             Debug.Log("All chapters completed. Game finished.");
-            // Buraya oyunun bitişi için ek bir mantık ekleyebilirsiniz.
         }
     }
 
@@ -112,7 +114,6 @@ public class SceneManager : MonoBehaviour
         {
             ReturnToIsland();
             Debug.Log("All chapters completed. Game finished.");
-            // Buraya oyunun bitişi için ek bir mantık ekleyebilirsiniz.
         }
     }
 
@@ -130,12 +131,15 @@ public class SceneManager : MonoBehaviour
 
     public void InteractWithNPC()
     {
+        Debug.Log("Interacted with NPC.");
+
         bed.SetActive(true);
-        SetObjectVisibility(bed, true);
+        Debug.Log("Bed set active.");
 
         for (int i = 0; i < items.Count; i++)
         {
             items[i].SetActive(true);
+            Debug.Log($"Item {i} set active.");
         }
     }
 
@@ -173,29 +177,48 @@ public class SceneManager : MonoBehaviour
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == islandScene)
         {
-            bed.SetActive(true);
-            bed.GetComponent<Renderer>().enabled = isBedBuilt;
+            bed.SetActive(isBedBuilt);
 
             for (int i = 0; i < items.Count; i++)
             {
                 items[i].SetActive(itemsCollected[i]);
+                Debug.Log($"Item {i} active state set to {itemsCollected[i]}.");
             }
         }
 
-        // Her sahne yüklendiğinde KillManager'ı tekrar bul ve abone ol
         KillManager killManager = FindObjectOfType<KillManager>();
         if (killManager != null)
         {
-            killManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland; // Tekrar abone olma riskine karşı
+            killManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland;
             killManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
         }
 
-        // Her sahne yüklendiğinde ScoreManager'ı tekrar bul ve abone ol
         ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
         if (scoreManager != null)
         {
-            scoreManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland; // Tekrar abone olma riskine karşı
+            scoreManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland;
             scoreManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
+        }
+    }
+
+    private void SaveGameState()
+    {
+        PlayerPrefs.SetInt("CurrentChapterIndex", currentChapterIndex);
+        PlayerPrefs.SetInt("IsBedBuilt", isBedBuilt ? 1 : 0);
+        for (int i = 0; i < itemsCollected.Length; i++)
+        {
+            PlayerPrefs.SetInt($"ItemCollected_{i}", itemsCollected[i] ? 1 : 0);
+        }
+        PlayerPrefs.Save();
+    }
+
+    private void LoadGameState()
+    {
+        currentChapterIndex = PlayerPrefs.GetInt("CurrentChapterIndex", 0);
+        isBedBuilt = PlayerPrefs.GetInt("IsBedBuilt", 0) == 1;
+        for (int i = 0; i < itemsCollected.Length; i++)
+        {
+            itemsCollected[i] = PlayerPrefs.GetInt($"ItemCollected_{i}", 0) == 1;
         }
     }
 
