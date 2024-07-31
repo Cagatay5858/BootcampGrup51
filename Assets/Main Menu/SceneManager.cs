@@ -12,10 +12,10 @@ public class SceneManager : MonoBehaviour
     public string islandScene = "Chapter0";
     public string[] chapterScenes = { "Chapter2", "Chapter3", "Chapter4", "Chapter5" };
 
-    public GameObject bed; 
-    public List<GameObject> items; 
+    public GameObject bed;
+    public List<GameObject> items;
 
-    private int currentChapterIndex = 0;  
+    private int currentChapterIndex = 0;
     private bool isBedBuilt = false;
     private bool[] itemsCollected;
 
@@ -33,19 +33,26 @@ public class SceneManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-       
         itemsCollected = new bool[items.Count];
+    }
+
+    void Start()
+    {
+        KillManager killManager = FindObjectOfType<KillManager>();
+        if (killManager != null)
+        {
+            killManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
+        }
     }
 
     public void StartGame()
     {
-        currentChapterIndex = 0;  
+        currentChapterIndex = 0;
         LoadScene(islandScene);
     }
 
     public void OnLyingDownAnimationComplete()
     {
-        
         LoadScene(chapterScenes[currentChapterIndex]);
     }
 
@@ -61,15 +68,11 @@ public class SceneManager : MonoBehaviour
 
     public void InteractWithGear()
     {
-        // Place collected gear at the trophy place (implementation needed)
-        // ...
-
         LoadScene(islandScene);
     }
 
     public void CompleteChapter()
     {
-        // Adaya dönmek için currentChapterIndex'i güncelle ve adaya geri dön
         currentChapterIndex++;
         if (currentChapterIndex < chapterScenes.Length)
         {
@@ -77,8 +80,14 @@ public class SceneManager : MonoBehaviour
         }
         else
         {
-            
+            // Oyunun sonuna ulaşıldı
         }
+    }
+
+    public void CompleteChapterAndReturnToIsland()
+    {
+        currentChapterIndex++;
+        ReturnToIsland();
     }
 
     public void ReturnToIsland()
@@ -88,7 +97,6 @@ public class SceneManager : MonoBehaviour
 
     public void InteractWithNPC()
     {
-        
         bed.SetActive(true);
         SetObjectVisibility(bed, true);
 
@@ -112,7 +120,7 @@ public class SceneManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(3); 
+        yield return new WaitForSeconds(3);
 
         StartCoroutine(LoadTargetScene());
     }
@@ -132,7 +140,6 @@ public class SceneManager : MonoBehaviour
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == islandScene)
         {
-            
             bed.SetActive(true);
             bed.GetComponent<Renderer>().enabled = isBedBuilt;
 
@@ -140,6 +147,14 @@ public class SceneManager : MonoBehaviour
             {
                 items[i].SetActive(!itemsCollected[i]);
             }
+        }
+
+        // Her sahne yüklendiğinde KillManager'ı tekrar bul ve abone ol
+        KillManager killManager = FindObjectOfType<KillManager>();
+        if (killManager != null)
+        {
+            killManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland; // Tekrar abone olma riskine karşı
+            killManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
         }
     }
 

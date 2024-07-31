@@ -63,6 +63,15 @@ public class ThrowEnemyAI : MonoBehaviour
         agent.isStopped = true;
         animator.SetTrigger("dead");
         StartCoroutine(WaitForDeathAnimation());
+
+        if (KillManager.Instance != null)
+        {
+            KillManager.Instance.EnemyKilled(); // Düşman öldürüldüğünde KillManager'a bildir.
+        }
+        else
+        {
+            Debug.LogError("KillManager instance is not set");
+        }
     }
 
     private IEnumerator WaitForDeathAnimation()

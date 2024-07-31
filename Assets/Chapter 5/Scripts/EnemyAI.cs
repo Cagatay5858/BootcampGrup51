@@ -55,13 +55,21 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-
     private void HealthSystem_OnDead(object sender, EventArgs e)
     {
         isDead = true;
         navMeshAgent.isStopped = true;
         animator.SetTrigger("dead");
         StartCoroutine(WaitForDeathAnimation());
+
+        if (KillManager.Instance != null)
+        {
+            KillManager.Instance.EnemyKilled(); // Düşman öldürüldüğünde KillManager'a bildir.
+        }
+        else
+        {
+            Debug.LogError("KillManager instance is not set");
+        }
     }
 
     private IEnumerator WaitForDeathAnimation()
@@ -83,7 +91,7 @@ public class EnemyAI : MonoBehaviour
         isAttacking = true;
         navMeshAgent.isStopped = true;
         animator.SetTrigger("Attack");
-        InvokeRepeating("DealDamage", 0, 1.0f); 
+        InvokeRepeating("DealDamage", 0, 1.0f);
     }
 
     private void StopAttack()

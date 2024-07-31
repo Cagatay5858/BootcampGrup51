@@ -1,10 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
     public int currentScore = 0;
-    public Text scoreText;
+    public int targetScore = 400;
+    public TMP_Text scoreText;
+
+    public delegate void TargetScoreReached();
+
+    public event TargetScoreReached OnTargetScoreReached;
 
     private void Start()
     {
@@ -15,6 +20,7 @@ public class ScoreManager : MonoBehaviour
     {
         currentScore += amount;
         UpdateScoreText();
+        CheckTargetScore();
     }
 
     void UpdateScoreText()
@@ -22,6 +28,14 @@ public class ScoreManager : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = "Score: " + currentScore;
+        }
+    }
+
+    void CheckTargetScore()
+    {
+        if (currentScore >= targetScore && OnTargetScoreReached != null)
+        {
+            OnTargetScoreReached();
         }
     }
 }
