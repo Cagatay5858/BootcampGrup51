@@ -82,6 +82,7 @@ public class SceneManager : MonoBehaviour
 
     public void InteractWithGear()
     {
+        currentChapterIndex++;
         LoadScene(islandScene);
     }
 

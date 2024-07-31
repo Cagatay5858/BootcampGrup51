@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4198565, g: 0.64214003, b: 0.7932184, a: 1}
+  m_IndirectSpecularColor: {r: 0.419716, g: 0.6423185, b: 0.7934191, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17632,6 +17632,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1390243614}
   - component: {fileID: 1390243613}
+  - component: {fileID: 1390243615}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: Untagged
@@ -17667,6 +17668,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1390243615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390243612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e0fd7bf464aa7428e1ed2d8b9aa719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapterStartCanvas: {fileID: 4473262837625521073, guid: 24bfdc37961cf0e4d8e3826c857ca199, type: 3}
 --- !u!1001 &1394372111
 PrefabInstance:
   m_ObjectHideFlags: 0

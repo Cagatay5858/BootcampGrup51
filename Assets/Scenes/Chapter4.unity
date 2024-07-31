@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 8640215320145333538}
-  m_IndirectSpecularColor: {r: 0.41982025, g: 0.6419791, b: 0.7932754, a: 1}
+  m_IndirectSpecularColor: {r: 0.419716, g: 0.6423185, b: 0.7934191, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11199,6 +11199,7 @@ GameObject:
   - component: {fileID: 5404750648948168325}
   - component: {fileID: 5404750648948168324}
   - component: {fileID: 5404750648948168327}
+  - component: {fileID: 5404750648948168328}
   m_Layer: 0
   m_Name: teddyBearFPS
   m_TagString: Untagged
@@ -27947,7 +27948,6 @@ MonoBehaviour:
   cameraCanMove: 1
   mouseSensitivity: 2
   maxLookAngle: 72
-  lockCursor: 1
   crosshair: 1
   crosshairImage: {fileID: 21300000, guid: be4ce60e2c9768c44b9b10b9c5258045, type: 3}
   crosshairColor: {r: 1, g: 0, b: 0.541667, a: 1}
@@ -28032,6 +28032,19 @@ CapsuleCollider:
   m_Height: 0.014311738
   m_Direction: 1
   m_Center: {x: 0.00041032766, y: 0.008322176, z: 0.0006525312}
+--- !u!114 &5404750648948168328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633245824191534659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e0fd7bf464aa7428e1ed2d8b9aa719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapterStartCanvas: {fileID: 1238394820352035664, guid: f6523fe400bd5c041b0c08551d49c84d, type: 3}
 --- !u!4 &5408201690224066796
 Transform:
   m_ObjectHideFlags: 0

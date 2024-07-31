@@ -31,8 +31,7 @@ public class ThirdPersonController : MonoBehaviour
         inventory = GetComponent<Inventory>();
         footstepManager = GetComponent<FootstepManager>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        
     }
 
     void Update()

@@ -22589,6 +22589,7 @@ GameObject:
   - component: {fileID: 1174417356335109145}
   - component: {fileID: 4271175960603023812}
   - component: {fileID: 4271175960603023813}
+  - component: {fileID: 4271175960603023814}
   m_Layer: 0
   m_Name: teddyBearFPS
   m_TagString: Player
@@ -22615,7 +22616,6 @@ MonoBehaviour:
   cameraCanMove: 1
   mouseSensitivity: 2
   maxLookAngle: 75
-  lockCursor: 1
   crosshair: 1
   crosshairImage: {fileID: 21300000, guid: be4ce60e2c9768c44b9b10b9c5258045, type: 3}
   crosshairColor: {r: 0.7169812, g: 0.22659309, b: 0.22659309, a: 1}
@@ -22669,6 +22669,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca17af712fa85764aa4cdeb6704fa2f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4271175960603023814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4271175960603023811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e0fd7bf464aa7428e1ed2d8b9aa719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapterStartCanvas: {fileID: 7897426646872587775, guid: 87b330c3335bde44eb998462f4ff599a, type: 3}
 --- !u!1 &4271468688513085983
 GameObject:
   m_ObjectHideFlags: 0

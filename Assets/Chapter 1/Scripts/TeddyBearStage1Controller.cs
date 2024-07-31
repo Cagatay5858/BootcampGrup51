@@ -55,8 +55,6 @@ public class TeddyBearStage1Controller : MonoBehaviour
             audioSource = gameObject.AddComponent<AudioSource>();
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
     }
 
     void OnEnable()

@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class PlayerCollisionHandler : MonoBehaviour
 {
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider other)
     {
-        
-        if (hit.gameObject.CompareTag("Gear"))
+        if (other.gameObject.CompareTag("Gear"))
         {
-            GearCollect gearCollect = hit.gameObject.GetComponent<GearCollect>();
+            GearCollect gearCollect = other.gameObject.GetComponent<GearCollect>();
+            if (gearCollect != null)
+            {
                 gearCollect.Collect();
+            }
         }
     }
 }

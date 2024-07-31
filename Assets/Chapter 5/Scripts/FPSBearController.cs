@@ -14,7 +14,6 @@ public class FPSBearController : MonoBehaviour
     public bool cameraCanMove = true;
     public float mouseSensitivity = 2f;
     public float maxLookAngle = 50f;
-    public bool lockCursor = true;
     public bool crosshair = true;
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
@@ -120,10 +119,7 @@ public class FPSBearController : MonoBehaviour
 
         initialCameraPosition = playerCamera.transform.localPosition;
         
-        if(lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+
         if(crosshair)
         {
             crosshairObject.sprite = crosshairImage;

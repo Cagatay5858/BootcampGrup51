@@ -11,7 +11,6 @@ public class ToyCollectorBearController : MonoBehaviour
     public bool cameraCanMove = true;
     public float mouseSensitivity = 2f;
     public float maxLookAngle = 50f;
-    public bool lockCursor = true;
     public bool crosshair = true;
     public Sprite crosshairImage;
     public Color crosshairColor = Color.white;
@@ -96,10 +95,7 @@ public class ToyCollectorBearController : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        if(lockCursor)
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+       
         if(crosshair)
         {
             crosshairObject.sprite = crosshairImage;
