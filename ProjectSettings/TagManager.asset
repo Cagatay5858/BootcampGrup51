@@ -22,6 +22,8 @@ TagManager:
   - Toy
   - DropZone
   - Gear
+  - FinishLine
+  - DeactivateCarSpawner
   layers:
   - Default
   - TransparentFX

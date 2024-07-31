@@ -979,6 +979,11 @@ MonoBehaviour:
   bed: {fileID: 3099188250673751128, guid: 1b682e3888371f4458ff858ac1fb7a43, type: 3}
   items:
   - {fileID: 9014755713981244000, guid: 7713f1c6e6d3c90488d3a439be3c0be0, type: 3}
+  retryPanel: {fileID: 7241988256163353127, guid: cd4fcc87715b856418143e8eec5fffce, type: 3}
+  gameplayPanel: {fileID: 7020565686242532205, guid: ce8f801826281214399824ba71b87ea3, type: 3}
+  countdownText: {fileID: 0}
+  timer: {fileID: 8439317981046725899, guid: 024b588ac88f073459d6df31d3b47811, type: 3}
+  scoreToComplete: 400
 --- !u!1 &577088326
 GameObject:
   m_ObjectHideFlags: 0

@@ -116,10 +116,7 @@ public class TeddyBearChaseController : MonoBehaviour
                 Destroy(hit.gameObject);
                 isShielded = false; 
             }
-            else
-            {
-                //EndGame();
-            }
+           
         }
         else if (hit.gameObject.CompareTag("ChasePowerUp"))
         {

@@ -1,30 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-  public int currentScore = 0;
-  public Text scoreText;
+    public int currentScore = 0;
+    public Text scoreText;
 
-  private void Start()
-  {
-    UpdateScoreText();
-  }
-
-  public void AddScore(int amount)
-  {
-    currentScore += amount;
-    UpdateScoreText();
-  }
-
-  void UpdateScoreText()
-  {
-    if (scoreText != null)
+    private void Start()
     {
-      scoreText.text = "Score: " + currentScore;
+        UpdateScoreText();
     }
-  }
+
+    public void AddScore(int amount)
+    {
+        currentScore += amount;
+        UpdateScoreText();
+    }
+
+    void UpdateScoreText()
+    {
+        if (scoreText != null)
+        {
+            scoreText.text = "Score: " + currentScore;
+        }
+    }
 }

@@ -12,10 +12,10 @@ public class SceneManager : MonoBehaviour
     public string islandScene = "Chapter0";
     public string[] chapterScenes = { "Chapter2", "Chapter3", "Chapter4", "Chapter5" };
 
-    public GameObject bed; // Bed GameObject reference
-    public List<GameObject> items; // List of collectible items
+    public GameObject bed; 
+    public List<GameObject> items; 
 
-    private int currentChapterIndex = 0;  // Starts at the first chapter
+    private int currentChapterIndex = 0;  
     private bool isBedBuilt = false;
     private bool[] itemsCollected;
 
@@ -33,19 +33,19 @@ public class SceneManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        // Set the size of itemsCollected based on the number of collectible items on the island
+       
         itemsCollected = new bool[items.Count];
     }
 
     public void StartGame()
     {
-        currentChapterIndex = 0;  // Start at the island
+        currentChapterIndex = 0;  
         LoadScene(islandScene);
     }
 
     public void OnLyingDownAnimationComplete()
     {
-        // Adada uyuduğunda currentChapterIndex'e göre doğru chapter'a geç
+        
         LoadScene(chapterScenes[currentChapterIndex]);
     }
 
@@ -77,7 +77,7 @@ public class SceneManager : MonoBehaviour
         }
         else
         {
-            // Handle game completion if needed
+            
         }
     }
 
@@ -88,7 +88,7 @@ public class SceneManager : MonoBehaviour
 
     public void InteractWithNPC()
     {
-        // Ensure the bed is active before setting visibility
+        
         bed.SetActive(true);
         SetObjectVisibility(bed, true);
 
@@ -112,7 +112,7 @@ public class SceneManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(3); // 3-second delay for the loading screen
+        yield return new WaitForSeconds(3); 
 
         StartCoroutine(LoadTargetScene());
     }
@@ -132,7 +132,7 @@ public class SceneManager : MonoBehaviour
     {
         if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == islandScene)
         {
-            // Ensure the bed and items state
+            
             bed.SetActive(true);
             bed.GetComponent<Renderer>().enabled = isBedBuilt;
 
