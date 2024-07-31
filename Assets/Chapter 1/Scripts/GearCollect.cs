@@ -5,11 +5,6 @@ public class GearCollect : MonoBehaviour
 {
     public void Collect()
     {
-       
-        if (GameController.Instance != null)
-        {
-           
-            GameController.Instance.LoadChapter(chapterNumber:2); 
-        }
+        SceneManager.Instance.InteractWithGear();
     }
 }

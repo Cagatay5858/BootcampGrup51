@@ -16,12 +16,10 @@ public class NPCInteraction : MonoBehaviour
     {
         animator = GetComponent<Animator>();
 
-        
         SetObjectVisibility(bed, false);
         SetObjectsVisibility(sticks, false);
         SetObjectsVisibility(plants, false);
 
-        
         interactionPromptUI = FindObjectOfType<InteractionPromptUI>();
     }
 
@@ -29,13 +27,15 @@ public class NPCInteraction : MonoBehaviour
     {
         isSpeaking = !isSpeaking;
         animator.SetBool("isSpeaking", isSpeaking);
-
+        
         NPCSpeechBubble speechBubble = GetComponent<NPCSpeechBubble>();
         if (speechBubble != null)
         {
             if (isSpeaking)
             {
                 speechBubble.ShowSpeechBubble(dialogueLines);
+                // Ensure the bed GameObject is active before changing its visibility
+                bed.SetActive(true);
                 SetObjectVisibility(bed, true);
                 SetObjectsVisibility(sticks, true);
                 SetObjectsVisibility(plants, true);
@@ -71,10 +71,13 @@ public class NPCInteraction : MonoBehaviour
 
     private void SetObjectVisibility(GameObject obj, bool isVisible)
     {
-        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
-        foreach (Renderer renderer in renderers)
+        if (obj != null)
         {
-            renderer.enabled = isVisible;
+            Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+            foreach (Renderer renderer in renderers)
+            {
+                renderer.enabled = isVisible;
+            }
         }
     }
 

@@ -924,6 +924,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506103250}
   m_CullTransparentMesh: 1
+--- !u!1 &512687620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 512687621}
+  - component: {fileID: 512687622}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &512687621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512687620}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.068966, y: 8.745817, z: 59.383682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &512687622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512687620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c93722566da2d040ad027814423d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuScene: MainMenu
+  loadingScreenScene: LoadingScreen
+  islandScene: Chapter0
+  chapterScenes:
+  - Chapter2
+  - Chapter3
+  - Chapter4
+  - Chapter5
+  bed: {fileID: 3099188250673751128, guid: 1b682e3888371f4458ff858ac1fb7a43, type: 3}
+  items:
+  - {fileID: 9014755713981244000, guid: 7713f1c6e6d3c90488d3a439be3c0be0, type: 3}
 --- !u!1 &577088326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2773,3 +2828,4 @@ SceneRoots:
   - {fileID: 1878241212}
   - {fileID: 625909531}
   - {fileID: 1411298476}
+  - {fileID: 512687621}

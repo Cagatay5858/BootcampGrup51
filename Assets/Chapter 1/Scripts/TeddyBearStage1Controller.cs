@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
 public class TeddyBearStage1Controller : MonoBehaviour
 {
+    public static TeddyBearStage1Controller Instance;
+
     public CharacterController controller;
-    public Transform cameraTransform;
     public float speed = 6f;
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
@@ -16,19 +18,33 @@ public class TeddyBearStage1Controller : MonoBehaviour
     public LayerMask groundMask;
     public LayerMask dangerZoneMask;
     public Animator animator;
-
-    public AudioClip jumpClip; 
+    public AudioClip jumpClip;
 
     private Inventory inventory;
-    private GameObject stick;
     private Vector3 velocity;
     private bool isGrounded;
 
     private Stage1FootstepManager footstepManager;
-    private AudioSource audioSource; 
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
 
     void Start()
     {
+        AssignCamera();
+
         animator = GetComponent<Animator>();
         inventory = GetComponent<Inventory>();
         footstepManager = GetComponent<Stage1FootstepManager>();
@@ -41,6 +57,26 @@ public class TeddyBearStage1Controller : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = true;
+    }
+
+    void OnEnable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        AssignCamera();
+    }
+
+    private void AssignCamera()
+    {
+        CinemachineCameraManager.Instance.AssignCameraToPlayer(transform);
     }
 
     void Update()
@@ -68,9 +104,8 @@ public class TeddyBearStage1Controller : MonoBehaviour
                 footstepManager.StartWalking();
             }
 
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
-                turnSmoothTime);
+            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + Camera.main.transform.eulerAngles.y;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;

@@ -118,7 +118,7 @@ public class TeddyBearChaseController : MonoBehaviour
             }
             else
             {
-                EndGame();
+                //EndGame();
             }
         }
         else if (hit.gameObject.CompareTag("ChasePowerUp"))

@@ -20,6 +20,10 @@ public class EnemyCarController : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+
+    public delegate void EnemyDestroyed(); 
+    public event EnemyDestroyed OnEnemyDestroyed;
+    
     public TMPro.TMP_Text healthUI;
 
     public GameObject explosionPrefab;
@@ -120,7 +124,12 @@ public class EnemyCarController : MonoBehaviour
         var cHString = currentHealth.ToString();
         healthUI.text = EnemysName + " Health : " + cHString;
         if (currentHealth <= 0)
-        {
+        { 
+            if(OnEnemyDestroyed != null)
+            {
+                OnEnemyDestroyed();
+            }
+            
             Explode();
             Destroy(gameObject);
         }

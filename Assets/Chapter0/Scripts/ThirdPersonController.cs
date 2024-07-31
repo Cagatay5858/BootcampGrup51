@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class ThirdPersonController : MonoBehaviour
@@ -24,11 +23,7 @@ public class ThirdPersonController : MonoBehaviour
     private bool isGrounded;
     private NPCInteraction currentNPC;
 
-    // Reference to the FootstepManager
     private FootstepManager footstepManager;
-    
-    
-    
 
     void Start()
     {
@@ -43,6 +38,16 @@ public class ThirdPersonController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Lying Down"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
+            {
+                OnLyingDownAnimationComplete();
+            }
+        }
 
         if (isGrounded && velocity.y < 0)
         {
@@ -66,7 +71,8 @@ public class ThirdPersonController : MonoBehaviour
             }
 
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cameraTransform.eulerAngles.y;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity,
+                turnSmoothTime);
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
 
             Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
@@ -126,8 +132,8 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            float sphereRadius = 0.5f; 
-            float interactionDistance = 5f; 
+            float sphereRadius = 0.5f;
+            float interactionDistance = 5f;
             RaycastHit hit;
             Vector3 sphereCastOrigin = transform.position + Vector3.up * 1.2f;
 
@@ -167,12 +173,13 @@ public class ThirdPersonController : MonoBehaviour
             }
         }
     }
-    public void OnLyingDownAnimationComplete()
+
+    private void OnLyingDownAnimationComplete()
     {
-        if (GameController.Instance != null)
-        {
-            GameController.Instance.OnLyingDownAnimationComplete();
-        }
-       
+        SceneManager.Instance.OnLyingDownAnimationComplete();
     }
 }
+
+    
+
+   

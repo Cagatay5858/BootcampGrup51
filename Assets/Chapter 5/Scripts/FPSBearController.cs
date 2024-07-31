@@ -20,16 +20,18 @@ public class FPSBearController : MonoBehaviour
     public Color crosshairColor = Color.white;
     public float extraGravity = 2.0f;
     public GameObject gameOverUI;
-
+    
     private Vector3 initialCameraPosition;
 
     public int playerHealth = 100;
     
-    //Fire Crosshair
+    // Fire Crosshair
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float fireRate = 0.5f;
     public KeyCode fireKey = KeyCode.Mouse0;
+    
+    public GameObject fireParticlePrefab; // Add this line
     
     private bool isFiring = false;
     private float nextFireTime = 0f;
@@ -50,7 +52,6 @@ public class FPSBearController : MonoBehaviour
     public float walkSpeed = 5f;
     public float maxVelocityChange = 10f;
     private bool isWalking = false;
-    
     
     public bool enableSprint = true;
     public bool unlimitedSprint = false;
@@ -80,12 +81,10 @@ public class FPSBearController : MonoBehaviour
     public float jumpPower = 5f;
     private bool isGrounded = false;
     
-    
     private Vector3 originalScale;
     public Transform joint;
     private Vector3 jointOriginalPos;
     private float timer = 0;
-    
     
     public float walkBobSpeed = 14f;
     public float walkBobAmount = 0.05f;
@@ -93,7 +92,6 @@ public class FPSBearController : MonoBehaviour
     public float sprintBobAmount = 0.1f;
     private float defaultYPos = 0;
     private float headBobTimer = 0;
-    
     
     private void Awake()
     {
@@ -103,7 +101,7 @@ public class FPSBearController : MonoBehaviour
         
         playerCamera.fieldOfView = fov;
         originalScale = transform.localScale;
-        //jointOriginalPos = joint.localPosition;
+        // jointOriginalPos = joint.localPosition;
 
         if (!unlimitedSprint)
         {
@@ -372,11 +370,7 @@ public class FPSBearController : MonoBehaviour
                 rb.AddForce(velocityChange, ForceMode.VelocityChange);
             }
         }
-
-      
-        
     }
-
 
     private void CheckGround()
     {
@@ -414,11 +408,17 @@ public class FPSBearController : MonoBehaviour
 
     private void Fire()
     {
+        // Instantiate the particle system at the fire point
+        GameObject fireParticle = Instantiate(fireParticlePrefab, firePoint.position, firePoint.rotation);
+       
+        // Optionally, destroy the particle system after a short duration
+        Destroy(fireParticle, 2f); // Adjust the duration as needed
+
+        // Existing bullet firing code
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody bulletRb = bullet.GetComponent<Rigidbody>();
         bulletRb.velocity = playerCamera.transform.forward * 40f;
 
-        
         Vector3 randomTorque = new Vector3(
             UnityEngine.Random.Range(-1f, 1f),
             UnityEngine.Random.Range(-1f, 1f),
@@ -426,17 +426,17 @@ public class FPSBearController : MonoBehaviour
         ) * 10f; 
         bulletRb.AddTorque(randomTorque, ForceMode.Impulse);
     }
+
     public void TakeDamage(int damage)
     {
         HealthSystemComponent playerHealthSystemComponent = player.GetComponent<HealthSystemComponent>();
         HealthSystem playerHealthSystem = playerHealthSystemComponent.GetHealthSystem();
         
-            if (playerHealthSystem.GetHealth() <= 0)
-            {
-                Die();
-            }
+        if (playerHealthSystem.GetHealth() <= 0)
+        {
+            Die();
+        }
     }
-    
     
     private void Die()
     {
@@ -462,6 +462,3 @@ public class FPSBearController : MonoBehaviour
         }
     }
 }
-
-
-
