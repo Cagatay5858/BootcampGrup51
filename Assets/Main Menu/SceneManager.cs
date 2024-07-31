@@ -43,6 +43,12 @@ public class SceneManager : MonoBehaviour
         {
             killManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
         }
+
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
+        }
     }
 
     public void StartGame()
@@ -53,7 +59,15 @@ public class SceneManager : MonoBehaviour
 
     public void OnLyingDownAnimationComplete()
     {
-        LoadScene(chapterScenes[currentChapterIndex]);
+        if (currentChapterIndex < chapterScenes.Length)
+        {
+            LoadScene(chapterScenes[currentChapterIndex]);
+        }
+        else
+        {
+            Debug.LogError("No more chapters available.");
+            // Bu durumda ne yapılacağını belirlemek için buraya ek bir mantık ekleyebilirsiniz.
+        }
     }
 
     public void CollectItem(int itemIndex)
@@ -71,28 +85,46 @@ public class SceneManager : MonoBehaviour
         LoadScene(islandScene);
     }
 
-    public void CompleteChapter()
+    public void CompleteChapterAndReturnToIsland()
     {
-        currentChapterIndex++;
-        if (currentChapterIndex < chapterScenes.Length)
+        if (currentChapterIndex < chapterScenes.Length - 1)
         {
+            currentChapterIndex++;
             ReturnToIsland();
         }
         else
         {
-            // Oyunun sonuna ulaşıldı
+            ReturnToIsland();
+            Debug.Log("All chapters completed. Game finished.");
+            // Buraya oyunun bitişi için ek bir mantık ekleyebilirsiniz.
         }
     }
 
-    public void CompleteChapterAndReturnToIsland()
+    public void CompleteChapter()
     {
-        currentChapterIndex++;
-        ReturnToIsland();
+        if (currentChapterIndex < chapterScenes.Length - 1)
+        {
+            currentChapterIndex++;
+            ReturnToIsland();
+        }
+        else
+        {
+            ReturnToIsland();
+            Debug.Log("All chapters completed. Game finished.");
+            // Buraya oyunun bitişi için ek bir mantık ekleyebilirsiniz.
+        }
     }
 
     public void ReturnToIsland()
     {
-        LoadScene(islandScene);
+        if (currentChapterIndex >= chapterScenes.Length)
+        {
+            Debug.Log("All chapters completed. Returning to island for the last time.");
+        }
+        else
+        {
+            LoadScene(islandScene);
+        }
     }
 
     public void InteractWithNPC()
@@ -145,7 +177,7 @@ public class SceneManager : MonoBehaviour
 
             for (int i = 0; i < items.Count; i++)
             {
-                items[i].SetActive(!itemsCollected[i]);
+                items[i].SetActive(itemsCollected[i]);
             }
         }
 
@@ -155,6 +187,14 @@ public class SceneManager : MonoBehaviour
         {
             killManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland; // Tekrar abone olma riskine karşı
             killManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
+        }
+
+        // Her sahne yüklendiğinde ScoreManager'ı tekrar bul ve abone ol
+        ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.OnTargetScoreReached -= CompleteChapterAndReturnToIsland; // Tekrar abone olma riskine karşı
+            scoreManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
         }
     }
 

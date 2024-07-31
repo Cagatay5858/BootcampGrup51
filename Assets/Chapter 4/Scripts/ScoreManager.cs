@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -10,6 +11,11 @@ public class ScoreManager : MonoBehaviour
     public delegate void TargetScoreReached();
 
     public event TargetScoreReached OnTargetScoreReached;
+
+    private void Update()
+    {
+        CheckTargetScore();
+    }
 
     private void Start()
     {
@@ -33,9 +39,17 @@ public class ScoreManager : MonoBehaviour
 
     void CheckTargetScore()
     {
-        if (currentScore >= targetScore && OnTargetScoreReached != null)
+        if (currentScore >= targetScore)
         {
-            OnTargetScoreReached();
+            if (OnTargetScoreReached != null)
+            {
+                Debug.Log("Target score reached! Invoking OnTargetScoreReached.");
+                OnTargetScoreReached.Invoke();
+            }
+            else
+            {
+                Debug.LogWarning("OnTargetScoreReached is null.");
+            }
         }
     }
 }

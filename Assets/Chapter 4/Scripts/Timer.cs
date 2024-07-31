@@ -1,29 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using TMPro;
 using UnityEngine;
 
-
 public class Timer : MonoBehaviour
 {
-    private TMP_Text _timerText;
+    [SerializeField] private TMP_Text _timerText; // Serialized field for TMP_Text component
     enum TimerType { Countdown, Stopwatch }
     [SerializeField] private TimerType _timerType;
     [SerializeField] private float timeToDisplay = 120.0f;
 
     private bool _isRunning;
 
-    private void Awake()
-    {
-        _timerText = GetComponent<TMP_Text>();
-    }
-
     private void OnEnable()
     {
         EventManager.TimerStart += EventManagerOnTimerStart;
         EventManager.TimerStop += EventManagerOnTimerStop;
-       
     }
 
     private void OnDisable()
@@ -43,15 +34,21 @@ public class Timer : MonoBehaviour
         _isRunning = false;
         Debug.Log("Timer Stopped");
     }
-    
+
     private void Start()
     {
-        EventManager.OnTimerStart();  
+        EventManager.OnTimerStart();
     }
 
     private void Update()
     {
         if (!_isRunning) return;
+
+        if (_timerText == null)
+        {
+            Debug.LogError("TMP_Text component is null. Please ensure it is properly assigned.");
+            return;
+        }
 
         if (_timerType == TimerType.Countdown && timeToDisplay <= 0.0f)
         {
@@ -63,11 +60,5 @@ public class Timer : MonoBehaviour
 
         TimeSpan timeSpan = TimeSpan.FromSeconds(timeToDisplay);
         _timerText.text = timeSpan.ToString(@"mm\:ss\:ff");
-        
     }
 }
-
-
-
-
-
