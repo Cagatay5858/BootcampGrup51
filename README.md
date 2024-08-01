@@ -20,7 +20,7 @@ Unity Grup 51
 
 ## Oyun Açıklaması
 
-Küçük bir çocuk olan karakterimiz, bir gün ailesiyle birlikte lunaparka gider ve oradaki standlardan birindeki oyuncak ayı çok dikkatini çeker. O standda düzenlenen yarışmayı kazanarak hayalini kurduğu bu sevimli ayıcığı ödül olarak alır. Eve döndüğünde, yeni oyuncağıyla keyifli oyunlar kurup oynar.
+Küçük bir çocuk olan karakterimiz, bir gün ailesiyle birlikte lunaparka gider ve oradaki standlardan birindeki oyuncak ayı çok dikkatini çeker. O standda düzenlenen yarışmayı kazanarak hayalini kurduğu bu sevimli ayıcığı ödül olarak alır. Eve döndüğünde, yeni oyuncağıyla keyifli oyunlar kurarak güzel vakit geçirir.
 
 Gün sonunda yatağına uzanır ve kafasını yastığa koyar. Aklına bir soru takılır  "Acaba oyuncakların da kendine ait bir dünyası ve anıları var mı?" Bu düşünceyle gözlerini kapatır ve derin bir uykuya dalar. Rüyasında gözlerini açtığında, kendisini çok sevdiği yeni oyuncağı şeklinde, hiç bilmediği büyülü bir dünyada bulur.
 
