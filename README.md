@@ -19,7 +19,12 @@ Unity Grup 51
 [Unity Team 51 - Trello Backlog Board](https://trello.com/b/aaHTdfFc)
 
 ## Oyun Açıklaması
-Karakterimiz 7-8 yaşlarında, meraklı bir çocuktur. Ailesi ile lunaparka gidiyor ve standlardan birindeki oyuncak ayı çok dikkatini çekiyor. Standdaki yarışmayı kazanıp istediği ödül olan ayıcığı kazanıyor. Evine döndüklerinde yeni oyuncağı ile güneş kararana kadar keyifli oyunlar oynuyor. Güneş battığında kafasını yastığa koyuyor ve düşünmeye başlıyor. "Acaba oyuncakların anıları var mıdır?". Gözlerini kapatıyor ve uykuya dalıyor. Rüyasında gözlerini açtığında kendisini yeni ve çok sevdiği oyuncak ayısı şeklinde, hiç bilmediği bir yerde buluyor. Geri dönebilmek için zorlukları atlatıp anıları için önemli olan parçaları toplaması gerekiyor...
+
+Küçük bir çocuk olan karakterimiz, bir gün ailesiyle birlikte lunaparka gider ve oradaki standlardan birindeki oyuncak ayı çok dikkatini çeker. O standda düzenlenen yarışmayı kazanarak hayalini kurduğu bu sevimli ayıcığı ödül olarak alır. Eve döndüğünde, yeni oyuncağıyla keyifli oyunlar kurup oynar.
+
+Gün sonunda yatağına uzanır ve kafasını yastığa koyar. Aklına bir soru takılır  "Acaba oyuncakların da kendine ait bir dünyası ve anıları var mı?" Bu düşünceyle gözlerini kapatır ve derin bir uykuya dalar. Rüyasında gözlerini açtığında, kendisini çok sevdiği yeni oyuncağı şeklinde, hiç bilmediği büyülü bir dünyada bulur.
+
+Bu gizemli dünyadan geri dönebilmek için çeşitli zorlukları aşması ve anıları için önemli olan parçaları toplaması gerekmektedir. Her parça, oyuncak ayının ve ona ait olduğu çocuğun ortak anılarını temsil eder. Karakterimiz bu büyülü yolculukta, hem kendini hem de oyuncağının içindeki hikayeleri keşfedecektir. 
 
 ## Oyun Özellikleri
 - Hikaye Odaklı
