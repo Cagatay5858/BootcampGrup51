@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 3238f0e74729c0546b4e084cdeaa741e
   - enabled: 1
+    path: Assets/Scenes/Chapter0.unity
+    guid: c732593fe76e5a84197f9cd13963f706
+  - enabled: 1
     path: Assets/Scenes/Chapter1.unity
     guid: 422679677a35f6b418a052a01d25a11c
   - enabled: 1
     path: Assets/Scenes/Chapter2.unity
     guid: 537271e08b21c5442860db2375a89614
-  - enabled: 1
-    path: Assets/Scenes/Chapter0.unity
-    guid: c732593fe76e5a84197f9cd13963f706
   - enabled: 1
     path: Assets/Scenes/Chapter3.unity
     guid: 90c1e04733ad46b4db1ed0e775c06655
@@ -27,16 +27,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Chapter5.unity
     guid: 5114c03d83c75eb43be920e6e63f7cbf
   - enabled: 1
-    path: Assets/Scenes/LoadingScreen.unity
-    guid: 55aa401450d77274b907adad27d4b1ae
-  - enabled: 1
-    path: Assets/Scenes/Chapter1.unity
-    guid: 422679677a35f6b418a052a01d25a11c
-  - enabled: 1
     path: Assets/Scenes/Chapter6.unity
     guid: 54e026c08e60f4448b100469f4e2b674
   - enabled: 1
-    path: Assets/Scenes/Chapter7.unity
-    guid: e042ef51c3400aa48a127cbbca83580b
+    path: Assets/Scenes/LoadingScreen.unity
+    guid: 55aa401450d77274b907adad27d4b1ae
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 88c8da787042b974cbf753ab66067ce2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: bfe0e4edee65d5d458abb9dfd3e4d0a3, type: 2}

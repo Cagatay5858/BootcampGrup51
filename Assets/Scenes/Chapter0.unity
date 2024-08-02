@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08506913, g: 0.2790363, b: 0.48332864, a: 1}
+  m_IndirectSpecularColor: {r: 0.08533082, g: 0.27924287, b: 0.48347378, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5254,15 +5254,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1971021786}
   dialogueLines:
-  - Hello sweet plushie!
-  - 1
-  - 2
-  - 3
-  - 4
-  - 5
-  - 6
-  - 7
-  - 8
+  - "Merhaba t\xFCyl\xFC dostum!"
+  - "Oyuncaklar\u0131n d\xFCnyas\u0131na ho\u015Fgeldin"
+  - "Tekrar an\u0131lara dalmak i\xE7in yatak yap\u0131p uyuman gerek"
+  - "Yatak yapmak icin 3 cubuk ve 3 bitkiye ihtiyac\u0131n var "
+  - "Buraya gelmek icin y\xFCr\xFCd\xFCg\xFCn yolda aradigini bulabilirsin"
+  - "macera dolu bir ser\xFCvene hazir ol"
   bed: {fileID: 1992513524586939372}
   sticks:
   - {fileID: 745040845}

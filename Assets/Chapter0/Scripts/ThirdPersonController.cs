@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class ThirdPersonController : MonoBehaviour
@@ -177,7 +178,16 @@ public class ThirdPersonController : MonoBehaviour
     {
         GameSceneManager.Instance.OnLyingDownAnimationComplete();
     }
-}
+    void OnControllerColliderHit(ControllerColliderHit hit)
+        {
+            if (hit.gameObject.CompareTag("End"))
+            {
+               
+                SceneManager.LoadScene("Credits");
+            }
+        }
+    }
+
 
     
 

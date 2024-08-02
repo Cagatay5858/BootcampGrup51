@@ -25,6 +25,7 @@ TagManager:
   - FinishLine
   - DeactivateCarSpawner
   - PortalCamera
+  - End
   layers:
   - Default
   - TransparentFX
