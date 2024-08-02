@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.419716, g: 0.6423185, b: 0.7934191, a: 1}
+  m_IndirectSpecularColor: {r: 0.4200077, g: 0.6423377, b: 0.7934763, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19723,15 +19723,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e501f164041c2748af59503f2606b99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 14
-  maxSpeed: 30
-  rotationSpeed: 200
+  acceleration: 16
+  maxSpeed: 20
+  rotationSpeed: 256
   bounceForce: 35
   wallTag: Wall
   damageAmount: 10
   slowMotionDuration: 2
   slowMotionFactor: 0.4
-  maxHealth: 500
+  maxHealth: 320
   currentHealth: 0
   isShieldActive: 0
   projectilePrefab: {fileID: 6092873415451337314, guid: 84e9bb513f40fc44aafb3767b2010fdb, type: 3}

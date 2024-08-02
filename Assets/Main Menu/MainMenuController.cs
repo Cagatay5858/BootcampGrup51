@@ -6,6 +6,6 @@ public class MainMenuController : MonoBehaviour
 
     public void OnStartButtonPressed()
     {
-        SceneManager.Instance.StartGame();
+        GameSceneManager.Instance.StartGame();
     }
 }

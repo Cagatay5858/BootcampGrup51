@@ -924,62 +924,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506103250}
   m_CullTransparentMesh: 1
---- !u!1 &512687620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 512687621}
-  - component: {fileID: 512687622}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &512687621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512687620}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.068966, y: 8.745817, z: 59.383682}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &512687622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512687620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c93722566da2d040ad027814423d51d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuScene: MainMenu
-  loadingScreenScene: LoadingScreen
-  islandScene: Chapter0
-  chapterScenes:
-  - Chapter1
-  - Chapter2
-  - Chapter3
-  - Chapter4
-  - Chapter5
-  bed: {fileID: 3099188250673751128, guid: 1b682e3888371f4458ff858ac1fb7a43, type: 3}
-  items:
-  - {fileID: 9014755713981244000, guid: 7713f1c6e6d3c90488d3a439be3c0be0, type: 3}
 --- !u!1 &577088326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,6 +2763,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1998692107694138175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352483469146483880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c93722566da2d040ad027814423d51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenuScene: MainMenu
+  loadingScreenScene: LoadingScreen
+  islandScene: Chapter0
+  chapterScenes:
+  - Chapter1
+  - Chapter2
+  - Chapter3
+  - Chapter4
+  - Chapter5
+  - Chapter6
+  bed: {fileID: 3099188250673751128, guid: 1b682e3888371f4458ff858ac1fb7a43, type: 3}
+  items:
+  - {fileID: 9014755713981244000, guid: 7713f1c6e6d3c90488d3a439be3c0be0, type: 3}
+  chapterEndUIPanelPrefabs:
+  - {fileID: 2047722447089667187, guid: 0644e8db2bbe1164683f4110848baae3, type: 3}
+  - {fileID: 1542945177447603889, guid: 222ddcd1d089e6445bd5bd94f41bd59c, type: 3}
+  - {fileID: 8113324760612810103, guid: 41a8f521dd021374681fa1f275a14e27, type: 3}
+  - {fileID: 1558422651941867521, guid: 63a462e407062114fb7a176d66f1b87b, type: 3}
+  - {fileID: 8170038692609192951, guid: d721c1e65c290484fb183886a146fe2e, type: 3}
+--- !u!1 &4352483469146483880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6983769783775562669}
+  - component: {fileID: 1998692107694138175}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6983769783775562669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4352483469146483880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 35.068966, y: 8.745817, z: 59.383682}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2829,4 +2836,4 @@ SceneRoots:
   - {fileID: 1878241212}
   - {fileID: 625909531}
   - {fileID: 1411298476}
-  - {fileID: 512687621}
+  - {fileID: 6983769783775562669}

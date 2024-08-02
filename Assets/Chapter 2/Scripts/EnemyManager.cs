@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject[] enemyCars; // Referans olarak düşman arabaları
+    public GameObject[] enemyCars; 
     private int enemiesDestroyed = 0;
 
     void Start()
     {
-        // Tüm düşman arabalarına event listener ekleyin
+        
         foreach (GameObject enemy in enemyCars)
         {
             enemy.GetComponent<EnemyCarController>().OnEnemyDestroyed += HandleEnemyDestroyed;
@@ -19,10 +19,12 @@ public class EnemyManager : MonoBehaviour
     private void HandleEnemyDestroyed()
     {
         enemiesDestroyed++;
+        Debug.Log("Enemy destroyed. Total: " + enemiesDestroyed);
         if (enemiesDestroyed >= 3)
         {
-            // 3 düşman yok edildiğinde Chapter'ı tamamla ve adaya dön
-            SceneManager.Instance.CompleteChapter();
+            Debug.Log("3 enemies destroyed. Showing UI panel.");
+            GameSceneManager.Instance.CompleteChapterAndShowUIPanel();
         }
     }
+    
 }

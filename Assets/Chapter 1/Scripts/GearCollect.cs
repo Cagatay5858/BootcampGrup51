@@ -5,6 +5,7 @@ public class GearCollect : MonoBehaviour
 {
     public void Collect()
     {
-        SceneManager.Instance.InteractWithGear();
+        GameSceneManager.Instance.CompleteChapterAndShowUIPanel();
+        
     }
 }

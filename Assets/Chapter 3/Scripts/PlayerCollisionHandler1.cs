@@ -9,7 +9,7 @@ public class PlayerCollisionHandler1 : MonoBehaviour
         if (hit.gameObject.CompareTag("FinishLine"))
         {
             
-            SceneManager.Instance.CompleteChapter();
+            GameSceneManager.Instance.CompleteChapterAndShowUIPanel();
         }
         else if (hit.gameObject.CompareTag("DeactivateCarSpawner"))
         {

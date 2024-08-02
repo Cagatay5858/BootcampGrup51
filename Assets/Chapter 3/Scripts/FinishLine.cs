@@ -9,7 +9,7 @@ public class FinishLine : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             
-            SceneManager.Instance.CompleteChapter();
+            GameSceneManager.Instance.CompleteChapterAndShowUIPanel();
         }
     }
 }

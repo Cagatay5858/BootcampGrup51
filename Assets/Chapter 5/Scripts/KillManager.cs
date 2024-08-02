@@ -8,6 +8,7 @@ public class KillManager : MonoBehaviour
 
     private int enemiesKilled = 0;
     public int targetKills = 15;
+    private bool targetScoreReached = false;
 
     private void Awake()
     {
@@ -25,8 +26,9 @@ public class KillManager : MonoBehaviour
     public void EnemyKilled()
     {
         enemiesKilled++;
-        if (enemiesKilled >= targetKills)
+        if (enemiesKilled >= targetKills && !targetScoreReached)
         {
+            targetScoreReached = true;
             OnTargetScoreReached?.Invoke();
         }
     }
@@ -39,5 +41,6 @@ public class KillManager : MonoBehaviour
     public void ResetScore()
     {
         enemiesKilled = 0;
+        targetScoreReached = false;
     }
 }

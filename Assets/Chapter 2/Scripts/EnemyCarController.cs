@@ -127,11 +127,12 @@ public class EnemyCarController : MonoBehaviour
         { 
             if(OnEnemyDestroyed != null)
             {
-                OnEnemyDestroyed();
+                OnEnemyDestroyed?.Invoke();
+                Explode();
+                Destroy(gameObject);
             }
             
-            Explode();
-            Destroy(gameObject);
+         
         }
 
        FindObjectOfType<HealthUIController>().UpdateHealth(gameObject, currentHealth, maxHealth);

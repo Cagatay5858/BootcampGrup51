@@ -49,8 +49,5 @@ public class ChapterStartUI : MonoBehaviour
         
     }
 
-    void OnDestroy()
-    {
-        Debug.Log(gameObject.name + " - OnDestroy called. Time.timeScale: " + Time.timeScale);
-    }
+   
 }

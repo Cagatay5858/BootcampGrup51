@@ -453,7 +453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'haraket '
+  m_text: 'hareket '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0ae1025b0dd97c94fa3880ed290a3dcc, type: 2}
   m_sharedMaterial: {fileID: 5284305490113770069, guid: 0ae1025b0dd97c94fa3880ed290a3dcc, type: 2}

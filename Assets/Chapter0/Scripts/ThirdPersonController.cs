@@ -175,7 +175,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OnLyingDownAnimationComplete()
     {
-        SceneManager.Instance.OnLyingDownAnimationComplete();
+        GameSceneManager.Instance.OnLyingDownAnimationComplete();
     }
 }
 

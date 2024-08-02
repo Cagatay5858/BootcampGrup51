@@ -1,25 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
-public class SceneManager : MonoBehaviour
+public class GameSceneManager : MonoBehaviour
 {
-    public static SceneManager Instance;
+    public static GameSceneManager Instance;
 
     public string mainMenuScene = "MainMenu";
     public string loadingScreenScene = "LoadingScreen";
     public string islandScene = "Chapter0";
-    public string[] chapterScenes = { "Chapter2", "Chapter3", "Chapter4", "Chapter5" };
+    public string[] chapterScenes = { "Chapter1", "Chapter2", "Chapter3", "Chapter4", "Chapter5", "Chapter6" };
 
     public GameObject bed;
     public List<GameObject> items;
+    public GameObject[] chapterEndUIPanelPrefabs;
 
     private int currentChapterIndex = 0;
     private bool isBedBuilt = false;
     private bool[] itemsCollected;
 
     private string targetScene;
+    private GameObject currentChapterEndUIPanel;
 
     void Awake()
     {
@@ -43,13 +47,13 @@ public class SceneManager : MonoBehaviour
         KillManager killManager = FindObjectOfType<KillManager>();
         if (killManager != null)
         {
-            killManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
+            killManager.OnTargetScoreReached += CompleteChapterAndShowUIPanel;
         }
 
         ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
         if (scoreManager != null)
         {
-            scoreManager.OnTargetScoreReached += CompleteChapterAndReturnToIsland;
+            scoreManager.OnTargetScoreReached += CompleteChapterAndShowUIPanel;
         }
     }
 
@@ -103,30 +107,16 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    public void CompleteChapter()
+    public void CompleteChapterAndShowUIPanel()
     {
-        if (currentChapterIndex < chapterScenes.Length - 1)
-        {
-            currentChapterIndex++;
-            ReturnToIsland();
-        }
-        else
-        {
-            ReturnToIsland();
-            Debug.Log("All chapters completed. Game finished.");
-        }
+        Debug.Log("CompleteChapterAndShowUIPanel called.");
+        Time.timeScale = 0;
+        ShowChapterEndUIPanel();
     }
 
     public void ReturnToIsland()
     {
-        if (currentChapterIndex >= chapterScenes.Length)
-        {
-            Debug.Log("All chapters completed. Returning to island for the last time.");
-        }
-        else
-        {
-            LoadScene(islandScene);
-        }
+        LoadScene(islandScene);
     }
 
     public void InteractWithNPC()
@@ -232,5 +222,28 @@ public class SceneManager : MonoBehaviour
                 renderer.enabled = isVisible;
             }
         }
+    }
+
+    private void ShowChapterEndUIPanel()
+    {
+        if (currentChapterIndex < chapterEndUIPanelPrefabs.Length)
+        {
+            Debug.Log("Showing chapter end UI panel for chapter: " + currentChapterIndex);
+            currentChapterEndUIPanel = Instantiate(chapterEndUIPanelPrefabs[currentChapterIndex]);
+            ChapterEndUIController uiController = currentChapterEndUIPanel.GetComponent<ChapterEndUIController>();
+            uiController.Setup(OnContinueButtonClicked);
+        }
+        else
+        {
+            Debug.LogError("No more chapter end UI panels available.");
+        }
+    }
+
+    private void OnContinueButtonClicked()
+    {
+        Debug.Log("Continue button clicked.");
+        Time.timeScale = 1;
+        Destroy(currentChapterEndUIPanel);
+        CompleteChapterAndReturnToIsland();
     }
 }

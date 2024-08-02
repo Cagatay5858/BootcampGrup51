@@ -4481,7 +4481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baf5e6c2bb2266f42949aefb81d33467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetKills: 2
+  targetKills: 16
 --- !u!4 &1895515531
 Transform:
   m_ObjectHideFlags: 0

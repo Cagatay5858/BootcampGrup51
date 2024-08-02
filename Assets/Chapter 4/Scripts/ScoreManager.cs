@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
 
     public event TargetScoreReached OnTargetScoreReached;
 
+    private bool targetScoreReached = false;
+
     private void Update()
     {
         CheckTargetScore();
@@ -39,8 +41,9 @@ public class ScoreManager : MonoBehaviour
 
     void CheckTargetScore()
     {
-        if (currentScore >= targetScore)
+        if (currentScore >= targetScore && !targetScoreReached)
         {
+            targetScoreReached = true;
             if (OnTargetScoreReached != null)
             {
                 Debug.Log("Target score reached! Invoking OnTargetScoreReached.");
