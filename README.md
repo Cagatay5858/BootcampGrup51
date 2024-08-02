@@ -197,3 +197,75 @@ Bu gizemli dünyadan geri dönebilmek için çeşitli zorlukları aşması ve an
 
 
 # SPRİNT 3
+
+• **Sprint Notları:**
+
+- Kalan tüm eksikler için hızlı bir rota çizilip tamamlandı
+- Olası ve varolan sorunlar için hata düzeltme ve test aşamalarıyla çözüp süreç tamamlandı
+- Oyun başarı ile tamamlandı
+
+• **Sprint İçinde Tamamlanması Tahmin Edilen Puan:** 255 puan
+
+• **Puan Tamamlama Mantığı:** Toplamda proje boyunca tamamlanması gereken 500 puanlık backlog bulunmaktadır. Her sprint görevi aynı puan olmamak üzere 3 sprint'e bölündüğünde, ikinci sprint için puanın 255 olması gerektiğine karar verildi.
+
+• **Sprint Durumu:** 255 puanlık hedefe ulaşılmıştır.
+
+• **Daily Scrum:** Daily scrum toplantıları discord ve whatsapp üzerinden sağlanmıştır.
+
+<details>
+  <summary>Daily Scrum Screenshots</summary>
+   
+
+
+  
+  </details>
+  
+</details>
+
+• **Sprint 1 board Update:**
+- Sprint Board Screenshots:
+
+  ![Ekran Görüntüsü (17029)](https://github.com/user-attachments/assets/9b7e134e-6077-431d-88e2-1097b27665c4)
+
+• **Ürün Durumu(Screenshots):** Ürün tamamlanmıştır.
+
+![Ekran Görüntüsü (17030)](https://github.com/user-attachments/assets/efc5c36a-a93e-4821-83a2-da69e775dc28)
+
+![Ekran Görüntüsü (17031)](https://github.com/user-attachments/assets/bb6b0fb8-f9f3-483b-a849-e2d8a3349e85)
+
+![Ekran Görüntüsü (17032)](https://github.com/user-attachments/assets/067f4626-3d5b-480e-b6c1-f89ae80c1955)
+
+![UI trophy](https://github.com/user-attachments/assets/165cc286-b213-4d6c-9929-58ce83f9dbdc)
+
+![Ekran Görüntüsü (17020)](https://github.com/user-attachments/assets/125a5aaa-84ca-4e0e-8e83-1e40bd6219b9)
+
+
+• **Sprint Review:**
+
+- Çarpışan araba sistemi için NavMeshAgent düşman sistemi yazıldı
+- Oyun içi cinematic çekimleri ayarlandı ve kaydedildi
+- Oyun hikayesi için detay el çizimleri tamamlandı
+- UI design tamamlandı 
+- Logo tamamlandı
+- Oyun için level design'lar, chapter'lar ve kodlar tamamlandı
+- Oyun başarı ile tamamlandı
+
+• **Sprint Retroperspektif:**
+
+- Çıkan sıkıntıları Scrum master ve Product Owner çözümlendirdi
+- Sorun yaratan partlar alternatif çözümlere ulaştırıldı
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
