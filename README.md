@@ -230,6 +230,7 @@ Bu gizemli dünyadan geri dönebilmek için çeşitli zorlukları aşması ve an
   ![Ekran Görüntüsü (17029)](https://github.com/user-attachments/assets/9b7e134e-6077-431d-88e2-1097b27665c4)
 
 • **Ürün Durumu(Screenshots):** Ürün tamamlanmıştır.
+• **Oyun Trailer'ı:** https://www.youtube.com/watch?v=HeXyUurk8oM
 
 ![Ekran Görüntüsü (17030)](https://github.com/user-attachments/assets/efc5c36a-a93e-4821-83a2-da69e775dc28)
 
