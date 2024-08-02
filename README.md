@@ -256,6 +256,48 @@ Bu gizemli dünyadan geri dönebilmek için çeşitli zorlukları aşması ve an
 - Çıkan sıkıntıları Scrum master ve Product Owner çözümlendirdi
 - Sorun yaratan partlar alternatif çözümlere ulaştırıldı
 
+<details>
+  <summary> Kaynaklar </summary>
+
+https://assetstore.unity.com/packages/3d/characters/6-x-3d-cute-toy-models-105033
+https://assetstore.unity.com/packages/3d/environments/industrial/it-s-a-pipe-dream-kitbash-pack-173701
+https://assetstore.unity.com/packages/3d/vehicles/land/tiny-low-poly-cars-180034
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/cardboard-fat-man-231760
+https://assetstore.unity.com/packages/3d/vehicles/land/simple-cars-pack-97669
+https://assetstore.unity.com/packages/3d/environments/lowpoly-environment-nature-free-medieval-fantasy-series-187052
+https://assetstore.unity.com/packages/3d/characters/humanoids/lowpoly-cowboy-rio-288965
+https://assetstore.unity.com/packages/3d/props/furniture/bed-bath-furniture-pack-134117
+https://assetstore.unity.com/packages/3d/environments/fantasy/medieval-fair-asset-pack-248373
+https://assetstore.unity.com/packages/vfx/particles/cartoon-explosion-boom-weapons-gun-vfx-229740
+https://assetstore.unity.com/packages/3d/environments/low-poly-vegetation-kit-lite-176906
+https://assetstore.unity.com/packages/audio/sound-fx/footstep-snow-and-grass-90678
+https://pogonr.itch.io/simple-grunge-gui-for-renpy
+https://sketchfab.com/3d-models/low-poly-house-3-d2722c2e056a48ca8c922298b7a9e88b
+https://sketchfab.com/3d-models/teddy-bear-140210b5790a4a4683f932cab2f1e3a9
+https://sketchfab.com/3d-models/lowpoly-stick-3a4e611d5ae641a986c5604950818ed2
+https://sketchfab.com/3d-models/brazier-short-7e9e83d1abc24113adec8b9c1ec3a7bb
+https://sketchfab.com/3d-models/wooden-chair-fd172ee34d014291ae0eb68a7b72f4e8
+https://assetstore.unity.com/packages/3d/props/interior/free-wood-door-pack-280509
+https://assetstore.unity.com/packages/3d/environments/simplepoly-city-low-poly-assets-58899
+https://assetstore.unity.com/packages/2d/textures-materials/metals/metal-floor-rust-low-texture-40351
+https://assetstore.unity.com/packages/3d/props/children-s-wooden-toys-free-train-pack-179951
+https://assetstore.unity.com/packages/3d/props/interior/low-poly-wooden-kid-s-toys-162585
+https://assetstore.unity.com/packages/3d/props/interior/free-1980-midpoly-retro-rooms-203080
+https://sketchfab.com/3d-models/toy-box-8ce01f03c4c54c1bb69f6ba47a590586
+https://sketchfab.com/3d-models/toys-2f622128d566435a97564781735e0ab4
+https://sketchfab.com/3d-models/rubber-toys-712391c32edc4afca0bec0492d91aa89
+https://sketchfab.com/3d-models/abc-cube-toy-9443ba8835cf41fc8f89249aabf2e38b
+https://sketchfab.com/3d-models/low-road-2-7cc26be9fba04f4ca29a76454bfe5dbb
+https://www.fesliyanstudios.com/royalty-free-music/downloads-c/fantasy-music/27
+https://www.fesliyanstudios.com/royalty-free-music/download/divine-ascension/3243
+
+
+
+
+  
+  </details>
+  
+</details>
 
 
 
