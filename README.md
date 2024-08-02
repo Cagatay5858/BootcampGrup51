@@ -216,6 +216,7 @@ Bu gizemli dünyadan geri dönebilmek için çeşitli zorlukları aşması ve an
 <details>
   <summary>Daily Scrum Screenshots</summary>
    
+![image](https://github.com/user-attachments/assets/f60b120d-c130-4770-b30e-f9762154a1a7)
 
 
   
